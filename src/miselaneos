@@ -1,0 +1,2 @@
+npx devextreme-cli new react-app SRAECEMS --app-type=vite
+npm install @reduxjs/toolkit react-redux

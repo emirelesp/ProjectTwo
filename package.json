@@ -1,0 +1,38 @@
+{
+  "name": "SRAECEMS",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "build-themes": "devextreme build",
+    "postinstall": "npm run build-themes"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.11.2",
+    "bootstrap": "^5.3.8",
+    "devextreme": "24.2.8",
+    "devextreme-react": "24.2.8",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^6.3.0",
+    "sass-embedded": "^1.85.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react-swc": "^3.10.2",
+    "devextreme-cli": "1.12.1",
+    "devextreme-themebuilder": "24.2.8",
+    "eslint": "^9.29.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.2.0",
+    "vite": "^7.0.0"
+  }
+}

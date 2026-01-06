@@ -1,0 +1,15 @@
+/* tabpanel.css */
+.rounded-tabpanel {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;       /* esquinas redondeadas */
+  overflow: hidden;          /* recorta contenido al radio */
+  background-color: #fff;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  height: 100%;
+}
+
+/* Opcional: redondear también las pestañas */
+.rounded-tabpanel .dx-tabs {
+  border-radius: 15px; 
+  overflow: hidden;
+}

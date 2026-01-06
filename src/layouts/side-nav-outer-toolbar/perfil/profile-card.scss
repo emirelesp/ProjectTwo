@@ -1,0 +1,160 @@
+/* profile-card.css */
+.profile-card_out_1 {
+  width: 60px !important;
+ // border: 1px solid #e5e7eb;
+  border-radius: 0px;
+  overflow: hidden;
+  //background: #fff;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-image-wrap_out_1 {
+  /* Mantiene proporción y permite redondear sólo la parte inferior de la imagen */
+  position: relative;
+  width: 100% !important;
+ //height: 100% !important ;
+  //height: 100px;
+  overflow: hidden;
+}
+
+.profile-image_out_1 {
+  width: 100% !important;
+  // height: 120px;
+ // height: 100%;
+  object-fit: cover;
+  /* Redondeo en la parte inferior */
+   border-radius: 50%;
+  /* Opcional: ligera sombra en el borde redondeado inferior */
+  box-shadow: 0 8px 12px -8px rgba(0,0,0,0.2);
+}
+
+.profile-info_out_1 {
+  padding: 10px;
+  display: grid;
+  gap: 12px;
+   text-align: center;
+}
+
+.profile-name_out_1 {
+  margin: 0 important;
+  font-size: 0px !important;
+  font-weight: 700 !important;
+ // color: #111827;
+}
+.profile-button-out_1 {
+
+   border-radius: 24px !important;
+}
+////////////////////////////////////////////////////////////barra lateral extendida
+/* profile-card.css */
+.profile-card_out_2 {
+  width: 100% !important;
+  //border: 1px solid #e5e7eb;
+  border-radius: 0px;
+  overflow: hidden;
+  //background: #fff;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-image-wrap_out_2 {
+  /* Mantiene proporción y permite redondear sólo la parte inferior de la imagen */
+  position: relative;
+  width: 100% !important;
+  justify-content: center; /* centra horizontal */
+  align-items: center;
+  text-align: center;
+ //height: 100% !important ;
+  //height: 100px;
+  overflow: hidden;
+}
+
+.profile-image_out_2 {
+  //width: 100% !important;
+  height: 120px;
+  object-fit: cover;
+  /* Redondeo en la parte inferior */
+   border-radius: 50%;
+  /* Opcional: ligera sombra en el borde redondeado inferior */
+  box-shadow: 0 8px 12px -8px rgba(0,0,0,0.2);
+}
+
+.profile-info_out_2 {
+  padding: 10px;
+  display: grid;
+  gap: 12px;
+   text-align: center;
+}
+
+.profile-name_out_2 {
+  margin: 0 important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  //color: #111827;
+}
+
+.profile-button-out_2 {
+
+   border-radius: 24px !important;
+}
+
+
+////////////////////////////////////////////////////////////barra lateral extendida clic
+/* profile-card.css */
+.profile-card_out_3 {
+  width: 100% !important;
+  //border: 1px solid #e5e7eb;
+  border-radius: 0px;
+  overflow: hidden;
+  //background: #fff;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-image-wrap_out_3 {
+  /* Mantiene proporción y permite redondear sólo la parte inferior de la imagen */
+  position: relative;
+  width: 100% !important;
+  justify-content: center; /* centra horizontal */
+  align-items: center;
+  text-align: center;
+ //height: 100% !important ;
+  //height: 100px;
+  overflow: hidden;
+}
+
+.profile-image_out_3 {
+  //width: 100% !important;
+  height: 120px;
+  object-fit: cover;
+  /* Redondeo en la parte inferior */
+   border-radius: 50%;
+  /* Opcional: ligera sombra en el borde redondeado inferior */
+  box-shadow: 0 8px 12px -8px rgba(0,0,0,0.2);
+}
+
+.profile-info_out_3 {
+  padding: 10px;
+  display: grid;
+  gap: 12px;
+   text-align: center;
+}
+
+.profile-name_out_3 {
+  margin: 0 important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  //color: #111827;
+}
+
+.profile-button-out_3 {
+
+   border-radius: 24px !important;
+}
+
+
+
