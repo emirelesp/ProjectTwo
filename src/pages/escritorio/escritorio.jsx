@@ -11,6 +11,8 @@ export function Escritorio(){
     <React.Fragment>
           <TabPanel
            className="rounded-tabpanel"
+            showNavButtons={true}
+            scrollByContent={true}
           >
              <Item title="Inicio" >
                <Inicio></Inicio>

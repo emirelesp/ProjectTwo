@@ -16,12 +16,12 @@ export default function Expediente(){
    // const { width, height } = getSizeVentana();
        const [dataDireccionTab, setDataDireccionTab] = useState("left");//top
 
-        const [loading, setLoading] = useState(false);//top
+      const [loading, setLoading] = useState(false);//top
 
-         const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
+      const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
    
 
-     const mostrarDocumentos =useCallback( async() =>
+    const mostrarDocumentos =useCallback( async() =>
     {
       setLoading(true);
         const documentos = await getDocumentosAspirante(UsuarioLogin.idAspirante);
