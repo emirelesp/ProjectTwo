@@ -241,7 +241,7 @@ export default function Inicio(){
     <React.Fragment>
     <div style={{margin: "10px"}}>
   
-   <Titulo></Titulo>
+   <Titulo estatus={1}></Titulo>
      <div className='row'>
         <div className='col-4'>
             <Grafica data={informacionPanelServicio}></Grafica>
