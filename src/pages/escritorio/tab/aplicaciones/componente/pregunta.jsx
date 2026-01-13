@@ -21,7 +21,7 @@ function Pregunta(props) {
 
   const getPreguntasExamenCallback=useCallback(async ()=>{
     setLoading(true);
-    const result=await getPreguntasExamen(informacion?.idAspiranteExamen);  //
+    const result=await getPreguntasExamen(informacion?.idAspiranteExamen,'c210b2a8');  //
   
     setPreguntaActualTotales(result);
    setLoading(false);

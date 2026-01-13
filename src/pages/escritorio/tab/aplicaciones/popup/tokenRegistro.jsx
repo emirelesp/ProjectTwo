@@ -26,7 +26,7 @@ const TokenRegistro = (props) => {
 
   const formData = useRef({ Token: '' });
 
-   const data=  formData.current;
+   
 
 
       const [loading,setloading]=useState(false);
@@ -53,7 +53,9 @@ const onSubmit = useCallback(async (e) => {
 
     setloading(true);
    
-     const result=  await getPreguntasExamen(informacionGridClic?.idAspiranteExamen, "c210b2a8"); 
+
+    const data=  formData.current;
+     const result=  await getPreguntasExamen(informacionGridClic?.idAspiranteExamen, data.Token); 
        const total=  result.length;
        if(total>0){
          setValidar(true);
@@ -68,7 +70,7 @@ const onSubmit = useCallback(async (e) => {
     } else {
      // notify(result.message, 'error', 2000);
     }
-  }, [informacionGridClic?.idAspiranteExamen,data.Token]);
+  }, [informacionGridClic?.idAspiranteExamen]);
 
 
   
@@ -89,6 +91,11 @@ const onSubmit = useCallback(async (e) => {
 
 
         
+             
+         {validar?(
+            <Examen datosArea={informacionGridClic}   preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={setPreguntaActualTotales_}/>
+           ):(
+             
               <form className={'create-account-form'} onSubmit={onSubmit}>
                   <Form formData={formData.current}  colCount={12}  >{/*disabled={loading} */}
 
@@ -120,10 +127,7 @@ const onSubmit = useCallback(async (e) => {
                     </ButtonItem>
                  </Form>
               </form>
-         {validar?(
-            <Examen datosArea={informacionGridClic}   preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={setPreguntaActualTotales_}/>
-           ):(
-             <div></div>
+
            )
          }
 
