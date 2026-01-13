@@ -49,7 +49,7 @@ function ListaDocumentos(docs)
 
      const mostrarDocumento = ({data}) => {
         
-        const src = 'data:application/pdf;base64,' + data.documentoStr; 
+        const src =  data.documentoStr; ///'data:application/pdf;base64,' 
         
 
         return(
