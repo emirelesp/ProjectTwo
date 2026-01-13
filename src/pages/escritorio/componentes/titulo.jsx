@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from 'devextreme-react';
 
 
@@ -63,34 +63,19 @@ const dataNormal =[
 
 { 
    idEstatusAspirante:3,
-   mensaje:"Pago de derechos",
-   estatusAceptadoRechazado:true
+   mensaje:"Pago de derechos"
 },
 
 { 
    idEstatusAspirante:4,
    mensaje:"Agenda de evaluación",
-   estatusAceptadoRechazado:true
-},
-
-{ 
-   idEstatusAspirante:5,
-   mensaje:"Expediente con observaciones",
-   estatusAceptadoRechazado:false
-},
-
-{ 
-   idEstatusAspirante:6,
-   mensaje:"Pago no valido",
-   estatusAceptadoRechazado:false
-},
-
+}
 
 ]
 
 
 
-const semaforo=(estatusAceptadoRechazado,mensaje)=>{
+const Semaforo=({estatusAceptadoRechazado,mensaje})=>{
   
   const color= estatusAceptadoRechazado?"text-success":"text-danger";
 
@@ -119,7 +104,8 @@ const semaforo=(estatusAceptadoRechazado,mensaje)=>{
 }
 
 
-const semaforoNormal=(mensaje)=>{
+const SemaforoNormal=({mensaje})=>{
+
 
     return(
       <>
@@ -139,6 +125,24 @@ export const Titulo=(props)=>{
 
    const {estatus}=props;
 
+    let array=[];
+   
+
+    useEffect(()=>{
+       switch (estatus) {
+         case 1:
+            array=[{element:1,idTipo:1},{element:1,idTipo:2}];
+         break;
+         }
+         
+    },[])
+  
+ // default:
+  
+
+
+
+
 
  return(
   <>
@@ -155,6 +159,27 @@ export const Titulo=(props)=>{
             <div className='col-12'>
 
               <div className='row'>
+
+                {/*    { array.map(data=>{
+
+                       return(
+
+                        <>
+                            <Semaforo estatusAceptadoRechazado={esta} mensaje={} ></Semaforo>
+                           <SemaforoNormal mensaje={mensaje}></Semaforo> 
+                        </>
+
+                       );
+
+                      }
+                   )            
+
+
+
+                   } */}
+
+
+
 
 
               </div>

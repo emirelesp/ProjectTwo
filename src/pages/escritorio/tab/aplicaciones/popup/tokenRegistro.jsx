@@ -82,7 +82,7 @@ const onSubmit = useCallback(async (e) => {
       >
    
          {validar?(
-            <Examen datosArea={informacionGridClic}   preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={preguntaActualTotales_}/>
+            <Examen datosArea={informacionGridClic}   preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={setPreguntaActualTotales_}/>
            ):(
 
               <form className={'create-account-form'} onSubmit={onSubmit}>

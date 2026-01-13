@@ -28,7 +28,7 @@ export default function Examen(props){
   return (
     <React.Fragment>
        
-       <MostrarPreguntas data={datosArea} preguntaActualTotales_={preguntaActualTotales} setPreguntaActualTotales_={preguntaActualTotales}/>
+       <MostrarPreguntas data={datosArea} preguntaActualTotales_={preguntaActualTotales} setPreguntaActualTotales_={setPreguntaActualTotales}/>
    
     </React.Fragment>
   );
@@ -106,7 +106,7 @@ export default function Examen(props){
               terminado={terminado_} setTerminado={setTerminado_} irPantallaCompleta={irFullScreen} salirPantallaCompleta={salirFullScreen} ></Temporizador>
               <Pregunta informacion={data} activo={activo_} setActivo={setActivo_} 
               terminado={terminado_} setTerminado={setTerminado_} irPantallaCompleta={irFullScreen} salirPantallaCompleta={salirFullScreen}
-              preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={preguntaActualTotales_}
+              preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={setPreguntaActualTotales_}
               
               ></Pregunta>
            
