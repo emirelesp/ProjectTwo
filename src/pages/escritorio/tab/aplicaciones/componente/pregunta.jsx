@@ -10,7 +10,7 @@ function Pregunta(props) {
   const [indice, setIndice] = useState(0);
   
   const {informacion,activo, setActivo,terminado, setTerminado,preguntaActualTotales,setPreguntaActualTotales}=props;
-///  debugger;
+ //debugger;
  // const [preguntaActualTotales,setPreguntaActualTotales]=useState([]);
   const [preguntaActual,setPreguntaActual]=useState({idPregunta:-1,respuestas:[]});
   const [loading, setLoading] = useState(false);//top

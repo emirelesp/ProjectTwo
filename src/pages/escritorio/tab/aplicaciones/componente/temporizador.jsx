@@ -30,7 +30,7 @@ export function Temporizador(props ) {
   }, [activo, tiempoRestante]);
 
   const iniciarTemporizador = () => {
-
+     debugger;
     if(terminado)return;
     irPantallaCompleta();
     setTiempoRestante(segundos);

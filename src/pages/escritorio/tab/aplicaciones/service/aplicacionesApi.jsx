@@ -29,7 +29,10 @@ export async function getPreguntasExamen(_idAspiranteExamen,token)
 {
   let datos = [];
 
-  if(_idAspiranteExamen != undefined)
+
+  //if(token == undefined )return;
+
+  if(_idAspiranteExamen != undefined )
   {
     const url = 'https://localhost:7029/api/AspiranteExamen/ConsultaPreguntasExamen';
     const unicoV = { id:_idAspiranteExamen, idStr:token };

@@ -26,7 +26,11 @@ const TokenRegistro = (props) => {
 
   const formData = useRef({ Token: '' });
 
+   const data=  formData.current;
 
+
+      const [loading,setloading]=useState(false);
+     
      const [preguntaActualTotales_,setPreguntaActualTotales_]=useState([]);
    //const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
 
@@ -47,15 +51,16 @@ const onSubmit = useCallback(async (e) => {
     e.preventDefault();
   
 
-
-
-    const data=  formData.current;
-     const result=  await getPreguntasExamen(informacionGridClic?.idAspiranteExamen, data.Token); 
-       const total=    result.length;
+    setloading(true);
+   
+     const result=  await getPreguntasExamen(informacionGridClic?.idAspiranteExamen, "c210b2a8"); 
+       const total=  result.length;
        if(total>0){
          setValidar(true);
          setPreguntaActualTotales_(result);
        }
+
+        setloading(false);
       ////no hay
 
     if (result.isOk) {
@@ -63,7 +68,7 @@ const onSubmit = useCallback(async (e) => {
     } else {
      // notify(result.message, 'error', 2000);
     }
-  }, [informacionGridClic?.idAspiranteExamen]);
+  }, [informacionGridClic?.idAspiranteExamen,data.Token]);
 
 
   
@@ -81,10 +86,9 @@ const onSubmit = useCallback(async (e) => {
         dragEnabled={true}
       >
    
-         {validar?(
-            <Examen datosArea={informacionGridClic}   preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={setPreguntaActualTotales_}/>
-           ):(
 
+
+        
               <form className={'create-account-form'} onSubmit={onSubmit}>
                   <Form formData={formData.current}  colCount={12}  >{/*disabled={loading} */}
 
@@ -107,7 +111,7 @@ const onSubmit = useCallback(async (e) => {
                       >
                         <span className="dx-button-text">
                           {
-                            false
+                            loading
                               ? <LoadIndicator width={'24px'} height={'24px'} visible={true} />
                               : 'Registrar ahora'
                           }
@@ -116,8 +120,15 @@ const onSubmit = useCallback(async (e) => {
                     </ButtonItem>
                  </Form>
               </form>
+         {validar?(
+            <Examen datosArea={informacionGridClic}   preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={setPreguntaActualTotales_}/>
+           ):(
+             <div></div>
            )
          }
+
+
+         
 
 
       </Popup>
