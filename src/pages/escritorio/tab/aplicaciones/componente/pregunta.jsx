@@ -18,7 +18,7 @@ function Pregunta(props) {
  //const preguntaActual = informacion[indice];
 
  
-
+/* 
   const getPreguntasExamenCallback=useCallback(async ()=>{
     setLoading(true);
     const result=await getPreguntasExamen(informacion?.idAspiranteExamen,'c210b2a8');  //
@@ -26,7 +26,7 @@ function Pregunta(props) {
     setPreguntaActualTotales(result);
    setLoading(false);
   
-   },[informacion?.idAspiranteExamen]);
+   },[informacion?.idAspiranteExamen]); */
 
    const setRegistrarRespuestaCallback=useCallback(async ()=>{
   setLoading(true);
@@ -39,7 +39,7 @@ function Pregunta(props) {
 
 
 
-   useEffect(()=>{
+  /*  useEffect(()=>{
      
     getPreguntasExamenCallback();
 
@@ -49,7 +49,7 @@ function Pregunta(props) {
 
      getPreguntasExamenCallback();
 
-   },[informacion?.idAspiranteExamen]);
+   },[informacion?.idAspiranteExamen]); */
 
 
   useEffect(()=>{
