@@ -205,7 +205,10 @@ const PanelInformacion=(props)=>{
 
 
 
-export default function Inicio(){
+export default function Inicio(props){
+
+
+   const {seguimientoAspirante}=props;
 
   const[informacionPanelServicio,SetInformacionPanelServicio]=useState([]);
   const[documentosValidados,setDocumentosValidados]=useState([]);
@@ -241,7 +244,7 @@ export default function Inicio(){
     <React.Fragment>
     <div style={{margin: "10px"}}>
   
-   <Titulo estatus={1}></Titulo>
+   <Titulo estatus={seguimientoAspirante}></Titulo>
      <div className='row'>
         <div className='col-4'>
             <Grafica data={informacionPanelServicio}></Grafica>

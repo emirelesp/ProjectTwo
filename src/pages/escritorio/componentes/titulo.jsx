@@ -42,8 +42,14 @@ const data =[
 
 { 
    idEstatusAspirante:6,
-   mensaje:"Pago no valido",
+   mensaje:"Pago no validado",
    estatusAceptadoRechazado:false
+},
+
+{ 
+   idEstatusAspirante:7,
+   mensaje:"Elegible para certificar",
+   estatusAceptadoRechazado:true
 },
 
 
@@ -68,7 +74,7 @@ const dataNormal =[
 
 { 
    idEstatusAspirante:4,
-   mensaje:"Agenda de evaluación",
+   mensaje:"Agenda evaluación",
 }
 
 ]
@@ -81,7 +87,7 @@ const Semaforo=({estatusAceptadoRechazado,mensaje})=>{
 
    return(
     <>
-        <div className='col-sm-3'>
+        <div className='col-sm-2'>
           <div className={color} style={{ fontSize: "10px",fontWeight:500}}>
             <center>
            { estatusAceptadoRechazado?(
@@ -140,7 +146,30 @@ export const Titulo=(props)=>{
          case 1:
             array=[{element:data[0],idTipo:1},{element:dataNormal[0],idTipo:2}];
          break;
-         }
+         case 2:
+            array=[{element:data[0],idTipo:1},{element:dataNormal[1],idTipo:2}];
+         break;
+         case 3:
+            array=[{element:data[0],idTipo:1},{element:data[4],idTipo:1}];
+         break;
+         case 4:
+            array=[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:dataNormal[2],idTipo:2}];
+         break;
+         case 5:
+            array=[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[5],idTipo:1}];
+         break;
+         case 6:
+             array=[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[2],idTipo:1},{element:dataNormal[3],idTipo:2}];
+         break;
+          case 7:
+             array=[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[2],idTipo:1},{element:data[3],idTipo:1}];
+         break;
+
+           case 8:
+             array=[{element:data[6],idTipo:1}];
+         break;
+      
+       }
 
   
   
