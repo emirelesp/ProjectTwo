@@ -1,5 +1,5 @@
 const appInfo = {
-    title: 'Examen único para acreditar el nivel de Media Superior'
+    title: 'REGISTRO EXAMEN DE CERTIFICACIÓN DE NIVEL MEDIO SUPERIOR'
 };
 export default appInfo;
 

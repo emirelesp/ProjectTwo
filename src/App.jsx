@@ -32,6 +32,8 @@ function App() {
   return <UnauthenticatedContent />;
 }
 
+/*********************************************************************************************************** */
+
 export default function Root() {
   const screenSizeClass = useScreenSizeClass();
   const themeContext = useThemeContext();

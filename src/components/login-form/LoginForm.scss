@@ -10,3 +10,33 @@
     color: var(--base-text-color-alpha-7);
   }
 }
+
+
+.redondeadotext{
+
+    border-radius: 30px !important;
+   /* color: white !important;*/
+ 
+}
+
+//span.dx-field-item-label-text
+
+span#LoginUsuario.letrasblanco{ 
+  color: white !important; 
+  font-family: 'Lato', sans-serif  !important; 
+  font-size: 16px !important;
+  font-weight: 300  !important;
+  letter-spacing: 1px;
+
+}
+
+span#LoginContrasena.letrasblanco{ 
+  color: white !important; 
+  font-family: 'Lato', sans-serif  !important; 
+  font-size: 16px !important;
+  font-weight: 300  !important;
+  letter-spacing: 1px;
+
+}
+
+

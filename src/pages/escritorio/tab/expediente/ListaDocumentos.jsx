@@ -22,40 +22,17 @@ function ListaDocumentos(docs)
         setDocumentos(documentosActualizado);
      }
 
-     async function validarDocumento (_idAspiranteDocumento, idRol)
-     {
-         var resultado = await setValidarDocumento(_idAspiranteDocumento, idRol)
 
-         if(resultado > 0){
-            const documentosActualizado = documentos.map(p => p.idAspiranteDocumento === _idAspiranteDocumento ? {
-            ...p, estatusDocumento : 1} : p);
-            
-            setDocumentos(documentosActualizado);
-        }
-     }
-
-     async function rechazarDocumento (_idAspiranteDocumento, idRol)
-     {
-        
-         var resultado = await setRechazarDocumento(_idAspiranteDocumento, idRol)
-         console.log(resultado);
-         if(resultado > 0){
-            const documentosActualizado = documentos.map(p => p.idAspiranteDocumento === _idAspiranteDocumento ? {
-            ...p, estatusDocumento : 0} : p);
-            
-            setDocumentos(documentosActualizado);
-         }
-     }
 
      const mostrarDocumento = ({data}) => {
         
         const src =  data.documentoStr; ///'data:application/pdf;base64,' 
         
-
+          
         return(
             <>
             {/* <h6>{data.documento}</h6> */}
-            {!data.estatusDocumento ?
+            {data.estatusDocumento<=0 ?
                 <FileUploader
                     selectButtonText='Selecciona el archivo que deseas cargar'
                     labelText='o arrastra aquí'

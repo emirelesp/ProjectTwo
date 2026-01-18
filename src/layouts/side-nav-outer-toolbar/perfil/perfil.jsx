@@ -13,6 +13,11 @@ import { useSelector } from 'react-redux';
 
      
       return ( 
+
+
+        <>
+
+        <div className='p-3 text-center titularesLineaBlancaPerfil'><span>PERFIL</span></div>
           <div style={{ padding: 0}}>
      
             <ProfileCard 
@@ -21,5 +26,7 @@ import { useSelector } from 'react-redux';
             imagenUrl={UsuarioLogin.avatarUrl} 
             onEditar={manejarEditar} /> 
         </div> 
+
+        </>
     );
  }

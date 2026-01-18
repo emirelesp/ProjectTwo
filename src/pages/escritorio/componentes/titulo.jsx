@@ -134,39 +134,116 @@ const SemaforoNormal=({mensaje})=>{
 
 
 
+const MensajeComponent=()=>{
+
+  return(
+   <div>
+  
+  </div>
+
+  );
+
+}
+
+
+const MensajeComponent1=()=>{
+
+  return(
+   <div>
+      ¡Gran trabajo, has concluido tu registro en la plataforma!
+      <br/>
+      Para continuar con tu proceso, complementa los documentos necesarios en la sección <span
+       style={{ color: 'blue', cursor: 'pointer', textDecoration: 'underline' }}
+      >Mi expediente</span>
+  </div>
+
+  );
+
+}
+
+const MensajeComponent2=()=>{
+
+  return(
+   <div>
+      Aún tienes documentos pendientes de validar en tu expediente…
+        <br/>
+        Para continuar con tu proceso, es necesario que todos los documentos se encuentren validados en la sección <span 
+       style={{ color: 'blue', cursor: 'pointer', textDecoration: 'underline' }}
+      >Mi expediente</span>
+  </div>
+
+  );
+
+}
+
+
+const MensajeComponent3=()=>{
+
+  return(
+   <div>
+      Tienes <span style={{color:"red"}}>documentos no validados</span> en tu expediente…
+      <br/>
+      Para continuar con tu proceso, actualiza los documentos necesarios en la sección Mi expediente <span 
+       style={{ color: 'blue', cursor: 'pointer', textDecoration: 'underline' }}
+      >Mi expediente</span>
+  </div>
+
+  );
+
+}
+
+
 
 export const Titulo=(props)=>{
 
    const {estatus}=props;
 
-    let array=[];
+    
+
+    let array={semaforo:[],Mensaje:MensajeComponent};
 
 
        switch (estatus) {
          case 1:
-            array=[{element:data[0],idTipo:1},{element:dataNormal[0],idTipo:2}];
+          array= {semaforo:[{element:data[0],idTipo:1},{element:dataNormal[0],idTipo:2}],
+                  Mensaje:MensajeComponent1
+                 };
          break;
          case 2:
-            array=[{element:data[0],idTipo:1},{element:dataNormal[1],idTipo:2}];
+            array={semaforo:[{element:data[0],idTipo:1},{element:dataNormal[1],idTipo:2}],
+                  Mensaje:MensajeComponent2
+                 };
          break;
          case 3:
-            array=[{element:data[0],idTipo:1},{element:data[4],idTipo:1}];
+            array={semaforo:[{element:data[0],idTipo:1},{element:data[4],idTipo:1}],
+                  Mensaje:MensajeComponent3
+                 };
          break;
          case 4:
-            array=[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:dataNormal[2],idTipo:2}];
+            array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:dataNormal[2],idTipo:2}],
+                  Mensaje:MensajeComponent1
+                 };
          break;
          case 5:
-            array=[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[5],idTipo:1}];
+            array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[5],idTipo:1}],
+                  Mensaje:MensajeComponent2
+                 };
          break;
          case 6:
-             array=[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[2],idTipo:1},{element:dataNormal[3],idTipo:2}];
+             array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[2],idTipo:1},{element:dataNormal[3],idTipo:2}],
+                  Mensaje:MensajeComponent3
+                 };
          break;
           case 7:
-             array=[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[2],idTipo:1},{element:data[3],idTipo:1}];
+             array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[2],idTipo:1},{element:data[3],idTipo:1}],
+                  Mensaje:MensajeComponent1
+                 };
          break;
 
            case 8:
-             array=[{element:data[6],idTipo:1}];
+             array={semaforo:[{element:data[6],idTipo:1}],
+                  Mensaje:MensajeComponent2
+                 };
          break;
       
        }
@@ -196,7 +273,7 @@ export const Titulo=(props)=>{
 
               <div className='row'>
 
-                    { array.map(data=>{
+                    { array.semaforo.map(data=>{
                          
                        return(
 
@@ -260,9 +337,13 @@ export const Titulo=(props)=>{
      </div>
      <div className='row'>
         <div className='col-12'>
-            <div style={{ fontSize: "15px",fontWeight:600,height:"25px",backgroundColor:"#ced4da",
+            <div style={{ fontSize: "15px",fontWeight:600,backgroundColor:"#ced4da",
             }}>
                   {/*  ¡Gran trabajo, has obtenido... */} 
+             <div className='p-1'></div>
+            <array.Mensaje></array.Mensaje>
+            
+            <div className='p-1'></div>
             </div>
         </div>
 

@@ -4,6 +4,7 @@ import UserPanel from '../user-panel/UserPanel';
 import './Header.scss';
 import { Template } from 'devextreme-react/core/template';
 import { ThemeSwitcher } from '../theme-switcher/ThemeSwitcher';
+import { Label } from 'devextreme-react/cjs/form';
 
 
 export default function Header({ menuToggleEnabled, title, toggleMenu }) {
@@ -13,25 +14,64 @@ export default function Header({ menuToggleEnabled, title, toggleMenu }) {
    
     <header className={'header-component'}>
       <Toolbar className={'header-toolbar'}>
+
+   
+
         <Item
           visible={menuToggleEnabled}
           location={'before'}
           widget={'dxButton'}
           cssClass={'menu-button'}
         >
-          <Button icon="menu" stylingMode="text" onClick={toggleMenu} />
+  
+          <Button icon="menu" stylingMode="text" onClick={toggleMenu}/>
+              
         </Item>
+
+        <Item
+              visible={true}
+              location="before" 
+              component={() => (
+                <div className="toolbar-item">
+                  <img src="/logos/LOGO CONALEP-02.svg" height={"60px"} alt="menu" />
+                </div>
+              )}
+        
+        />
+
+          
+{/*        <Item
+          location={'before'}
+          cssClass={'header-title'}
+     
+          visible={true}
+
+            component={() => (
+                <div className="toolbar-item">
+                  <div style={{width:"120px",height:"100%"}}></div>
+                </div>
+              )}
+        /> */}
+
+        
+
         <Item
           location={'before'}
           cssClass={'header-title'}
-          text={title}
+     
           visible={!!title}
+
+            component={() => (
+                <div className="toolbar-item">
+                  <div className='titularesVerde' style={{maxWidth:'150px', width:"100%" }}>{title}</div>
+                </div>
+              )}
         />
-        <Item
+       {/*  <Item
           location={'after'}
         >
           <ThemeSwitcher />
-        </Item>
+        </Item> */}
         <Item location='after' locateInMenu='auto' menuItemTemplate='userPanelTemplate'>
           <UserPanel menuMode='context' />
         </Item>

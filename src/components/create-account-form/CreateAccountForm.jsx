@@ -43,16 +43,20 @@ export default function CreateAccountForm() {
 
   return (
     <form className={'create-account-form'} onSubmit={onSubmit}>
-      <Form formData={formData.current} disabled={loading} colCount={12}  >
+      <Form formData={formData.current} disabled={loading} colCount={12} labelLocation='left' showRequiredMark={false} >
 
                  <Item
                             dataField={'CURP'}
                             editorType={'dxTextBox'}
                              editorOptions={CURPEditorOptions}
-                            colSpan={6}
+                            colSpan={12}
                   >
                      <RequiredRule message="Requiere CURP" />
-                       <Label visible={false} />
+                       <Label visible={true} text='CURP'  component={()=>(
+
+                      <span id="RegistroUsuario" className='letrasNegro' >CURP:</span>
+
+                 )}  />
                   </Item>
 
 
@@ -62,11 +66,15 @@ export default function CreateAccountForm() {
                    
                         dataField={'nombre'}
                         editorType={'dxTextBox'}
-                        colSpan={6}
+                        colSpan={12}
                         editorOptions={nombreEditorOptions}
                   >
                      <RequiredRule message="Requiere Nombre" />
-                    <Label visible={false} />
+                    <Label visible={true} component={()=>(
+
+                      <span id="RegistroUsuario" className='letrasNegro' >Nombre:</span>
+
+                 )}  />
                   </Item>
 
 
@@ -77,11 +85,15 @@ export default function CreateAccountForm() {
                   <Item
                       dataField={'apellidoPaterno'}
                         editorType={'dxTextBox'}
-                        colSpan={6}
+                        colSpan={12}
                           editorOptions={apellidoPatEditorOptions}
                   >
                         <RequiredRule message="Requiere Apellido Paterno" />
-                       <Label visible={false} />
+                       <Label visible={true} component={()=>(
+
+                      <span id="RegistroUsuario" className='letrasNegro' >Apellido Paterno:</span>
+
+                 )}  />
                   </Item>
 
 
@@ -93,21 +105,15 @@ export default function CreateAccountForm() {
                   <Item
                       dataField={'apellidoMaterno'}
                         editorType={'dxTextBox'}
-                        colSpan={6}
+                        colSpan={12}
                           editorOptions={apellidoMatEditorOptions}
                   >
-                      <Label visible={false} />
-                  </Item>
+                      <Label visible={true} component={()=>(
 
+                      <span id="RegistroUsuario" className='letrasNegro' >Apellido Materno:</span>
 
-     
-
-
-               
-
-
-
-       
+                 )} />
+                  </Item>       
 
                   <Item
                       dataField={'telefono'}
@@ -116,7 +122,11 @@ export default function CreateAccountForm() {
                           editorOptions={telefonoEditorOptions}
                   >
                         <RequiredRule message="Requiere Telefono" />
-                        <Label visible={false} />
+                        <Label visible={true} component={()=>(
+
+                      <span id="RegistroUsuario" className='letrasNegro' >Telefono:</span>
+
+                 )} />
                     </Item>
 
         <Item
@@ -127,7 +137,11 @@ export default function CreateAccountForm() {
         >
           <RequiredRule message="Requiere Email" />
           <EmailRule message="Email is invalid" />
-          <Label visible={false} />
+          <Label visible={true} component={()=>(
+
+                      <span id="RegistroUsuario" className='letrasNegro' >Correo:</span>
+
+                 )}  />
         </Item>
         <Item
           dataField={'password'}
@@ -136,7 +150,11 @@ export default function CreateAccountForm() {
           editorOptions={passwordEditorOptions}
         >
           <RequiredRule message="Password is required" />
-          <Label visible={false} />
+          <Label visible={true} component={()=>(
+
+                      <span id="RegistroUsuario" className='letrasNegro' >Contraseña:</span>
+
+                 )} />
         </Item>
         <Item
           dataField={'confirmedPassword'}
@@ -149,7 +167,11 @@ export default function CreateAccountForm() {
             message={'La contraseña es diferente.'}
             validationCallback={confirmPassword}
           />
-          <Label visible={false} />
+          <Label visible={true}  component={()=>(
+
+                      <span id="RegistroUsuario" className='letrasNegro' >Confirmar Contraseña:</span>
+
+                 )}  />
         </Item>
   
         <ButtonItem  colSpan={12}>
@@ -157,20 +179,23 @@ export default function CreateAccountForm() {
             width={'100%'}
             type={'default'}
             useSubmitBehavior={true}
+              elementAttr={{
+                        style: "font-family: 'Lato', sans-serif !important; font-size: 18px !important;background-color:#a57f2c; color:white; border-radius:12px; padding:10px;width:100%"
+                      }}
           >
             <span className="dx-button-text">
               {
                 loading
                   ? <LoadIndicator width={'24px'} height={'24px'} visible={true} />
-                  : 'Registrar ahora'
+                  : 'REGISTRAR'
               }
             </span>
           </ButtonOptions>
         </ButtonItem>
       </Form>
-      <div className={'login-link'}>
+    {/*   <div className={'login-link'}>
         Tienes Cuenta? <Link to={'/login'}>Login</Link>
-      </div>
+      </div> */}
     </form>
   );
 }

@@ -26,7 +26,7 @@ export default function Expediente(){
       setLoading(true);
         const documentos = await getDocumentosAspirante(UsuarioLogin.idAspirante);
        const pagos = await getPagosAspirante(UsuarioLogin.idAspirante);
-
+   
        const union=[...documentos,...pagos]
         setDataDocumentos(union);
         setLoading(false);
@@ -84,7 +84,7 @@ export default function Expediente(){
 
        
       
-       <Titulo></Titulo>
+       <Titulo ></Titulo>
    
          <div className='row'>
 

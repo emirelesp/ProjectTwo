@@ -77,10 +77,9 @@ export default function SideNavigationMenu(props) {
       <div className={'menu-container'}>
 
        
-
+{/*  aqui va el menu por si  se ocupa
         <TreeView
-          ref={treeViewRef}
-          items={items}
+         items={items}
           keyExpr={'path'}
           selectionMode={'single'}
           focusStateEnabled={false}
@@ -89,6 +88,9 @@ export default function SideNavigationMenu(props) {
           onContentReady={onMenuReady}
           width={'100%'}
         />
+*/}
+
+
       </div>
     </div>
   );

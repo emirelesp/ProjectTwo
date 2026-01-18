@@ -8725,7 +8725,7 @@
   padding: 0;
 }
 .dx-toolbar .dx-toolbar-items-container {
-  height: 48px;
+  height: 70px;/*jajaj estaba en 48*/
   overflow: visible;
 }
 .dx-toolbar .dx-toolbar-menu-container {

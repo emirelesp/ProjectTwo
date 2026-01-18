@@ -1,11 +1,11 @@
 export const navigation = [
 
 
-  {
-    text: 'Escritorio',
+   {
+     text: 'Escritorio',
     path: '/escritorio',
-    icon: 'home'
-  },
+    icon: 'home' 
+  }, 
   /* {
     text: 'Home',
     path: '/home',

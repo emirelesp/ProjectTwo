@@ -13,7 +13,12 @@ export const ProfileCard = ({ isExpand,nombre, imagenUrl, onEditar }) => {
       </div>
 
       <div className={"profile-info_out_"+isExpand}>
-      <h2 className={"profile-name_out_"+isExpand}>{nombre}</h2>
+      <h2 className={"profile-name_out_"+isExpand}>
+        <div style={{color:"white"}}>
+        {nombre}
+        </div>
+        
+        </h2>
 
         <Button
           className={'profile-button-out_'+isExpand}
@@ -22,6 +27,10 @@ export const ProfileCard = ({ isExpand,nombre, imagenUrl, onEditar }) => {
           stylingMode="contained"
           icon="edit"
           onClick={onEditar}
+           elementAttr={{
+                        class: "white-icon-button",
+                        style: "font-family: 'Lato', sans-serif !important; font-size: 16px !important;background-color:#1e5b4f; color:white; border-radius:12px; padding:0px;width:100%"
+                      }}
         />
       </div>
     </div>

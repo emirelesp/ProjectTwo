@@ -1,0 +1,74 @@
+.titulares {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 25px !important;
+  font-weight: 700 !important; /* Aplica el peso negrita */
+}
+
+
+.titularesVerde {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important; /* Aplica el peso negrita */
+  color:rgb(30, 91, 79);
+  letter-spacing: 1px;
+}
+
+.titularesCremita {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 30px !important;
+  color:#e6d194 !important;
+  font-weight: 700 !important; /* Aplica el peso negrita */
+  letter-spacing: 1px;
+}
+
+.titularesLineaBlanca {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important; /* Aplica el peso negrita */
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.titularesLineaBlancaPerfil {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 500 !important; /* Aplica el peso negrita */
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+
+
+.titularesLinea {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important; /* Aplica el peso negrita */
+  letter-spacing: 1px;
+}
+
+
+.subtitularesLinea {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 300 !important; /* Aplica el peso negrita */
+  letter-spacing: 2px;
+}
+
+.tema{
+  font-family: 'Lato', sans-serif;
+  font-size: 16px !important;
+  font-weight: 400; /* Aplica el peso regular */
+  
+}
+
+.subtema {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px !important;
+  font-weight: 700; /* Aplica el peso regular */
+}
+
+.normal {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px !important;
+  font-weight: 700; /* Aplica el peso regular */
+}
