@@ -13,7 +13,7 @@ import Form, {
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import Popup from "devextreme-react/popup";
 import Examen from "../examen";
-import { getPreguntasExamen } from "../service/aplicacionesApi";
+import { getPreguntasExamen, getPreguntasExamenModulo } from "../service/aplicacionesApi";
 import LoadIndicator from 'devextreme-react/load-indicator';
 import { useSelector } from 'react-redux';
 
@@ -55,7 +55,9 @@ const onSubmit = useCallback(async (e) => {
    
 
     const data=  formData.current;
-     const result=  await getPreguntasExamen(informacionGridClic?.idAspiranteExamen, data.Token); 
+     ///  const result=  await getPreguntasExamenModulo(informacionGridClic?.idAspiranteExamen, data.Token); 
+     const result=  await getPreguntasExamenModulo(informacionGridClic, data.Token); 
+
        const total=  result.length;
        if(total>0){
          setValidar(true);
@@ -70,7 +72,7 @@ const onSubmit = useCallback(async (e) => {
     } else {
      // notify(result.message, 'error', 2000);
     }
-  }, [informacionGridClic?.idAspiranteExamen]);
+  }, [informacionGridClic]);///informacionGridClic?.idAspiranteExamen
 
 
   
@@ -83,6 +85,7 @@ const onSubmit = useCallback(async (e) => {
         onHiding={() => setisVisible(false)}
         title="Registar"
         width="100%"
+        maxWidth={"400px"}
         height="auto"
         showCloseButton={true}
         dragEnabled={true}

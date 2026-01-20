@@ -25,9 +25,12 @@ export function Escritorio(){
   return (
     <React.Fragment>
           <TabPanel
+         
            className="rounded-tabpanel"
             showNavButtons={true}
             scrollByContent={true}
+             elementAttr={{ class: "tabEscritorio" }} 
+           
           >
              <Item title="Inicio" >
                <Inicio seguimientoAspirante={seguimientoAspirante_}></Inicio>

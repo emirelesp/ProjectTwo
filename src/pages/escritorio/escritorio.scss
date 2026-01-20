@@ -1,15 +1,98 @@
-/* tabpanel.css */
+
 .rounded-tabpanel {
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;       /* esquinas redondeadas */
-  overflow: hidden;          /* recorta contenido al radio */
-  background-color: #fff;
+  //border: 1px solid #02A39D;
+  border-radius: 15px;     
+  overflow: hidden;        
+  background-color: #ffffff;
   box-shadow: 0 6px 14px rgba(0,0,0,0.08);
   height: 100%;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important; /* Aplica el peso negrita */
+   letter-spacing: 1px;
 }
 
-/* Opcional: redondear también las pestañas */
+/* 
+
+
 .rounded-tabpanel .dx-tabs {
   border-radius: 15px; 
   overflow: hidden;
+} */
+
+
+
+/* Tab normal */
+.tabDocumentos .dx-tab {
+  background-color: #BFBFBF !important;
+
+    border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+
+  //color: #ffffff !important;
+
+  transition: background-color 0.3s ease;
+
+
+  text-align: center; 
+
 }
+
+
+.tabEscritorio .dx-tab {
+  background-color: #BFBFBF;
+
+  transition: background-color 0.3s ease;
+  border-top-left-radius: 15px !important;
+  border-top-right-radius: 15px !important;
+
+  text-align: center; 
+
+}
+
+.tabEscritorio .dx-tab.dx-tab-selected,
+.tabEscritorio .dx-tab.dx-tab-selected.dx-state-active {
+  background: linear-gradient(to right, #02A39D, #02A9B7, #02C3A4);
+  color: white !important;
+
+   font-family: 'Lato', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important; /* Aplica el peso negrita */
+   letter-spacing: 1px;
+}
+
+
+.tabDocumentos .dx-tab.dx-tab-selected,
+.tabDocumentos .dx-tab.dx-tab-selected.dx-state-active {
+  background: #BFBFBF;
+  //color: white !important;
+
+   font-family: 'Lato', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important; /* Aplica el peso negrita */
+   letter-spacing: 1px;
+}
+
+
+/* Hover */
+/* .tabEscritorio .dx-tab:hover {
+  background: linear-gradient(to right, #02A39D, #02A9B7, #02C3A4);
+  color: white !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+   //letter-spacing: 1px;
+}
+ */
+/* Focus */
+.tabEscritorio .dx-tab.dx-state-focused {
+  background-color: #02A39D;
+  color: white;
+}
+
+
+.tabDocumentos .dx-tab.dx-state-focused {
+  background-color: #02A39D;
+  color: white;
+}
+

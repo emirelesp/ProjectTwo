@@ -74,7 +74,8 @@ function ListaDocumentos(docs)
             dataSource={documentos}
             tabsPosition={direccionTab}
             iconPosition='top'
-            itemComponent={mostrarDocumento}      
+            itemComponent={mostrarDocumento}  
+             elementAttr={{ class: "tabDocumentos" }}     
             />
         </>
     ) 

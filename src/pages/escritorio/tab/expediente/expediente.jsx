@@ -10,7 +10,10 @@ import { useSelector } from 'react-redux';
 
 
 
-export default function Expediente(){
+export default function Expediente(props){
+
+ const {seguimientoAspirante}=props;
+
 
     const [dataDocumentos, setDataDocumentos] = useState({ });
    // const { width, height } = getSizeVentana();
@@ -84,7 +87,7 @@ export default function Expediente(){
 
        
       
-       <Titulo ></Titulo>
+       <Titulo estatus={seguimientoAspirante} ></Titulo>
    
          <div className='row'>
 

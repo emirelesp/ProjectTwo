@@ -87,7 +87,7 @@ const Semaforo=({estatusAceptadoRechazado,mensaje})=>{
 
    return(
     <>
-        <div className='col-sm-2'>
+        <div className='col-3'>
           <div className={color} style={{ fontSize: "10px",fontWeight:500}}>
             <center>
            { estatusAceptadoRechazado?(

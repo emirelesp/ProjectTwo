@@ -55,6 +55,52 @@ export async function getPreguntasExamen(_idAspiranteExamen,token)
 }
 
 
+
+export async function getPreguntasExamenModulo(_idAspiranteExamenModulo,token)
+{
+  let datosModulo = [];
+
+if(_idAspiranteExamenModulo == undefined )return [];
+
+
+for (let i = 0; i < _idAspiranteExamenModulo.length; i++) { 
+
+
+   let preguntas=[];
+
+
+    const url = 'https://localhost:7029/api/AspiranteExamen/ConsultaPreguntasExamen';
+    const unicoV = { id:_idAspiranteExamenModulo[i].idAspiranteExamen, idStr:token };
+    
+    try{
+      const respuesta = await fetch(url, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(unicoV)
+      });
+      
+      preguntas = await respuesta.json();
+
+    }
+    catch(error){
+        console.error("Error al crear el post:", error);
+    }
+      // debugger;
+       if(preguntas.length!=0)datosModulo=[...datosModulo,...preguntas];
+         //        
+ 
+          
+
+  }
+
+
+ //await _idAspiranteExamenModulo.map(async (valor,index)=>{});
+
+ 
+    return datosModulo;
+}
+
+
 export async function setRegistrarRespuesta(_idDetalleAspiranteExamen,_idRespuesta)
 {
   let datos = [];

@@ -6,7 +6,9 @@ import { useSelector } from 'react-redux';
 import TokenRegistro from './popup/tokenRegistro';
 
 
-export default function Aplicaciones(){
+export default function Aplicaciones(props){
+
+    const {seguimientoAspirante}=props;
 
     const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
     const [isVisible_,setisVisible_]=useState(false);
@@ -42,7 +44,7 @@ export default function Aplicaciones(){
       
         <div style={{margin: "10px"}}>
             
-             <Titulo></Titulo>
+             <Titulo estatus={seguimientoAspirante}></Titulo>
                <div className='row'>
                 <div style={{ padding: 20 }}>
                     <div style={{ fontSize: "20px",fontWeight:700}}>Mi aplicacion</div>

@@ -208,14 +208,14 @@ const PanelInformacion=(props)=>{
 export default function Inicio(props){
 
 
-   const {seguimientoAspirante}=props;
+  const {seguimientoAspirante}=props;
 
   const[informacionPanelServicio,SetInformacionPanelServicio]=useState([]);
   const[documentosValidados,setDocumentosValidados]=useState([]);
 
-   const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
+  const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
 
- const getPanelInformacionCallback=useCallback(async ()=>{
+  const getPanelInformacionCallback=useCallback(async ()=>{
     
      const result= await getPanelInformacion(UsuarioLogin.idAspirante);
      SetInformacionPanelServicio(result.data);
