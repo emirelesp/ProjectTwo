@@ -83,12 +83,12 @@ const dataNormal =[
 
 const Semaforo=({estatusAceptadoRechazado,mensaje})=>{
   
-  const color= estatusAceptadoRechazado?"text-success":"text-danger";
+  const color= estatusAceptadoRechazado?"text-success":"seguimientoRechazado";
 
    return(
     <>
         <div className='col-3'>
-          <div className={color} style={{ fontSize: "10px",fontWeight:500}}>
+          <div className={color} style={{ fontSize: "12px",fontWeight:800}}>
             <center>
            { estatusAceptadoRechazado?(
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-circle-fill" viewBox="0 0 16 16">
@@ -96,8 +96,8 @@ const Semaforo=({estatusAceptadoRechazado,mensaje})=>{
               </svg>
              ):(
 
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-circle-fill" viewBox="0 0 16 16">
-               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+                  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
               </svg>
              )
            }
@@ -149,12 +149,13 @@ const MensajeComponent=()=>{
 const MensajeComponent1=()=>{
 
   return(
-   <div>
-      ¡Gran trabajo, has concluido tu registro en la plataforma!
-      <br/>
+   <div className='alert alert-success borderAlert'>
+       <span style={{color:"#000000"}}>¡Gran trabajo, has concluido tu registro en la plataforma!</span>
+      <div style={{color:"#000000"}}>
       Para continuar con tu proceso, complementa los documentos necesarios en la sección <span
-       style={{ color: 'blue', cursor: 'pointer', textDecoration: 'underline' }}
+       style={{  cursor: 'pointer', textDecoration: 'underline' }}
       >Mi expediente</span>
+      </div>
   </div>
 
   );
@@ -164,12 +165,14 @@ const MensajeComponent1=()=>{
 const MensajeComponent2=()=>{
 
   return(
-   <div>
-      Aún tienes documentos pendientes de validar en tu expediente…
-        <br/>
+   <div className='alert alert-warning'>
+     <span style={{color:"#000000"}}> Aún tienes documentos pendientes de validar en tu expediente…</span>
+      <div style={{color:"#000000"}}>
         Para continuar con tu proceso, es necesario que todos los documentos se encuentren validados en la sección <span 
-       style={{ color: 'blue', cursor: 'pointer', textDecoration: 'underline' }}
+       style={{  cursor: 'pointer', textDecoration: 'underline' }}
       >Mi expediente</span>
+
+      </div>
   </div>
 
   );
@@ -180,12 +183,15 @@ const MensajeComponent2=()=>{
 const MensajeComponent3=()=>{
 
   return(
-   <div>
-      Tienes <span style={{color:"red"}}>documentos no validados</span> en tu expediente…
-      <br/>
-      Para continuar con tu proceso, actualiza los documentos necesarios en la sección Mi expediente <span 
-       style={{ color: 'blue', cursor: 'pointer', textDecoration: 'underline' }}
+   <div className='alert alert-warning'>
+     <span style={{color:"#000000"}}> Tienes </span><span style={{color:"#E66929"}}>documentos no validados</span><span style={{color:"#000000"}}> en tu expediente…</span>
+      <div style={{color:"#000000"}}>
+
+      Para continuar con tu proceso, actualiza los documentos necesarios en la sección <span 
+       style={{  cursor: 'pointer', textDecoration: 'underline' }}
       >Mi expediente</span>
+
+      </div>
   </div>
 
   );
@@ -263,7 +269,7 @@ export const Titulo=(props)=>{
         <div className='col-8'>
           <div className='row'>
            <div className='col-12'>
-            <p style={{ fontSize: "18px",fontWeight:700}}>
+            <p  className='titularesVerde24'>
                Educación Media Superior
                </p>
            </div>
@@ -337,7 +343,7 @@ export const Titulo=(props)=>{
      </div>
      <div className='row'>
         <div className='col-12'>
-            <div style={{ fontSize: "15px",fontWeight:600,backgroundColor:"#ced4da",
+            <div style={{ fontSize: "15px",fontWeight:600
             }}>
                   {/*  ¡Gran trabajo, has obtenido... */} 
              <div className='p-1'></div>

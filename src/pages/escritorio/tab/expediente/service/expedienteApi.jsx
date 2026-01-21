@@ -1,10 +1,13 @@
+const apiExamen=import.meta.env. VITE_WebApi_URL;
+
+
 export async function getDocumentosAspirante(_idAspirante)
 {
   let datos = [];
 
   if(_idAspirante != undefined)
   {
-    const url = 'https://localhost:7029/api/AspiranteDocumento/ConsultaDocumentosAspirante';
+    const url = apiExamen+'/api/AspiranteDocumento/ConsultaDocumentosAspirante';
     const unicoV = { id:_idAspirante, idStr:'' };
     
     try{
@@ -30,7 +33,7 @@ export async function getPagosAspirante(_idAspirante)
 
   if(_idAspirante != undefined)
   {
-    const url = 'https://localhost:7029/api/AspiranteDocumento/ConsultaPagosAspirante';
+    const url = apiExamen+'/api/AspiranteDocumento/ConsultaPagosAspirante';
     const unicoV = { id:_idAspirante, idStr:'' };
     
     try{
@@ -55,7 +58,7 @@ export async function setValidarDocumento(_idAspiranteDocumento, idRol)
   let respuesta = 0;
   let datos = [];
 
-  const url = 'https://localhost:7029/api/AspiranteDocumento/ValidaDocumento';
+  const url = apiExamen+'/api/AspiranteDocumento/ValidaDocumento';
   const unicoV = { id:_idAspiranteDocumento, idStr:idRol };
     
     try{
@@ -80,7 +83,7 @@ export async function setRechazarDocumento(_idAspiranteDocumento, idRol)
   let respuesta = 0;
   let datos = [];
 
-  const url = 'https://localhost:7029/api/AspiranteDocumento/RechazaDocumento';
+  const url = apiExamen+'/api/AspiranteDocumento/RechazaDocumento';
   const unicoV = { id:_idAspiranteDocumento, idStr:idRol };
     
     try{

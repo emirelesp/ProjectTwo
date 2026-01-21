@@ -1,10 +1,12 @@
+const apiExamen=import.meta.env. VITE_WebApi_URL;
+
 export async function getAreasDisciplinaresPrueba(_idAspirante)
 {
   let datos = [];
 
   if(_idAspirante != undefined)
   {
-    const url = 'https://localhost:7029/api/AspiranteExamen/ConsultaAreasDisciplinaresPrueba';
+    const url = apiExamen+'/api/AspiranteExamen/ConsultaAreasDisciplinaresPrueba';
     const unicoV = { id:_idAspirante, idStr:'' };
     
     try{
@@ -32,7 +34,7 @@ export async function getPreguntasExamenPrueba (_idAspiranteExamenPrueba)
 
   if(_idAspiranteExamenPrueba != undefined)
   {
-    const url = 'https://localhost:7029/api/AspiranteExamen/ConsultaPreguntasExamenPrueba';
+    const url = apiExamen+'/api/AspiranteExamen/ConsultaPreguntasExamenPrueba';
     const unicoV = { id:_idAspiranteExamenPrueba, idStr:'' };
     
     try{
@@ -59,7 +61,7 @@ export async function setRegistrarRespuestaPrueba (_idDetalleAspiranteExamenPrue
 
   if(_idDetalleAspiranteExamenPrueba != undefined)
   {
-    const url = 'https://localhost:7029/api/AspiranteExamen/RegistraRespuestaPrueba';
+    const url = apiExamen+'/api/AspiranteExamen/RegistraRespuestaPrueba';
     const unicoV = { id:_idDetalleAspiranteExamenPrueba, idRespuesta:_idRespuesta };
     
     try{

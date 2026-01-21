@@ -32,26 +32,26 @@ export default function Header({ menuToggleEnabled, title, toggleMenu }) {
               visible={true}
               location="before" 
               component={() => (
-                <div className="toolbar-item">
-                  <img src="/logos/LOGO CONALEP-02.svg" height={"60px"} alt="menu" />
+                <div className="toolbar-item" style={{width:"140px"}}>
+                  <img src="/logos/LOGO CONALEP-02.svg" height={"60px"} alt="menu"/>
                 </div>
               )}
         
         />
 
           
-{/*        <Item
+       <Item
           location={'before'}
           cssClass={'header-title'}
      
           visible={true}
 
             component={() => (
-                <div className="toolbar-item">
-                  <div style={{width:"120px",height:"100%"}}></div>
+                <div className="toolbar-item d-none d-sm-none d-md-none d-lg-block d-xl-block d-xxl-block">
+                  <div style={{width:"180px",height:"100%"}}></div>
                 </div>
               )}
-        /> */}
+        /> 
 
         
 
@@ -62,8 +62,8 @@ export default function Header({ menuToggleEnabled, title, toggleMenu }) {
           visible={!!title}
 
             component={() => (
-                <div className="toolbar-item">
-                  <div className='titularesVerde' style={{maxWidth:'150px', width:"100%" }}>{title}</div>
+                <div className="toolbar-item d-none d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block">
+                  <div className='titularesVerde' style={{maxWidth:'275px', width:"100%" }}>{title}</div>
                 </div>
               )}
         />

@@ -3,6 +3,9 @@ import FileUploader from 'devextreme-react/file-uploader';
 import { setValidarDocumento, setRechazarDocumento } from './service/expedienteApi';
 import { useSelector } from 'react-redux';
 
+const apiExamen=import.meta.env. VITE_WebApi_URL;
+
+
 function ListaDocumentos(docs) 
 {
     const {documentos, setDocumentos,direccionTab} = docs;
@@ -36,7 +39,7 @@ function ListaDocumentos(docs)
                 <FileUploader
                     selectButtonText='Selecciona el archivo que deseas cargar'
                     labelText='o arrastra aquí'
-                    uploadUrl="https://localhost:7029/api/AspiranteDocumento/CargaDocumento"
+                    uploadUrl={apiExamen+"/api/AspiranteDocumento/CargaDocumento"}
                     multiple={false}
                     uploadMode='instantly'
                     name='file'

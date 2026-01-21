@@ -1,3 +1,6 @@
+const apiExamen=import.meta.env. VITE_WebApi_URL;
+
+
 
 export async function getSeguimientoAspirante(_idAspirante)
 {
@@ -5,7 +8,7 @@ export async function getSeguimientoAspirante(_idAspirante)
 
   if(_idAspirante != undefined)
   {
-    const url = 'https://localhost:7029/api/Aspirante/ConsultaSeguimientoAspirante';
+    const url = apiExamen+'/api/Aspirante/ConsultaSeguimientoAspirante';
     const unicoV = { id:_idAspirante, idStr:'' };
     
     try{

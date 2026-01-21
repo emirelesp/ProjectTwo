@@ -1,3 +1,25 @@
+/*******************Mensajes*********/
+
+.seguimientoRechazado{
+  color:#E66929
+
+}
+
+.borderAlert{
+
+ //border-style: solid;
+//border-width: 0px 0px 0px 15px !important;
+
+border-left: #55AD57 solid 5px !important;
+ 
+
+}
+
+
+/**************fin*******************/
+
+
+
 
 .rounded-tabpanel {
   //border: 1px solid #02A39D;
@@ -38,14 +60,21 @@
 
 }
 
+.tabEscritorio .dx-tab-text-span{
 
-.tabEscritorio .dx-tab {
+  font-family: 'Lato', sans-serif !important;
+  font-weight: 800 !important; 
+ 
+
+}
+
+ .tabEscritorio .dx-tab {
   background-color: #BFBFBF;
-
+  width: 130px !important;
   transition: background-color 0.3s ease;
   border-top-left-radius: 15px !important;
   border-top-right-radius: 15px !important;
-
+ 
   text-align: center; 
 
 }
@@ -54,10 +83,9 @@
 .tabEscritorio .dx-tab.dx-tab-selected.dx-state-active {
   background: linear-gradient(to right, #02A39D, #02A9B7, #02C3A4);
   color: white !important;
-
    font-family: 'Lato', sans-serif !important;
   font-size: 14px !important;
-  font-weight: 400 !important; /* Aplica el peso negrita */
+  //font-weight: 700 !important; /* Aplica el peso negrita */
    letter-spacing: 1px;
 }
 

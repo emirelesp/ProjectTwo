@@ -13,6 +13,15 @@
   letter-spacing: 1px;
 }
 
+
+.titularesVerde24 {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 800 !important; /* Aplica el peso negrita */
+  color:rgb(30, 91, 79);
+
+}
+
 .titularesCremita {
   font-family: 'Lato', sans-serif !important;
   font-size: 30px !important;

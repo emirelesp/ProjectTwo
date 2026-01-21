@@ -55,11 +55,15 @@ export default function UserPanel({ menuMode }) {
         <DropDownButton
             text={UsuarioLogin.nombre}
             stylingMode='text'
-            icon={UsuarioLogin.avatarUrl}
+           // icon={UsuarioLogin.avatarUrl}
             showArrowIcon={false}
             elementAttr={dropDownButtonAttributes}
             dropDownOptions={buttonDropDownOptions}
-            items={menuItems}>
+            items={menuItems}
+            
+          
+            >
+            
         </DropDownButton>
       )}
       {menuMode === 'list' && (

@@ -54,7 +54,7 @@ const Grafica=(props)=>{
         type="doughnut"
         title="Exámenes aprobados"
         width="100%"
-        height="100%"
+        height="auto"
         sizeGroup="examenAcreditado"              //  agrupa tamaño si hay varios
         resolveLabelOverlapping="shift" //  evita que se encimen etiquetas
       >
