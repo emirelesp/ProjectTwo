@@ -13,6 +13,14 @@
   letter-spacing: 1px;
 }
 
+.titularesNegro {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important; /* Aplica el peso negrita */
+  color:black;
+  letter-spacing: 1px;
+}
+
 
 .titularesVerde24 {
   font-family: 'Lato', sans-serif !important;

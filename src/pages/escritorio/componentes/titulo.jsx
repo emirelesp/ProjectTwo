@@ -87,7 +87,8 @@ const Semaforo=({estatusAceptadoRechazado,mensaje})=>{
 
    return(
     <>
-        <div className='col-3'>
+      
+        <div className='col-3' >
           <div className={color} style={{ fontSize: "12px",fontWeight:800}}>
             <center>
            { estatusAceptadoRechazado?(
@@ -105,8 +106,8 @@ const Semaforo=({estatusAceptadoRechazado,mensaje})=>{
               &nbsp;{mensaje}
                </center>
             </div>
-
-       </div>
+         </div>
+   
     </>
    );
 }
@@ -117,13 +118,13 @@ const SemaforoNormal=({mensaje})=>{
 
     return(
       <>
-       <div className='col-sm-3'>
+       <div className='col-3'>
           <div style={{ fontSize: "10px",fontWeight:500}}>
              <center>
          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-circle" viewBox="0 0 16 16">
          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
          </svg>
-          <div className='p-1'></div>
+          <div className='p-1' style={{textAlign: "justify"}}></div>
           {mensaje}
            </center>
           </div>
@@ -149,12 +150,12 @@ const MensajeComponent=()=>{
 const MensajeComponent1=()=>{
 
   return(
-   <div className='alert alert-success borderAlert'>
+   <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
        <span style={{color:"#000000"}}>¡Gran trabajo, has concluido tu registro en la plataforma!</span>
       <div style={{color:"#000000"}}>
       Para continuar con tu proceso, complementa los documentos necesarios en la sección <span
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
-      >Mi expediente</span>
+      >Mi expediente.</span>
       </div>
   </div>
 
@@ -165,7 +166,7 @@ const MensajeComponent1=()=>{
 const MensajeComponent2=()=>{
 
   return(
-   <div className='alert alert-warning'>
+   <div className='alert alert-warning' style={{textAlign: "justify"}}>
      <span style={{color:"#000000"}}> Aún tienes documentos pendientes de validar en tu expediente…</span>
       <div style={{color:"#000000"}}>
         Para continuar con tu proceso, es necesario que todos los documentos se encuentren validados en la sección <span 
@@ -183,7 +184,7 @@ const MensajeComponent2=()=>{
 const MensajeComponent3=()=>{
 
   return(
-   <div className='alert alert-warning'>
+   <div className='alert alert-warning' style={{textAlign: "justify"}}>
      <span style={{color:"#000000"}}> Tienes </span><span style={{color:"#E66929"}}>documentos no validados</span><span style={{color:"#000000"}}> en tu expediente…</span>
       <div style={{color:"#000000"}}>
 

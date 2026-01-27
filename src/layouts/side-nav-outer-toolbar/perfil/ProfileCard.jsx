@@ -28,7 +28,7 @@ export const ProfileCard = ({ isExpand,nombre, imagenUrl, onEditar }) => {
         
         </h2>
 
-        <Button
+      {/*   <Button
           className={'profile-button-out_'+isExpand}
           text="Editar cuenta"
           type="normal"
@@ -39,7 +39,7 @@ export const ProfileCard = ({ isExpand,nombre, imagenUrl, onEditar }) => {
                         class: "white-icon-button",
                         style: "font-family: 'Lato', sans-serif !important; font-size: 16px !important;background-color:#1e5b4f; color:white; border-radius:12px; padding:0px;width:100%"
                       }}
-        />
+        /> */}
       </div>
     </div>
    </>

@@ -100,7 +100,7 @@ col-xxl
               </Item>
               <Item itemType="simpleItem">
                   <Link to={'/reset-password'} style={{ color: '#002f2a', textDecoration: 'underline',fontFamily: "Lato" }}>
-                     ¿Olvidastes tu contraseña?
+                     ¿Olvidaste tu contraseña?
                   </Link>
               </Item>
 

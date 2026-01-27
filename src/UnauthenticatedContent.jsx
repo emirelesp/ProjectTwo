@@ -5,7 +5,11 @@ import './css/global.css'
 import { useCallback } from 'react';
 
 
+
 const Plantilla =({children})=>{
+
+
+  const navigate = useNavigate();
 
     return(
 
@@ -37,7 +41,12 @@ const Plantilla =({children})=>{
 
                         <div className='titularesLineaBlanca p-1'>¿Ya estás registrado?</div>
                        <div className='col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-10 mx-auto p-2'>
-                        <button className='btn' style={{ fontFamily:"'Lato', sans-serif", fontSize:"16px",backgroundColor:"#a57f2c", color:"white", borderRadius:"30px", padding:"10px",width:"100%"}}>
+                        <button onClick={
+                                    ()=>{
+                                    navigate("/login");
+                                    }
+                        }
+                          className='btn' style={{ fontFamily:"'Lato', sans-serif", fontSize:"16px",backgroundColor:"#a57f2c", color:"white", borderRadius:"30px", padding:"10px",width:"100%"}}>
 
                           INGRESAR
                         </button>
@@ -49,7 +58,7 @@ const Plantilla =({children})=>{
           
 
         </div>
-
+   <div className='p-2'></div>
 
       <div className='row titulares text-center p-2'> <span>REGISTRO</span></div>
       <div className='row tema text-center p-2'> <span>Salvo indicación contraria, todods los campos son obligatorios</span></div>

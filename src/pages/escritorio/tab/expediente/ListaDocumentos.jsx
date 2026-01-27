@@ -37,8 +37,8 @@ function ListaDocumentos(docs)
             {/* <h6>{data.documento}</h6> */}
             {data.estatusDocumento<=0 ?
                 <FileUploader
-                    selectButtonText='Selecciona el archivo que deseas cargar'
-                    labelText='o arrastra aquí'
+                    selectButtonText='Selecciona el archivo'
+                    labelText=' '
                     uploadUrl={apiExamen+"/api/AspiranteDocumento/CargaDocumento"}
                     multiple={false}
                     uploadMode='instantly'

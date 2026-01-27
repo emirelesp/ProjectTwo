@@ -47,7 +47,7 @@ export default function Aplicaciones(props){
              <Titulo estatus={seguimientoAspirante}></Titulo>
                <div className='row'>
                 <div style={{ padding: 20 }}>
-                    <div style={{ fontSize: "20px",fontWeight:700}}>Mi aplicacion</div>
+                    <div style={{ fontSize: "20px",fontWeight:700}}>Mi aplicación</div>
                     <div className='p-2'></div>
 
 

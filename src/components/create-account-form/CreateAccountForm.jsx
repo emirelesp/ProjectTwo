@@ -14,10 +14,14 @@ import LoadIndicator from 'devextreme-react/load-indicator';
 import { createAccount } from '../../api/auth';
 
 import './CreateAccountForm.scss';
+import MensajeConfirmacion from './popup/mensajeConfirmacion';
 
 export default function CreateAccountForm() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+
+  const [isVisible_,setisVisible_]=useState(false);
+
   const formData = useRef({ email: '', password: '' });
 
   const onSubmit = useCallback(async (e) => {
@@ -30,7 +34,10 @@ export default function CreateAccountForm() {
     setLoading(false);
 
     if (result.isOk) {
-      navigate('/login');
+      
+      //navigate('/login');
+    setisVisible_(true);
+    
     } else {
       notify(result.message, 'error', 2000);
     }
@@ -41,7 +48,14 @@ export default function CreateAccountForm() {
     []
   );
 
+  const curpPattern = /^([A-Z][AEIOU][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/;
+  const phonePattern = /^\d{10}$/; 
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   return (
+
+    <>
+     <MensajeConfirmacion isVisible={isVisible_} setisVisible={setisVisible_}></MensajeConfirmacion>
+    
     <form className={'create-account-form'} onSubmit={onSubmit}>
       <Form formData={formData.current} disabled={loading} colCount={12} labelLocation='left' showRequiredMark={false} >
 
@@ -50,8 +64,19 @@ export default function CreateAccountForm() {
                             editorType={'dxTextBox'}
                              editorOptions={CURPEditorOptions}
                             colSpan={12}
-                  >
-                     <RequiredRule message="Requiere CURP" />
+                            validationRules={[
+                                {
+                                  type: "required",
+                                  message: "El CURP es obligatorio"
+                                },
+                                {
+                                  type: "pattern",
+                                  pattern: curpPattern,
+                                  message: "Ingrese un CURP válido"
+                                }
+                             ]}
+                                        >
+                     {/* <RequiredRule message="Requiere CURP" /> */}
                        <Label visible={true} text='CURP'  component={()=>(
 
                       <span id="RegistroUsuario" className='letrasNegro' >CURP:</span>
@@ -68,8 +93,13 @@ export default function CreateAccountForm() {
                         editorType={'dxTextBox'}
                         colSpan={12}
                         editorOptions={nombreEditorOptions}
-                  >
-                     <RequiredRule message="Requiere Nombre" />
+                        validationRules={[ 
+                          { type: "required", message: "El nombre es obligatorio" },
+                          { type: "pattern", pattern: /^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s'-]+$/,
+                            message: "Ingrese solo letras, números y espacios" 
+                           }]}
+                         >
+                    
                     <Label visible={true} component={()=>(
 
                       <span id="RegistroUsuario" className='letrasNegro' >Nombre:</span>
@@ -87,8 +117,15 @@ export default function CreateAccountForm() {
                         editorType={'dxTextBox'}
                         colSpan={12}
                           editorOptions={apellidoPatEditorOptions}
-                  >
-                        <RequiredRule message="Requiere Apellido Paterno" />
+
+                            validationRules={[ 
+                              { type: "required", message: "El Apellido Paterno es obligatorio" },
+                              { type: "pattern", pattern: /^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s'-]+$/,
+                                message: "Ingrese solo letras, números y espacios" 
+                              }]}
+                         >
+                  
+               
                        <Label visible={true} component={()=>(
 
                       <span id="RegistroUsuario" className='letrasNegro' >Apellido Paterno:</span>
@@ -106,7 +143,14 @@ export default function CreateAccountForm() {
                       dataField={'apellidoMaterno'}
                         editorType={'dxTextBox'}
                         colSpan={12}
-                          editorOptions={apellidoMatEditorOptions}
+                        editorOptions={apellidoMatEditorOptions}
+                           validationRules={[ 
+                              { type: "required", message: "El Apellido Paterno es obligatorio" },
+                              { type: "pattern", pattern: /^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s'-]+$/,
+                                message: "Ingrese solo letras, números y espacios" 
+                              }]
+                            }
+
                   >
                       <Label visible={true} component={()=>(
 
@@ -119,9 +163,14 @@ export default function CreateAccountForm() {
                       dataField={'telefono'}
                         editorType={'dxTextBox'}
                         colSpan={12}
-                          editorOptions={telefonoEditorOptions}
+                        editorOptions={telefonoEditorOptions}
+
+                        validationRules={[
+                                            { type: "required", message: "El teléfono es obligatorio" },
+                                            { type: "pattern", pattern: phonePattern, message: "Ingrese un teléfono válido" }
+                                        ]}
                   >
-                        <RequiredRule message="Requiere Telefono" />
+                        
                         <Label visible={true} component={()=>(
 
                       <span id="RegistroUsuario" className='letrasNegro' >Telefono:</span>
@@ -132,11 +181,17 @@ export default function CreateAccountForm() {
         <Item
           dataField={'email'}
           editorType={'dxTextBox'}
-           colSpan={12}
+          colSpan={12}
           editorOptions={emailEditorOptions}
+            validationRules={[
+          { type: "required", message: "El correo es obligatorio" },
+          { type: "pattern", pattern: emailPattern, message: "Ingrese un correo válido" }
+        ]}
         >
-          <RequiredRule message="Requiere Email" />
-          <EmailRule message="Email is invalid" />
+          
+
+
+
           <Label visible={true} component={()=>(
 
                       <span id="RegistroUsuario" className='letrasNegro' >Correo:</span>
@@ -148,8 +203,14 @@ export default function CreateAccountForm() {
           editorType={'dxTextBox'}
            colSpan={12}
           editorOptions={passwordEditorOptions}
+          validationRules={[ 
+            { type: "required", message: "La contraseña es obligatoria" }, 
+            {
+               type: "pattern", pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z\d<>]).{8,}$/,
+               message: "Debe tener mínimo 8 caracteres, una mayúscula, una minúscula, un número y un símbolo (excepto < >)" 
+            } ]}
         >
-          <RequiredRule message="Password is required" />
+         
           <Label visible={true} component={()=>(
 
                       <span id="RegistroUsuario" className='letrasNegro' >Contraseña:</span>
@@ -197,6 +258,8 @@ export default function CreateAccountForm() {
         Tienes Cuenta? <Link to={'/login'}>Login</Link>
       </div> */}
     </form>
+
+    </>
   );
 }
 

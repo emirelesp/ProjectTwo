@@ -5,6 +5,7 @@ import {Aplicaciones,Certificacion,Expediente,Practica,Inicio} from './tab/index
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector } from 'react-redux';
 import { getSeguimientoAspirante } from './services/escritorioApi';
+import { PreguntasMath } from './tab/preguntasMath/preguntasMath';
 
 export function Escritorio(){
 
@@ -47,6 +48,10 @@ export function Escritorio(){
              <Item title="Mi práctica" >
                 <Practica seguimientoAspirante={seguimientoAspirante_}></Practica>
             </Item>
+            <Item title="PreguntasMatematicas" >
+                <PreguntasMath seguimientoAspirante={seguimientoAspirante_}></PreguntasMath>
+            </Item>
+
         </TabPanel>
     </React.Fragment>
   );

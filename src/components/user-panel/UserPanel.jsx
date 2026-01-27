@@ -25,7 +25,7 @@ export default function UserPanel({ menuMode }) {
 
   const menuItems = useMemo(() => ([
     {
-      text: 'Escritorio',
+      text: 'Principal',
       icon: 'user',
       onClick: navigateToEscritorio
     },
