@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector } from 'react-redux';
 import { getSeguimientoAspirante } from './services/escritorioApi';
 import { PreguntasMath } from './tab/preguntasMath/preguntasMath';
+import { PreguntasItem } from './tab/preguntasMath/preguntasItem';
 
 export function Escritorio(){
 
@@ -49,7 +50,7 @@ export function Escritorio(){
                 <Practica seguimientoAspirante={seguimientoAspirante_}></Practica>
             </Item>
             <Item title="PreguntasMatematicas" >
-                <PreguntasMath seguimientoAspirante={seguimientoAspirante_}></PreguntasMath>
+                <PreguntasItem seguimientoAspirante={seguimientoAspirante_}></PreguntasItem>
             </Item>
 
         </TabPanel>

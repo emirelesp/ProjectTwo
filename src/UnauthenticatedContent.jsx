@@ -6,7 +6,7 @@ import { useCallback } from 'react';
 
 
 
-const Plantilla =({children})=>{
+const Plantilla =({titulo,children})=>{
 
 
   const navigate = useNavigate();
@@ -60,8 +60,8 @@ const Plantilla =({children})=>{
         </div>
    <div className='p-2'></div>
 
-      <div className='row titulares text-center p-2'> <span>REGISTRO</span></div>
-      <div className='row tema text-center p-2'> <span>Salvo indicación contraria, todods los campos son obligatorios</span></div>
+      <div className='row titulares text-center p-2'> <span>{titulo}</span></div>
+      <div className='row tema text-center p-2'> <span>Salvo indicación contraria, todos los campos son obligatorios</span></div>
      <div className='p-2'></div>
           {children }
   
@@ -142,7 +142,7 @@ export default function UnauthenticatedContent() {
         path='/create-account'
         element={
 
-          <Plantilla>
+          <Plantilla titulo="REGISTRO">
           
         <div className='col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-10 mx-auto p-2'>
             <CreateAccountForm />
@@ -154,12 +154,18 @@ export default function UnauthenticatedContent() {
       <Route 
         path='/reset-password'
         element={
-          <SingleCard
-            title="Reset Password"
-            description="Please enter the email address that you used to register, and we will send you a link to reset your password via Email."
-          >
+          // <SingleCard
+          //   title="Restablecer Contraseña"
+          //   description=""
+          // >
+            <Plantilla titulo="RESTABLECER CONTRASEÑA">
+          
+        <div className='col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-10 mx-auto p-2'>
             <ResetPasswordForm />
-          </SingleCard>
+            </div>
+          </Plantilla>
+
+          //</SingleCard>
         }
       />
       <Route

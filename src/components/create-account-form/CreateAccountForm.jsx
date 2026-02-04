@@ -264,7 +264,7 @@ export default function CreateAccountForm() {
 }
 
 
-const CURPEditorOptions = { stylingMode: 'filled', placeholder: 'CURP', mode: 'CURP' };
+const CURPEditorOptions = {maxLength: 18, stylingMode: 'filled', placeholder: 'CURP', mode: 'CURP' };
 
 const nombreEditorOptions = { stylingMode: 'filled', placeholder: 'Nombre', mode: 'nombre' };
 const apellidoPatEditorOptions = { stylingMode: 'filled', placeholder: 'Apellido Paterno', mode: 'apellidoPaterno' };
@@ -273,9 +273,9 @@ const apellidoMatEditorOptions = { stylingMode: 'filled', placeholder: 'Apellido
 const telefonoEditorOptions = { stylingMode: 'filled', placeholder: 'Telefono', mode: 'telefono' };
 
 
-const emailEditorOptions = { stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
-const passwordEditorOptions = { stylingMode: 'filled', placeholder: 'Password', mode: 'password' };
-const confirmedPasswordEditorOptions = { stylingMode: 'filled', placeholder: 'Confirmar Password', mode: 'password' };
+const emailEditorOptions = {maxLength: 100, stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
+const passwordEditorOptions = {maxLength: 20, stylingMode: 'filled', placeholder: 'Password', mode: 'password' };
+const confirmedPasswordEditorOptions = {maxLength: 20, stylingMode: 'filled', placeholder: 'Confirmar Password', mode: 'password' };
 
 
 

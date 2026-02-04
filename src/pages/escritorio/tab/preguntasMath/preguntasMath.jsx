@@ -104,6 +104,14 @@ export function PreguntasMath(props){
   return (
     <div style={{ padding: "20px" }}>
      
+  <div style={{ marginTop: "10px" }}>
+        <button onClick={() => insertarCodigoMath("\\frac{}{}")}>Fracción</button>
+        <button onClick={() => insertarCodigoMath("\\sqrt{}")}>Raíz</button>
+        <button onClick={() => insertarCodigoMath("\\int")}>Integral</button>
+        <button onClick={() => insertarCodigoMath("\\sum")}>Sumatoria</button>
+        <button onClick={() => insertarCodigoMathParentesis()}>paréntesis</button>
+      </div>
+
       <textarea
         value={value}
         className="form-control"
@@ -126,13 +134,7 @@ export function PreguntasMath(props){
 
       />
 
-      <div style={{ marginTop: "10px" }}>
-        <button onClick={() => insertarCodigoMath("\\frac{}{}")}>Fracción</button>
-        <button onClick={() => insertarCodigoMath("\\sqrt{}")}>Raíz</button>
-        <button onClick={() => insertarCodigoMath("\\int")}>Integral</button>
-        <button onClick={() => insertarCodigoMath("\\sum")}>Sumatoria</button>
-        <button onClick={() => insertarCodigoMathParentesis()}>paréntesis</button>
-      </div>
+    
 
    
    

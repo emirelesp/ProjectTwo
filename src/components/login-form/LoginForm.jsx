@@ -143,6 +143,6 @@ col-xxl
   );
 }
 
-const emailEditorOptions = { stylingMode: 'filled', placeholder: 'Email', mode: 'email',elementAttr: { class: 'redondeadotext' }  };
-const passwordEditorOptions = { stylingMode: 'filled', placeholder: 'Password', mode: 'password',elementAttr: { class: 'redondeadotext' } };
+const emailEditorOptions = {   maxLength: 100,stylingMode: 'filled', placeholder: 'Email', mode: 'email',elementAttr: { class: 'redondeadotext' }  };
+const passwordEditorOptions = { maxLength: 20,stylingMode: 'filled', placeholder: 'Password', mode: 'password',elementAttr: { class: 'redondeadotext' } };
 const rememberMeEditorOptions = { text: 'Remember me', elementAttr: { class: 'form-text' } };

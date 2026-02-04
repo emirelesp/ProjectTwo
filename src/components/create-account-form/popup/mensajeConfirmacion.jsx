@@ -49,7 +49,7 @@ const MensajeConfirmacion = (props) => {
                            }}
                         >
 
-                          continuar
+                          CONTINUAR
                         </button>
           </div>
 
