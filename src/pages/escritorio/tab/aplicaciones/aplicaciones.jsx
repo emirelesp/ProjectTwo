@@ -8,7 +8,7 @@ import TokenRegistro from './popup/tokenRegistro';
 
 export default function Aplicaciones(props){
 
-    const {seguimientoAspirante}=props;
+    const {seguimientoAspirante,tab}=props;
 
     const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
     const [isVisible_,setisVisible_]=useState(false);
@@ -44,7 +44,7 @@ export default function Aplicaciones(props){
       
         <div style={{margin: "10px"}}>
             
-             <Titulo estatus={seguimientoAspirante}></Titulo>
+             <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}></Titulo>
                <div className='row'>
                 <div style={{ padding: 20 }}>
                     <div style={{ fontSize: "20px",fontWeight:700}}>Mi aplicación</div>

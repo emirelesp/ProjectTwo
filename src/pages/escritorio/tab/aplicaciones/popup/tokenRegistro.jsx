@@ -10,6 +10,8 @@ import Form, {
   EmailRule
 } from 'devextreme-react/form';
 
+import notify from 'devextreme/ui/notify';
+
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import Popup from "devextreme-react/popup";
 import Examen from "../examen";
@@ -26,6 +28,8 @@ const TokenRegistro = (props) => {
 
   const formData = useRef({ Token: '' });
 
+
+  const [mensaje,setMensaje]=useState(""); 
    
 
 
@@ -59,9 +63,15 @@ const onSubmit = useCallback(async (e) => {
      const result=  await getPreguntasExamenModulo(informacionGridClic, data.Token); 
 
        const total=  result.length;
+      
        if(total>0){
          setValidar(true);
          setPreguntaActualTotales_(result);
+       }else{
+             
+              setMensaje("Token Inválido.")
+             
+
        }
 
         setloading(false);
@@ -82,8 +92,11 @@ const onSubmit = useCallback(async (e) => {
     
       <Popup
         visible={isVisible}
-        onHiding={() => setisVisible(false)}
-        title="Registar"
+        onHiding={() => {
+          setisVisible(false);
+          setMensaje("");
+        }}
+        title="Ingresar token"
         width="100%"
         maxWidth={"400px"}
         height="auto"
@@ -98,14 +111,17 @@ const onSubmit = useCallback(async (e) => {
          {validar?(
             <Examen datosArea={informacionGridClic}   preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={setPreguntaActualTotales_}/>
            ):(
-             
-              <form className={'create-account-form'} onSubmit={onSubmit}>
+ 
+            <>
+              <div style={{color:"red"}}>{mensaje}</div>
+              <form className={'create-account-form p-2'} onSubmit={onSubmit}>
                   <Form formData={formData.current}  colCount={12}  >{/*disabled={loading} */}
 
                               <Item
+                                    
                                         dataField={'Token'}
                                         editorType={'dxTextBox'}
-                                        //  editorOptions={CURPEditorOptions}
+                                       editorOptions={{maxLength: 8}}
                                         colSpan={12}
                               >
                                     <RequiredRule message="Requiere Token" />
@@ -123,14 +139,14 @@ const onSubmit = useCallback(async (e) => {
                           {
                             loading
                               ? <LoadIndicator width={'24px'} height={'24px'} visible={true} />
-                              : 'Registrar ahora'
+                              : 'Iniciar'
                           }
                         </span>
                       </ButtonOptions>
                     </ButtonItem>
                  </Form>
               </form>
-
+            </>
            )
          }
 

@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 export default function Expediente(props){
 
- const {seguimientoAspirante}=props;
+ const {seguimientoAspirante,tab}=props;
 
 
     const [dataDocumentos, setDataDocumentos] = useState({ });
@@ -87,7 +87,7 @@ export default function Expediente(props){
 
        
       
-       <Titulo estatus={seguimientoAspirante} ></Titulo>
+       <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}></Titulo>
    
          <div className='row'>
 

@@ -9,7 +9,7 @@ import PieChart, {
 
 
 import { Titulo } from '../../componentes/titulo';
-import { getDocumentosValidados, getPanelInformacion } from './service/inicioApi';
+import { consultaDatosGeneralPanel, getDocumentosValidados, getPanelInformacion } from './service/inicioApi';
 import { useSelector } from 'react-redux';
 
 
@@ -83,15 +83,15 @@ const Grafica=(props)=>{
 
 const PanelInformacion=(props)=>{
 
-  const {data}=props;
+  const {data,DatoGeneral_}=props;
   
     return(
     <>
       <div className='row'>
         <div className='col-4'>
-            <p style={{ fontSize: "12px",fontWeight:500}}>
+          <p style={{ fontSize: "12px",fontWeight:500}}>
             Límite de certificación
-            </p>
+            </p> 
         </div>
         <div className='col-4'>
            <p style={{ fontSize: "12px",fontWeight:500}}>
@@ -99,9 +99,9 @@ const PanelInformacion=(props)=>{
             </p>
         </div>
         <div className='col-4'>
-           <p style={{ fontSize: "12px",fontWeight:500}}>
+            <p style={{ fontSize: "12px",fontWeight:500}}>
             Fecha certificación nivel secundaria
-            </p>
+            </p> 
         </div>
        </div>
 
@@ -110,17 +110,17 @@ const PanelInformacion=(props)=>{
         <div className='col-4'>
             <p style={{ fontSize: "14px",fontWeight:700}}>
               19 de Marzo 2027
-            </p>
+            </p> 
         </div>
         <div className='col-4'>
               <p style={{ fontSize: "14px",fontWeight:700}}>
-              #####
+              {DatoGeneral_.numeroControl}
             </p>
         </div>
         <div className='col-4'>
-              <p style={{ fontSize: "14px",fontWeight:700}}>
+               <p style={{ fontSize: "14px",fontWeight:700}}>
               16 de Agosto 2013
-            </p>
+            </p> 
         </div>
        </div>
        <div className='row'>
@@ -138,9 +138,9 @@ const PanelInformacion=(props)=>{
             </p>
         </div>
          <div className='col-6'>
-             <p style={{ fontSize: "14px",fontWeight:700}}>
+           <p style={{ fontSize: "14px",fontWeight:700}}>
               Requisitos para certificar
-            </p>
+            </p> 
         </div>
       </div>
 
@@ -150,7 +150,7 @@ const PanelInformacion=(props)=>{
            <p> {data[0]?.documentosValidados}/{data[0]?.totalDocumentos} Registros entregados </p> 
         </div>
          <div className='col-6'>
-            <p> 0/5 Registros entregados </p> 
+             <p> 0/5 Registros entregados </p>  
         </div>
         
         
@@ -165,11 +165,11 @@ const PanelInformacion=(props)=>{
            </div>
         </div>
           <div className='col-6'>
-              <div className="progress" style={{ height: '30px' }}>
-             <div className="progress-bar progress-bar-striped progress-bar-animated bg-info" 
+            <div className="progress" style={{ height: '30px' }}>
+              <div className="progress-bar progress-bar-striped progress-bar-animated bg-info" 
                  role="progressbar" style={{ width: `${0}%` }} aria-valuenow={8} aria-valuemin="0" aria-valuemax="5" >
                    0/5
-             </div>
+             </div> 
            </div>
         </div>
         
@@ -181,16 +181,16 @@ const PanelInformacion=(props)=>{
            
            
              <div className='' style={{ fontSize: "10px",fontWeight:500}}>
-           {/*    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-circle-fill" viewBox="0 0 16 16">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check-circle-fill" viewBox="0 0 16 16">
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
               </svg>
-              &nbsp; */} 
+              &nbsp;  
                 {data[0]?.documentosValidados} completados
             </div>  
         </div>
          <div className='col-6'>
            <div className='p-2'></div>
-            <p style={{ fontSize: "10px",fontWeight:500}}> 0  Completados </p> 
+             <p style={{ fontSize: "10px",fontWeight:500}}> 0  Completados </p> 
         </div>
         
         
@@ -208,10 +208,11 @@ const PanelInformacion=(props)=>{
 export default function Inicio(props){
 
 
-  const {seguimientoAspirante}=props;
+  const {seguimientoAspirante ,tab}=props;
 
   const[informacionPanelServicio,SetInformacionPanelServicio]=useState([]);
   const[documentosValidados,setDocumentosValidados]=useState([]);
+  const[DatoGeneral,setDatoGeneral]=useState([]);
 
   const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
 
@@ -229,11 +230,21 @@ export default function Inicio(props){
   },[]);
 
 
+  const getDatoGeneralPanelCallback=useCallback(async ()=>{
+    
+     const result= await consultaDatosGeneralPanel(UsuarioLogin.idAspirante);
+     setDatoGeneral(result.data);
+
+  
+  },[]);
+
+
   useEffect(
    ()=>{
     
       getPanelInformacionCallback();
       getDocumentosValidadosCallback();
+      getDatoGeneralPanelCallback();
    },[]);
 
 
@@ -244,7 +255,7 @@ export default function Inicio(props){
     <React.Fragment>
     <div style={{margin: "10px"}}>
   
-   <Titulo estatus={seguimientoAspirante}></Titulo>
+   <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}></Titulo>
      <div className='row'>
         <div className='col-4'>
             <Grafica data={informacionPanelServicio}></Grafica>
@@ -253,7 +264,7 @@ export default function Inicio(props){
          
         
         
-          <PanelInformacion data={documentosValidados}></PanelInformacion>
+          <PanelInformacion data={documentosValidados} DatoGeneral_={DatoGeneral}></PanelInformacion>
         
         
         

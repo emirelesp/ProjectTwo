@@ -49,7 +49,8 @@ export default function Practica(){
             dataSource={AreaDisciplinar}
            // tabsPosition={direccionTab}
             iconPosition='top'
-            itemComponent={mostrarPreguntas}      
+            itemComponent={mostrarPreguntas}  
+             elementAttr={{ class: "tabPractica" }}      
           />
 
     </React.Fragment>

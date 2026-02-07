@@ -14,11 +14,15 @@ import notify from 'devextreme/ui/notify';
 import { useAuth } from '../../contexts/auth-hooks';
 
 import  './LoginForm.scss';
+import MensajeConfirmacion from './popup/mensajeConfirmacion';
 
 export default function LoginForm() {
  // const navigate = useNavigate();
   const { signIn } = useAuth();
   const [loading, setLoading] = useState(false);
+
+  const [mensaje, setMensaje] = useState(false);
+
   const formData = useRef({ email: '', password: '' });
 
   const onSubmit = useCallback(async (e) => {
@@ -28,9 +32,15 @@ export default function LoginForm() {
     setLoading(true);
 
     const result = await signIn(email, password);
-    if (!result.isOk) {
-      setLoading(false);
-      notify(result.message, 'error', 2000);
+
+     setLoading(false);
+
+  
+    if (!result.data.isOk) {
+      if(result.data.id==0) notify(result.data.message, 'error', 5000);
+      if(result.data.id==-1) notify(result.data.message, 'error', 5000);
+      if(result.data.id==-2) setMensaje(true)
+      if(result.data.id==-3) notify(result.data.message, 'error', 5000);
     }else{
       window.location.reload();
     }
@@ -50,6 +60,9 @@ col-xxl
 */ 
 
   return (
+  <>
+     <MensajeConfirmacion isVisible={mensaje} setisVisible={setMensaje}></MensajeConfirmacion>
+
 
     <div className='row'>
       
@@ -140,6 +153,7 @@ col-xxl
           </form>
     </div>
     </div>
+    </>
   );
 }
 

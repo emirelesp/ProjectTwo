@@ -22,7 +22,7 @@ import Pregunta from './componente/pregunta';
 export default function Examen(props){
 
      const{datosArea,preguntaActualTotales,setPreguntaActualTotales}= props;
-   debugger;
+  
 
 
   return (

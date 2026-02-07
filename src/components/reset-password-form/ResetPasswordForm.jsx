@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from 'react';
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import Form, {
   Item,
   Label,
@@ -14,13 +14,14 @@ import notify from 'devextreme/ui/notify';
 import { resetPassword } from '../../api/auth';
 import './ResetPasswordForm.scss';
 import { setResetPass, setRestablecerContrasena } from './service/PassApi';
+import MensajeConfirmacion from './popup/mensajeConfirmacion';
 
 
 export default function ResetPasswordForm() {
   
 
   const [parametros,setParametro]=useSearchParams();
-
+  const [mensaje, setMensaje] = useState(false);
 
   
   const token_= parametros.get("token");
@@ -42,14 +43,15 @@ export default function ResetPasswordForm() {
     setLoading(true);
 
     const result = await setResetPass(email_,token_,password);
-       debugger;
+     
     setLoading(false);
 
     if (result.isOk) {
-     /// navigate('/login');
-      notify(result, 'success', 2500);
+      
+      notify(result.Message, 'success', 2500);
+      navigate('/login');
     } else {
-      notify(result, 'error', 2000);
+      notify(result.message, 'error', 2500);
     }
   }, [navigate]);
 
@@ -72,9 +74,12 @@ export default function ResetPasswordForm() {
 
     if (result.isOk) {
      /// navigate('/login');
-      notify(result.message, 'success', 1000000);
+
+     // notify(result.message, 'success', 1000000);
+      setMensaje(true);
+  
     } else {
-      notify(result.message, 'error', 1000000);
+      notify(result.message, 'error', 10000);
     }
   }, [navigate]);
 
@@ -90,7 +95,8 @@ export default function ResetPasswordForm() {
 
   return (
   email_==null&&token_==null?(
-
+   <>
+    <MensajeConfirmacion isVisible={mensaje} setisVisible={setMensaje}></MensajeConfirmacion>
     <form className={'reset-password-form'} onSubmit={onSubmit}>
       <Form formData={formData.current} disabled={loading}>
         <Item
@@ -129,8 +135,9 @@ export default function ResetPasswordForm() {
       </Form>
 
     </form>
+    </>
   ):(
-
+  <>  
      <form className={'reset-password-form'} onSubmit={onSubmitReset}>
       <Form formData={formData.current} disabled={loading}>
         <Item
@@ -212,7 +219,7 @@ export default function ResetPasswordForm() {
         </ButtonItem>
       </Form>
     </form>
-
+  </>
   )
     
   );

@@ -29,17 +29,18 @@ export default function CreateAccountForm() {
   
 
     setLoading(true);
-
     const result = await createAccount( formData.current);
     setLoading(false);
-
+ 
     if (result.isOk) {
       
       //navigate('/login');
     setisVisible_(true);
     
     } else {
-      notify(result.message, 'error', 2000);
+    
+      notify(result.message, 'error', 10000);
+      // navigate('/login');
     }
   }, [navigate]);
 
@@ -266,14 +267,14 @@ export default function CreateAccountForm() {
 
 const CURPEditorOptions = {maxLength: 18, stylingMode: 'filled', placeholder: 'CURP', mode: 'CURP' };
 
-const nombreEditorOptions = { stylingMode: 'filled', placeholder: 'Nombre', mode: 'nombre' };
-const apellidoPatEditorOptions = { stylingMode: 'filled', placeholder: 'Apellido Paterno', mode: 'apellidoPaterno' };
-const apellidoMatEditorOptions = { stylingMode: 'filled', placeholder: 'Apellido Materno', mode: 'apellidoMaterno' };
+const nombreEditorOptions = { maxLength: 60,stylingMode: 'filled', placeholder: 'Nombre', mode: 'nombre' };
+const apellidoPatEditorOptions = {maxLength: 60, stylingMode: 'filled', placeholder: 'Apellido Paterno', mode: 'apellidoPaterno' };
+const apellidoMatEditorOptions = {maxLength: 60, stylingMode: 'filled', placeholder: 'Apellido Materno', mode: 'apellidoMaterno' };
 
-const telefonoEditorOptions = { stylingMode: 'filled', placeholder: 'Telefono', mode: 'telefono' };
+const telefonoEditorOptions = {mask: "(000) 000-0000",maskRules: { "0": /[0-9]/ },maxLength:10, stylingMode: 'filled', placeholder: 'Telefono', mode: 'telefono' };
 
 
-const emailEditorOptions = {maxLength: 100, stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
+const emailEditorOptions = {maxLength: 60, stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
 const passwordEditorOptions = {maxLength: 20, stylingMode: 'filled', placeholder: 'Password', mode: 'password' };
 const confirmedPasswordEditorOptions = {maxLength: 20, stylingMode: 'filled', placeholder: 'Confirmar Password', mode: 'password' };
 

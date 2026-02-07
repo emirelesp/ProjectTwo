@@ -88,7 +88,7 @@ const Semaforo=({estatusAceptadoRechazado,mensaje})=>{
    return(
     <>
       
-        <div className='col-3' >
+      
           <div className={color} style={{ fontSize: "12px",fontWeight:800}}>
             <center>
            { estatusAceptadoRechazado?(
@@ -106,7 +106,7 @@ const Semaforo=({estatusAceptadoRechazado,mensaje})=>{
               &nbsp;{mensaje}
                </center>
             </div>
-         </div>
+    
    
     </>
    );
@@ -147,13 +147,15 @@ const MensajeComponent=()=>{
 }
 
 
-const MensajeComponent1=()=>{
+const MensajeComponent1=(props)=>{
+
+const {setTabSectorMensaje_}=props;
 
   return(
    <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
        <span style={{color:"#000000"}}>¡Gran trabajo, has concluido tu registro en la plataforma!</span>
       <div style={{color:"#000000"}}>
-      Para continuar con tu proceso, complementa los documentos necesarios en la sección <span
+      Para continuar con tu proceso, complementa los documentos necesarios en la sección <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
       >Mi expediente.</span>
       </div>
@@ -163,13 +165,14 @@ const MensajeComponent1=()=>{
 
 }
 
-const MensajeComponent2=()=>{
+const MensajeComponent2=(props)=>{
+   const {setTabSectorMensaje_}=props;
 
   return(
    <div className='alert alert-warning' style={{textAlign: "justify"}}>
      <span style={{color:"#000000"}}> Aún tienes documentos pendientes de validar en tu expediente…</span>
       <div style={{color:"#000000"}}>
-        Para continuar con tu proceso, es necesario que todos los documentos se encuentren validados en la sección <span 
+        Para continuar con tu proceso, es necesario que todos los documentos se encuentren validados en la sección <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
       >Mi expediente</span>
 
@@ -181,14 +184,16 @@ const MensajeComponent2=()=>{
 }
 
 
-const MensajeComponent3=()=>{
+const MensajeComponent3=(props)=>{
+
+   const {setTabSectorMensaje_}=props;
 
   return(
    <div className='alert alert-warning' style={{textAlign: "justify"}}>
      <span style={{color:"#000000"}}> Tienes </span><span style={{color:"#E66929"}}>documentos no validados</span><span style={{color:"#000000"}}> en tu expediente…</span>
       <div style={{color:"#000000"}}>
 
-      Para continuar con tu proceso, actualiza los documentos necesarios en la sección <span 
+      Para continuar con tu proceso, actualiza los documentos necesarios en la sección <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
       >Mi expediente</span>
 
@@ -203,7 +208,7 @@ const MensajeComponent3=()=>{
 
 export const Titulo=(props)=>{
 
-   const {estatus}=props;
+   const {estatus,setTabSectorMensaje}=props;
 
     
 
@@ -276,24 +281,24 @@ export const Titulo=(props)=>{
            </div>
           </div>
            <div className='row'>
-            <div className='col-12'>
+        
 
-              <div className='row'>
+           
 
-                    { array.semaforo.map(data=>{
+                    { array.semaforo.map((data,index)=>{
                          
                        return(
 
-                        <>
+                        <div key={index} className='col-3' >
                       
                            {data.idTipo==1?(
-                            <Semaforo estatusAceptadoRechazado={data.element.estatusAceptadoRechazado} mensaje={data.element.mensaje} ></Semaforo>
+                            <Semaforo  estatusAceptadoRechazado={data.element.estatusAceptadoRechazado} mensaje={data.element.mensaje} ></Semaforo>
                            ):(
                             <SemaforoNormal mensaje={data.element.mensaje}></SemaforoNormal> 
                            )
                            }
                           
-                       </>
+                       </div>
 
 
 
@@ -310,10 +315,10 @@ export const Titulo=(props)=>{
 
 
 
-              </div>
+            
 
              <div className='p-2'></div>
-            </div>
+           
            </div>
         </div>
          <div className='col-4'>
@@ -348,7 +353,7 @@ export const Titulo=(props)=>{
             }}>
                   {/*  ¡Gran trabajo, has obtenido... */} 
              <div className='p-1'></div>
-            <array.Mensaje></array.Mensaje>
+            <array.Mensaje setTabSectorMensaje_={setTabSectorMensaje}></array.Mensaje>
             
             <div className='p-1'></div>
             </div>

@@ -13,6 +13,8 @@ export function Escritorio(){
    const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
    const [seguimientoAspirante_,setSeguimientoAspirante] =useState(0);
 
+   const [tabSectorMensaje,setTabSectorMensaje] =useState(0);
+
    const getSeguimientoAspiranteCallback=  useCallback(async ()=>{
         const data= await getSeguimientoAspirante(UsuarioLogin.idAspirante);
        
@@ -31,27 +33,28 @@ export function Escritorio(){
            className="rounded-tabpanel"
             showNavButtons={true}
             scrollByContent={true}
+            selectedIndex={tabSectorMensaje}
              elementAttr={{ class: "tabEscritorio" }} 
-           
+           onSelectionChanged={(e) => setTabSectorMensaje(e.component.option("selectedIndex"))}
           >
              <Item title="Inicio" >
-               <Inicio seguimientoAspirante={seguimientoAspirante_}></Inicio>
+               <Inicio seguimientoAspirante={seguimientoAspirante_}    tab={setTabSectorMensaje}></Inicio>
             </Item>
             <Item title="Mi expediente" >
-               <Expediente seguimientoAspirante={seguimientoAspirante_}></Expediente>
+               <Expediente seguimientoAspirante={seguimientoAspirante_}  tab={setTabSectorMensaje}></Expediente>
             </Item>
             <Item title="Mis aplicaciones" >
-                <Aplicaciones seguimientoAspirante={seguimientoAspirante_}></Aplicaciones>
+                <Aplicaciones seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje}></Aplicaciones>
             </Item>
             <Item title="Mi certificación" >
-                <Certificacion seguimientoAspirante={seguimientoAspirante_}></Certificacion>
+                <Certificacion seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje}></Certificacion>
             </Item>
              <Item title="Mi práctica" >
-                <Practica seguimientoAspirante={seguimientoAspirante_}></Practica>
+                <Practica seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje}></Practica>
             </Item>
-            <Item title="PreguntasMatematicas" >
+            {/* <Item title="PreguntasMatematicas" >
                 <PreguntasItem seguimientoAspirante={seguimientoAspirante_}></PreguntasItem>
-            </Item>
+            </Item> */}
 
         </TabPanel>
     </React.Fragment>

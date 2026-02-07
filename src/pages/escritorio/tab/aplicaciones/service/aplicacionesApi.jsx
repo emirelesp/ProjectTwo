@@ -88,8 +88,14 @@ for (let i = 0; i < _idAspiranteExamenModulo.length; i++) {
     catch(error){
         console.error("Error al crear el post:", error);
     }
-      // debugger;
-       if(preguntas.length!=0)datosModulo=[...datosModulo,...preguntas];
+
+
+
+
+
+    
+       if(preguntas.length>0)
+       if(preguntas[0].idDetalleAspiranteExamen!=-1)datosModulo=[...datosModulo,...preguntas];
          //        
  
           

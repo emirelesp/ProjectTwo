@@ -1,4 +1,5 @@
-const apiExamen=import.meta.env. VITE_WebApi_URL;
+const apiExamen=import.meta.env.VITE_WebApi_URL;
+const dominio_=import.meta.env.VITE_LocalBase_URL;
 
 
 
@@ -11,9 +12,10 @@ const param={
   password: password
 }
 
+let datos={ Message: "Contraseña cambiada exitosamente", isOk : true};
 
     const url = apiExamen+'/resetPass';
-
+    
     
     try{
       const respuesta = await fetch(url, {
@@ -26,7 +28,8 @@ const param={
 
     }
     catch(error){
-        datos="El servicio no esta disponible.";
+        datos.Message="El servicio no esta disponible.";
+        datos.isOk=false;
     }
 
     return datos;
@@ -35,16 +38,19 @@ const param={
 
 export async function setRestablecerContrasena(email)
 {
-    
+    const param={
+      email:email,
+      dominio: dominio_,
+    }
 
-
-    const url = apiExamen+'/EnviarGoogle?email='+email;
+    const url = apiExamen+'/EnviarTokenResetPassword';
     let datos='';
     
     try{
       const respuesta = await fetch(url, {
-        method: 'GET',
+        method: 'POST',
         headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(param)
       });
       
       datos = await respuesta.json();

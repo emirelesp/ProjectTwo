@@ -10,7 +10,7 @@ export async function signIn(email_, password_) {
     //console.log(email, password);
 
     let estaAutorizado=false;
-    let data={};
+ 
 
    const respuesta = await fetch(apiURL_Subdominio+'/login?useCookies=true&useSessionCookies=true', {
           method: "POST",
@@ -32,16 +32,17 @@ export async function signIn(email_, password_) {
 
     if (!estaAutorizado) throw new Error("");
     
-  
- 
+    const data=await respuesta.json();
+   
     return {
-      isOk: estaAutorizado,
+      isOk: data.id==1,
       data: data
     };
   }
   catch {
     return {
       isOk: false,
+      data:{},
       message: "Error al autentificar."
     };
   }
@@ -111,18 +112,19 @@ const data=  {
 
       if (!respuesta.ok) throw new Error("Error al crear Login");
 
-     // const data = await respuesta.json();
+      const dataresult = await respuesta.json();
 
     
 
     return {
-      isOk: true
+      isOk: dataresult.isOk,
+      message: dataresult.message
     };
   }
   catch {
     return {
       isOk: false,
-      message: "No cumple con las normas."
+      message: "Servicio no disponible"
     };
   }
 }
