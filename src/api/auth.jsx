@@ -64,7 +64,17 @@ export async function getUser(AsignarReduxUserLogin) {
 
     if (estaAutorizado){
        data=await respuesta.json();
-    } 
+    
+    }
+    
+  
+    if(data.rol!="Aspirante"){
+
+        return {
+            isOk: false
+       };
+
+    }
     
     return {
       isOk: estaAutorizado,////aqui va la conexion con la cookie esta en falso para poder trabajar con no auth

@@ -1,12 +1,11 @@
 import Popup from "devextreme-react/popup";
-import { useNavigate } from "react-router-dom";
+
 
 
 
 
 const MensajeConfirmacion = (props) => {
 
-  const navigate = useNavigate();
 
   const {isVisible,setisVisible}=props;
 
@@ -17,7 +16,7 @@ const MensajeConfirmacion = (props) => {
       <Popup
         visible={isVisible}
         onHiding={() => setisVisible(false)}
-        title="Recuperar Contraseña"
+        title="Confirmación"
         width="100%"
         maxWidth={"400px"}
         height="auto"
@@ -25,19 +24,7 @@ const MensajeConfirmacion = (props) => {
         dragEnabled={true}
       >
       <div className="text-center titularesVerde24">
-        Para continuar, restablece tu contraseña a través del correo electrónico que registraste.
-      </div>
-
-      <div className="p-3 titularesNegro" style={{textAlign: "justify"}}>
-       
-          Te recordamos que en caso de no encontrar el mensaje de correo electrónico correspondiente, revisa en tu bandeja de Spam o correos no deseados. 
-
-      
-      </div>
-      <div  className="p-3 titularesNegro" style={{textAlign: "justify"}}>
-        
-           Además, te sugerimos agregar la cuenta cuentadedondesaleelcorreo@dominio.com a tu lista de contactos, para garantizar que nuestros mensajes de correo lleguen a tu bandeja de entrada principal.
-        
+        Correo confirmado correctamente.
       </div>
 
           <div className='col-10 mx-auto'>

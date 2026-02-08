@@ -136,3 +136,31 @@ export async function setRegistrarRespuesta(_idDetalleAspiranteExamen,_idRespues
   }
     return datos;
 }
+
+
+export async function getFiltroSede(_idUsuario)
+{
+  let datos = [];
+
+  if(_idUsuario!= undefined)
+  {
+    const url = apiExamen+'/api/Sede/ConsultaSedes';
+    const unicoV = { id:0, idStr:_idUsuario };
+    
+    try{
+      const respuesta = await fetch(url, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(unicoV),
+         credentials: 'include',
+      });
+      
+      datos = await respuesta.json();
+
+    }
+    catch(error){
+        console.error("Error al crear el post:", error);
+    }
+  }
+    return datos;
+}

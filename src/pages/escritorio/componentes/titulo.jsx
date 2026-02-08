@@ -102,8 +102,9 @@ const Semaforo=({estatusAceptadoRechazado,mensaje})=>{
               </svg>
              )
            }
-            <div className='p-1'></div>
-              &nbsp;{mensaje}
+            <div className='p-1 text-center'>
+              {mensaje}
+              </div>
                </center>
             </div>
     
@@ -165,6 +166,67 @@ const {setTabSectorMensaje_}=props;
 
 }
 
+
+
+const MensajeComponent11=(props)=>{
+
+const {setTabSectorMensaje_}=props;
+
+  return(
+   <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
+       <span style={{color:"#000000"}}>¡Gran trabajo! Los documentos en tu expediente han sido validados.</span>
+      <div style={{color:"#000000"}}>
+      Para continuar: descarga el <a href=''>comprobante de pago</a> en la sección <span onClick={()=>setTabSectorMensaje_(1)}
+       style={{  cursor: 'pointer', textDecoration: 'underline' }}
+      >Mi expediente.</span> Realiza el pago y súbelo para validación.
+      </div>
+  </div>
+
+  );
+
+}
+
+
+const MensajeComponent12=(props)=>{
+
+   const {setTabSectorMensaje_}=props;
+
+  return(
+   <div className='alert alert-warning' style={{textAlign: "justify"}}>
+     <span style={{color:"#000000"}}> Aún tienes un documento pendiente de validar en tu expediente…</span>
+      <div style={{color:"#000000"}}>
+        Para continuar con tu proceso, es necesario que el "Pago de derechos" este validado en la sección <span onClick={()=>setTabSectorMensaje_(1)}
+       style={{  cursor: 'pointer', textDecoration: 'underline' }}
+      >Mi expediente.</span>
+
+      </div>
+  </div>
+
+  );
+
+}
+
+
+const MensajeComponent7=(props)=>{
+
+const {setTabSectorMensaje_,estatus_}=props;
+  
+  return(
+   <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
+       <span style={{color:"#000000"}}>¡Tu cita para evaluación está agendada el proximo </span><span style={{color:"#1e5b4f"}}>{estatus_.text}!</span>
+      <div style={{color:"#000000"}}>
+      Para continuar preparándote, te recomendamos ejercicios de prueba en la sección <span onClick={()=>setTabSectorMensaje_(4)}
+       style={{  cursor: 'pointer', textDecoration: 'underline' }}
+      >Mi práctica.</span>
+      </div>
+  </div>
+
+  );
+}
+
+
+
+
 const MensajeComponent2=(props)=>{
    const {setTabSectorMensaje_}=props;
 
@@ -175,6 +237,25 @@ const MensajeComponent2=(props)=>{
         Para continuar con tu proceso, es necesario que todos los documentos se encuentren validados en la sección <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
       >Mi expediente</span>
+
+      </div>
+  </div>
+
+  );
+
+}
+
+
+const MensajeComponent5=(props)=>{
+   const {setTabSectorMensaje_}=props;
+
+  return(
+   <div className='alert alert-warning' style={{textAlign: "justify"}}>
+     <span style={{color:"#000000"}}> ¡Lo sentimos!</span><span style={{color:"#E66929"}}> El pago de derechos no ha sido validado.</span>
+      <div style={{color:"#000000"}}>
+        Para continuar con tu proceso revisa los detalles en la sección <span onClick={()=>setTabSectorMensaje_(1)}
+       style={{  cursor: 'pointer', textDecoration: 'underline' }}
+      >Mi expediente</span> y súbelo nuevamente para validacíon.
 
       </div>
   </div>
@@ -205,6 +286,25 @@ const MensajeComponent3=(props)=>{
 }
 
 
+const MensajeComponent6=(props)=>{
+
+const {setTabSectorMensaje_}=props;
+
+  return(
+   <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
+       <span style={{color:"#000000"}}>¡Exelente, continua así! El pago de derechos ha sido validado.</span>
+      <div style={{color:"#000000"}}>
+      Para continuar: <span style={{color:"#1e5b4f"}}>agenda tu cita para evaluación</span> en la sección <span onClick={()=>setTabSectorMensaje_(2)}
+       style={{  cursor: 'pointer', textDecoration: 'underline' }}
+      >Mis aplicaciones.</span> 
+      </div>
+  </div>
+
+  );
+
+}
+
+
 
 export const Titulo=(props)=>{
 
@@ -215,7 +315,7 @@ export const Titulo=(props)=>{
     let array={semaforo:[],Mensaje:MensajeComponent};
 
 
-       switch (estatus) {
+       switch (estatus.value) {
          case 1:
           array= {semaforo:[{element:data[0],idTipo:1},{element:dataNormal[0],idTipo:2}],
                   Mensaje:MensajeComponent1
@@ -233,22 +333,27 @@ export const Titulo=(props)=>{
          break;
          case 4:
             array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:dataNormal[2],idTipo:2}],
-                  Mensaje:MensajeComponent1
+                  Mensaje:MensajeComponent11
+                 };
+         break;
+          case 40:
+            array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:dataNormal[2],idTipo:2}],
+                  Mensaje:MensajeComponent12
                  };
          break;
          case 5:
             array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[5],idTipo:1}],
-                  Mensaje:MensajeComponent2
+                  Mensaje:MensajeComponent5
                  };
          break;
          case 6:
              array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[2],idTipo:1},{element:dataNormal[3],idTipo:2}],
-                  Mensaje:MensajeComponent3
+                  Mensaje:MensajeComponent6
                  };
          break;
           case 7:
              array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[2],idTipo:1},{element:data[3],idTipo:1}],
-                  Mensaje:MensajeComponent1
+                  Mensaje:MensajeComponent7
                  };
          break;
 
@@ -282,7 +387,7 @@ export const Titulo=(props)=>{
           </div>
            <div className='row'>
         
-
+                  
            
 
                     { array.semaforo.map((data,index)=>{
@@ -318,7 +423,7 @@ export const Titulo=(props)=>{
             
 
              <div className='p-2'></div>
-           
+            
            </div>
         </div>
          <div className='col-4'>
@@ -353,7 +458,7 @@ export const Titulo=(props)=>{
             }}>
                   {/*  ¡Gran trabajo, has obtenido... */} 
              <div className='p-1'></div>
-            <array.Mensaje setTabSectorMensaje_={setTabSectorMensaje}></array.Mensaje>
+            <array.Mensaje estatus_={estatus} setTabSectorMensaje_={setTabSectorMensaje}></array.Mensaje>
             
             <div className='p-1'></div>
             </div>

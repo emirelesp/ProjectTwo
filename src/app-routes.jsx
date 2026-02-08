@@ -6,10 +6,9 @@ const routeData = [
         path: '/escritorio',
         element: EscritorioPage
     },
-   /* {
-        path: '/tasks',
-        element: TasksPage
-    },
+ 
+
+    /*
     {
         path: '/profile',
         element: ProfilePage

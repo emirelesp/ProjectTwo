@@ -14,15 +14,15 @@ import Form, {ButtonItem, ButtonOptions, Item} from 'devextreme-react/form';
 function ListaDocumentos(docs) 
 {
 
-    const {documentos, setDocumentos,direccionTab} = docs;
+    const {documentos, setDocumentos,direccionTab,setMensaje_} = docs;
     const [motivoRechazo, setMotivoRechazo] = useState({idAspiranteDocumento:0, idRol:'0', motivo:''});  
     const usr = useSelector((state) => state.UsuarioLogin);
 
      const resultadoCarga = (e) => 
      {
-        debugger;
-        const data = JSON.parse(e.request.response)
-        //const usr = useSelector((state) => state.UsuarioLogin);
+        
+    /*     const data = JSON.parse(e.request.response)
+    
         let estatusDoc=-1
    
         if(usr.rol === "Escolares") estatusDoc=1;
@@ -30,8 +30,10 @@ function ListaDocumentos(docs)
         const documentosActualizado = documentos.map(p => p.idAspiranteDocumento === data.idAspiranteDocumento ? {
           ...p, documentoStr : data.documentoStr, estatusDocumento : estatusDoc} : p);
 
-        setDocumentos(documentosActualizado);
- 
+        setDocumentos(documentosActualizado); */
+
+
+        setMensaje_(Date.now());
         
       
      }
@@ -107,7 +109,7 @@ function ListaDocumentos(docs)
             {data.estatusDocumento <= 0 ?
                 <FileUploader
                     selectButtonText='Selecciona el archivo que deseas cargar'
-                    labelText='o arrastra aquí'
+                    labelText='o arrastra aquí; solo archivos (.jpg ,.pdf)'
                     uploadUrl={apiExamen+"/api/AspiranteDocumento/CargaDocumento"}
                     multiple={false}
                     uploadMode='instantly'

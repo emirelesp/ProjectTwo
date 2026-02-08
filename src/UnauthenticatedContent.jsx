@@ -3,6 +3,7 @@ import { SingleCard } from './layouts';
 import { LoginForm, ResetPasswordForm, ChangePasswordForm, CreateAccountForm } from './components';
 import './css/global.css'
 import { useCallback } from 'react';
+import { Confirmacion } from './pages/confirmacion/confirmacion';
 
 
 
@@ -146,6 +147,19 @@ export default function UnauthenticatedContent() {
           
         <div className='col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-10 mx-auto p-2'>
             <CreateAccountForm />
+          </div>
+        
+          </Plantilla>
+        }
+      />
+        <Route
+        path='/confirmacion'
+        element={
+
+          <Plantilla titulo="Correo confirmado correctamente.">
+          
+        <div className='col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-10 mx-auto p-2'>
+            < Confirmacion />
           </div>
         
           </Plantilla>

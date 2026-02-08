@@ -64,7 +64,7 @@ const {data, setisVisible,setData}=props;
       <Grouping autoExpandAll={true} />
 
     
-      <Column dataField="bloque" caption="Bloque"   groupIndex={1} 
+      <Column dataField="bloque" caption="Bloque"   groupIndex={2} 
          groupCellRender={(cellData) => {
 
           const {data}=cellData;
@@ -106,7 +106,7 @@ const {data, setisVisible,setData}=props;
 }}
       
       />
-      <Column dataField="idOportunidad" caption="Oportunidad"    groupIndex={0} 
+      <Column dataField="idOportunidad" caption="Oportunidad"    groupIndex={1} 
           groupCellRender={(cellData) => {
             
                const data=cellData.value;
@@ -133,7 +133,7 @@ const {data, setisVisible,setData}=props;
       <Column dataField="areaDisciplinar" caption="Área Disciplinar" />
 
       {/* Fecha */}
-      <Column dataField="fechaExamen" caption="Fecha" dataType="date" />
+      <Column dataField="fechaExamen" caption="Fecha" dataType="date" groupIndex={0} />
 
       {/* Estatus de pago 
       <Column dataField="estatusPago" caption="Estatus de pago" />*/}

@@ -147,10 +147,10 @@ const PanelInformacion=(props)=>{
 
     <div className='row'>
         <div className='col-6'>
-           <p> {data[0]?.documentosValidados}/{data[0]?.totalDocumentos} Registros entregados </p> 
+           <p> {data[0]?.documentosValidados}/{data[0]?.totalDocumentos} Requisitos entregados </p> 
         </div>
          <div className='col-6'>
-             <p> 0/5 Registros entregados </p>  
+             <p> 0/5 Requisitos entregados </p>  
         </div>
         
         

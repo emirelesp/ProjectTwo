@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 export default function Expediente(props){
 
- const {seguimientoAspirante,tab}=props;
+ const {seguimientoAspirante,tab,setMensaje,mensajes}=props;
 
 
     const [dataDocumentos, setDataDocumentos] = useState({ });
@@ -24,6 +24,9 @@ export default function Expediente(props){
       const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
    
 
+      
+
+
     const mostrarDocumentos =useCallback( async() =>
     {
       setLoading(true);
@@ -31,6 +34,7 @@ export default function Expediente(props){
        const pagos = await getPagosAspirante(UsuarioLogin.idAspirante);
    
        const union=[...documentos,...pagos]
+
         setDataDocumentos(union);
         setLoading(false);
         //setVisiblePopupDocumentos(true);
@@ -49,7 +53,7 @@ export default function Expediente(props){
     useEffect(()=>{
      mostrarDocumentos();
 
-    },[]);
+    },[mensajes]);
 
 
 /*     useEffect(()=>{
@@ -91,7 +95,7 @@ export default function Expediente(props){
    
          <div className='row'>
 
-          <ListaDocumentos documentos={dataDocumentos} setDocumentos = {setDataDocumentos} direccionTab={dataDireccionTab}>
+          <ListaDocumentos documentos={dataDocumentos} setDocumentos = {setDataDocumentos} direccionTab={dataDireccionTab} setMensaje_={setMensaje}>
 
            </ListaDocumentos>
         {/*    <GridExpediente>

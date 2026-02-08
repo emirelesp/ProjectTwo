@@ -12,18 +12,20 @@ export function Escritorio(){
 
    const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
    const [seguimientoAspirante_,setSeguimientoAspirante] =useState(0);
-
    const [tabSectorMensaje,setTabSectorMensaje] =useState(0);
+
+   const [mensajes_, setMensaje_] = useState(Date.now());
+
 
    const getSeguimientoAspiranteCallback=  useCallback(async ()=>{
         const data= await getSeguimientoAspirante(UsuarioLogin.idAspirante);
-       
         setSeguimientoAspirante(data);
-   },[UsuarioLogin.idAspirante]);
+      
+   },[UsuarioLogin.idAspirante,mensajes_]);
 
    useEffect(()=>{     
      getSeguimientoAspiranteCallback();
-   },[])
+   },[mensajes_])
 
 
   return (
@@ -38,13 +40,13 @@ export function Escritorio(){
            onSelectionChanged={(e) => setTabSectorMensaje(e.component.option("selectedIndex"))}
           >
              <Item title="Inicio" >
-               <Inicio seguimientoAspirante={seguimientoAspirante_}    tab={setTabSectorMensaje}></Inicio>
+               <Inicio seguimientoAspirante={seguimientoAspirante_}    tab={setTabSectorMensaje} ></Inicio>
             </Item>
             <Item title="Mi expediente" >
-               <Expediente seguimientoAspirante={seguimientoAspirante_}  tab={setTabSectorMensaje}></Expediente>
+               <Expediente seguimientoAspirante={seguimientoAspirante_}  tab={setTabSectorMensaje}  setMensaje={setMensaje_} mensajes={mensajes_}></Expediente>
             </Item>
             <Item title="Mis aplicaciones" >
-                <Aplicaciones seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje}></Aplicaciones>
+                <Aplicaciones seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje} setMensaje={setMensaje_} mensajes={mensajes_}></Aplicaciones>
             </Item>
             <Item title="Mi certificación" >
                 <Certificacion seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje}></Certificacion>

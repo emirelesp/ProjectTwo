@@ -146,8 +146,8 @@ function ExamenPractica(props) {
 
 
       return(
-        <div key={i} className="option">
-        
+        <div key={i} >
+          <label className="option"  style={{display:"block", width:"100%", height:"100%", cursor:"pointer"}}>
             <input
               type="radio"
               name={`pregunta-${preguntaActual.idPregunta}`}
@@ -169,8 +169,8 @@ function ExamenPractica(props) {
               }}
               //checked={opcion.idRespuesta ==preguntaActual.idRespuesta }
             />
-            
-            <label for="opt-a">{opcion.respuesta}</label>
+            &nbsp;&nbsp;
+            {opcion.respuesta}</label>
         </div>
 
        
