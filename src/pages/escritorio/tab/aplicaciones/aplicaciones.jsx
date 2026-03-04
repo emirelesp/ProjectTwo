@@ -9,7 +9,7 @@ import { PopupAsignar } from './nuevo/PopupAsignar';
 
 export default function Aplicaciones(props){
 
-    const {seguimientoAspirante,tab,setMensaje,mensajes}=props;
+    const {setIsExamen,seguimientoAspirante,tab,setMensaje,mensajes}=props;
 
     const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
     const [isVisible_,setisVisible_]=useState(false);
@@ -57,10 +57,13 @@ export default function Aplicaciones(props){
   return (
     <React.Fragment>
 
+
+      <TokenRegistro setIsExamen={setIsExamen} isVisible={isVisible_} setisVisible={setisVisible_}   informacionGridClic={AreasDisciplinaresSeleccionada}/>
+      
+
       <PopupAsignar setRefresh={setMensaje} idAspirante={UsuarioLogin.idAspirante} dataSedes={Sede_} visiblePopupAsignarSede={visiblePopupAsignarSede_}  setVisiblePopupAsignarSede={setVisiblePopupAsignarSede_}></PopupAsignar>
 
-      <TokenRegistro isVisible={isVisible_} setisVisible={setisVisible_}   informacionGridClic={AreasDisciplinaresSeleccionada}/>
-      
+   
         <div style={{margin: "10px"}}>
             
              <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}></Titulo>

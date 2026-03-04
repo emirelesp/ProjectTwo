@@ -3,12 +3,12 @@ import '../css/BotonComenzar.css'
 import { FaUser } from "react-icons/fa";
 
 export function Temporizador(props ) {
+  
+
+   const {activo, setActivo,terminado,segundos, setTerminado,tiempoRestante,setTiempoRestante,irPantallaCompleta,salirPantallaCompleta, children}= props;
 
 
-   const {activo, setActivo,terminado, setTerminado,segundos,irPantallaCompleta,salirPantallaCompleta, children}= props;
 
-
-  const [tiempoRestante, setTiempoRestante] = useState(segundos);
 
  
 
@@ -30,35 +30,38 @@ export function Temporizador(props ) {
   }, [activo, tiempoRestante]);
 
   const iniciarTemporizador = () => {
-   
+
     if(terminado)return;
-    irPantallaCompleta();
-    setTiempoRestante(segundos);
-    setTerminado(false);
+    
+
+    //setTerminado(false);
     setActivo(true);
+    //setTiempoRestante(segundos);
+
+   // irPantallaCompleta();
   };
 
   // Calcular porcentaje de progreso
   const progreso = ((segundos+1 - tiempoRestante) / segundos) * 100;
 
   return (
-    <div style={{ width: "100%", margin: "20px auto", textAlign: "center" }}>
+    <div style={{ width: "100%", margin: "10px auto", textAlign: "center" }}>
       { activo?(
          <>
        <div className="row">
 
-        <div  className="col-4 col-md-3">
+       {/*  <div  className="col-4 col-md-3">
           { terminado ? (
               <p > Tiempo terminado</p>
             ) : (
               <p>Tiempo restante: {tiempoRestante} s</p>
             )
           }
-         </div>
-        <div  className="col-8 col-md-9">
+         </div> */}
+        <div  className="col-12 col-md-12">
                 <div
                   style={{
-                  height: "30px",
+                  height: "10px",
                   width: "100%",
                   backgroundColor: "#ddd",
                   borderRadius: "10px",

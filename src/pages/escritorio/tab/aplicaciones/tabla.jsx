@@ -106,7 +106,7 @@ const {data, setisVisible,setData}=props;
 }}
       
       />
-      <Column dataField="idOportunidad" caption="Oportunidad"    groupIndex={1} 
+      <Column dataField="idOportunidad" caption="Oportunidad"    groupIndex={0} 
           groupCellRender={(cellData) => {
             
                const data=cellData.value;
@@ -133,7 +133,11 @@ const {data, setisVisible,setData}=props;
       <Column dataField="areaDisciplinar" caption="Área Disciplinar" />
 
       {/* Fecha */}
-      <Column dataField="fechaExamen" caption="Fecha" dataType="date" groupIndex={0} />
+      <Column dataField="fechaExamen" caption="Fecha" dataType="date" groupIndex={1}
+      
+      
+        format="dd 'de' MMMM 'de' yyyy"
+      />
 
       {/* Estatus de pago 
       <Column dataField="estatusPago" caption="Estatus de pago" />*/}

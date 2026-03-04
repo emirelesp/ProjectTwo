@@ -24,7 +24,7 @@ const TokenRegistro = (props) => {
 
   const[validar,setValidar]=useState(false);
 
-  const {isVisible,setisVisible,informacionGridClic}=props;
+  const {setIsExamen,isVisible,setisVisible,informacionGridClic}=props;
 
   const formData = useRef({ Token: '' });
 
@@ -96,12 +96,13 @@ const onSubmit = useCallback(async (e) => {
           setisVisible(false);
           setMensaje("");
         }}
-        title="Ingresar token"
+        title={validar?"Examen":"Ingresar token"}
         width="100%"
         maxWidth={"400px"}
-        height="auto"
+        height={validar?"":"auto"}
         showCloseButton={true}
         dragEnabled={true}
+        fullScreen={validar}
       >
    
 
@@ -109,8 +110,14 @@ const onSubmit = useCallback(async (e) => {
         
              
          {validar?(
-            <Examen datosArea={informacionGridClic}   preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={setPreguntaActualTotales_}/>
-           ):(
+            <Examen setIsExamen={setIsExamen} datosArea={informacionGridClic} preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={setPreguntaActualTotales_}/>
+           
+          
+          
+          
+          
+          
+          ):(
  
             <>
               <div style={{color:"red"}}>{mensaje}</div>
@@ -132,7 +139,7 @@ const onSubmit = useCallback(async (e) => {
                               <ButtonItem  colSpan={12}>
                       <ButtonOptions
                         width={'100%'}
-                        type={'default'}
+                        type={'success'}
                         useSubmitBehavior={true}
                       >
                         <span className="dx-button-text">

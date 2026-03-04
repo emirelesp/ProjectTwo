@@ -213,7 +213,7 @@ const {setTabSectorMensaje_,estatus_}=props;
   
   return(
    <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
-       <span style={{color:"#000000"}}>¡Tu cita para evaluación está agendada el proximo </span><span style={{color:"#1e5b4f"}}>{estatus_.text}!</span>
+       <span style={{color:"#000000"}}>¡Tu cita para evaluación está agendada el próximo </span><span style={{color:"#1e5b4f"}}>{estatus_.text}!</span>
       <div style={{color:"#000000"}}>
       Para continuar preparándote, te recomendamos ejercicios de prueba en la sección <span onClick={()=>setTabSectorMensaje_(4)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}

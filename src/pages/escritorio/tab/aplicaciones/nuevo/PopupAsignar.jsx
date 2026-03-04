@@ -125,9 +125,11 @@ return(
                         validationRules={[
                             {type:'required', message:'La oportunidad es obligatoria'}]}>
                     </Item>
-                    <Item dataField="fechaAplicacion" editorType='dxSelectBox'  
+                    <Item dataField="fechaAplicacion" editorType='dxSelectBox'  label={{ text: "Periodo" }}
                         editorOptions={{items:dataEtapas, valueExpr:"value", displayExpr:"text", 
-                                        searchEnabled:true, onValueChanged:cambioConvocatoria, showClearButton:true}}
+                                        searchEnabled:true, onValueChanged:cambioConvocatoria, showClearButton:true,
+                                        
+                                    }}
                         validationRules={[
                             {type:'required', message:'El periodo de aplicación es obligatorio'}]}>
                     </Item>

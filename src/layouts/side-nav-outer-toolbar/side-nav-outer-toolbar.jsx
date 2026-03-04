@@ -79,7 +79,7 @@ export default function SideNavOuterToolbar({ title, children }) {
         opened={menuStatus === MenuStatus.Closed ? false : true}
         template={'menu'}
       >
-        <div className={'container'}>
+        <div id='fullPantallaExamen' className={'container'} style={{backgroundColor:"white"}}>
           <ScrollView ref={scrollViewRef} className={'with-footer'}>
             <div 
               //className={'content'}
