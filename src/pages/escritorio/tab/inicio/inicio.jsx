@@ -88,39 +88,39 @@ const PanelInformacion=(props)=>{
     return(
     <>
       <div className='row'>
-        <div className='col-4'>
-          <p style={{ fontSize: "12px",fontWeight:500}}>
+       {/* <div className='col-4'>
+           <p style={{ fontSize: "12px",fontWeight:500}}>
             Límite de certificación
-            </p> 
-        </div>
+            </p>  
+        </div>*/}
         <div className='col-4'>
            <p style={{ fontSize: "12px",fontWeight:500}}>
             # de Control
             </p>
         </div>
         <div className='col-4'>
-            <p style={{ fontSize: "12px",fontWeight:500}}>
+           {/*  <p style={{ fontSize: "12px",fontWeight:500}}>
             Fecha certificación nivel secundaria
-            </p> 
+            </p>  */}
         </div>
        </div>
 
 
        <div className='row'>
-        <div className='col-4'>
-            <p style={{ fontSize: "14px",fontWeight:700}}>
+       {/* <div className='col-4'>
+             <p style={{ fontSize: "14px",fontWeight:700}}>
               19 de Marzo 2027
-            </p> 
-        </div>
+            </p>  
+        </div>*/}
         <div className='col-4'>
               <p style={{ fontSize: "14px",fontWeight:700}}>
               {DatoGeneral_.numeroControl}
             </p>
         </div>
         <div className='col-4'>
-               <p style={{ fontSize: "14px",fontWeight:700}}>
+             {/*   <p style={{ fontSize: "14px",fontWeight:700}}>
               16 de Agosto 2013
-            </p> 
+            </p>  */}
         </div>
        </div>
        <div className='row'>
@@ -137,11 +137,11 @@ const PanelInformacion=(props)=>{
               Documentos
             </p>
         </div>
-         <div className='col-6'>
-           <p style={{ fontSize: "14px",fontWeight:700}}>
+         {/*  <div className='col-6'>
+          <p style={{ fontSize: "14px",fontWeight:700}}>
               Requisitos para certificar
-            </p> 
-        </div>
+            </p>  
+        </div>*/}
       </div>
 
 
@@ -149,9 +149,9 @@ const PanelInformacion=(props)=>{
         <div className='col-6'>
            <p> {data[0]?.documentosValidados}/{data[0]?.totalDocumentos} Requisitos entregados </p> 
         </div>
-         <div className='col-6'>
-             <p> 0/5 Requisitos entregados </p>  
-        </div>
+          {/* <div className='col-6'>
+            <p> 0/5 Requisitos entregados </p>  
+        </div> */}
         
         
       </div>
@@ -164,14 +164,14 @@ const PanelInformacion=(props)=>{
              </div>
            </div>
         </div>
-          <div className='col-6'>
-            <div className="progress" style={{ height: '30px' }}>
+          {/*<div className='col-6'>
+             <div className="progress" style={{ height: '30px' }}>
               <div className="progress-bar progress-bar-striped progress-bar-animated bg-info" 
                  role="progressbar" style={{ width: `${0}%` }} aria-valuenow={8} aria-valuemin="0" aria-valuemax="5" >
                    0/5
              </div> 
-           </div>
-        </div>
+           </div> 
+        </div>*/}
         
       </div>
 
@@ -188,10 +188,10 @@ const PanelInformacion=(props)=>{
                 {data[0]?.documentosValidados} completados
             </div>  
         </div>
-         <div className='col-6'>
-           <div className='p-2'></div>
-             <p style={{ fontSize: "10px",fontWeight:500}}> 0  Completados </p> 
-        </div>
+        {/* <div className='col-6'>
+            <div className='p-2'></div>
+             <p style={{ fontSize: "10px",fontWeight:500}}> 0  Completados </p>  
+        </div>*/}
         
         
       </div>
@@ -257,10 +257,10 @@ export default function Inicio(props){
   
    <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}></Titulo>
      <div className='row'>
-        <div className='col-4'>
+        <div className='col-7'>
             <Grafica data={informacionPanelServicio}></Grafica>
         </div>
-         <div className='col-8'>
+         <div className='col-5'>
          
         
         

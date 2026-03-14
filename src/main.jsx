@@ -7,6 +7,6 @@ import Licencia from '../lic.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
       <Licencia></Licencia>
-    <App />
+        <App />
   </StrictMode>,
 )

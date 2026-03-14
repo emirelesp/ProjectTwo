@@ -176,7 +176,7 @@ const {setTabSectorMensaje_}=props;
    <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
        <span style={{color:"#000000"}}>¡Gran trabajo! Los documentos en tu expediente han sido validados.</span>
       <div style={{color:"#000000"}}>
-      Para continuar: descarga el <a href=''>comprobante de pago</a> en la sección <span onClick={()=>setTabSectorMensaje_(1)}
+      Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/blanco.pdf'  target="_blank">comprobante de pago</a> en la sección <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
       >Mi expediente.</span> Realiza el pago y súbelo para validación.
       </div>
@@ -215,7 +215,7 @@ const {setTabSectorMensaje_,estatus_}=props;
    <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
        <span style={{color:"#000000"}}>¡Tu cita para evaluación está agendada el próximo </span><span style={{color:"#1e5b4f"}}>{estatus_.text}!</span>
       <div style={{color:"#000000"}}>
-      Para continuar preparándote, te recomendamos ejercicios de prueba en la sección <span onClick={()=>setTabSectorMensaje_(4)}
+      Para continuar preparándote, te recomendamos ejercicios de prueba en la sección <span onClick={()=>setTabSectorMensaje_(2)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
       >Mi práctica.</span>
       </div>
@@ -294,7 +294,7 @@ const {setTabSectorMensaje_}=props;
    <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
        <span style={{color:"#000000"}}>¡Exelente, continua así! El pago de derechos ha sido validado.</span>
       <div style={{color:"#000000"}}>
-      Para continuar: <span style={{color:"#1e5b4f"}}>agenda tu cita para evaluación</span> en la sección <span onClick={()=>setTabSectorMensaje_(2)}
+      Para continuar: <span style={{color:"#1e5b4f"}}>agenda tu cita para evaluación</span> en la sección <span onClick={()=>setTabSectorMensaje_(3)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
       >Mis aplicaciones.</span> 
       </div>
@@ -314,7 +314,7 @@ export const Titulo=(props)=>{
 
     let array={semaforo:[],Mensaje:MensajeComponent};
 
-
+ 
        switch (estatus.value) {
          case 1:
           array= {semaforo:[{element:data[0],idTipo:1},{element:dataNormal[0],idTipo:2}],

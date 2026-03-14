@@ -30,7 +30,7 @@ export async function getAreasDisciplinaresPrueba(_idAspirante)
 
 export async function getPreguntasExamenPrueba (_idAspiranteExamenPrueba)
 {
-  let datos = [];
+  let preguntas = [];
 
   if(_idAspiranteExamenPrueba != undefined)
   {
@@ -44,14 +44,51 @@ export async function getPreguntasExamenPrueba (_idAspiranteExamenPrueba)
         body: JSON.stringify(unicoV)
       });
       
-      datos = await respuesta.json();
+      preguntas = await respuesta.json();
+
+
+     preguntas= preguntas.map((object,index)=>{
+
+     
+      let ultima=false;
+       
+      (preguntas.length==index+1)?ultima=true:ultima=false;
+
+
+              return {...object,
+                      ExamenModulo:"",
+                      areaDisciplinar: "",
+                      isPortada:0,
+                      ultima:ultima
+
+
+              };
+
+        });
+
+        preguntas=[{  idPregunta:-1,respuestas:[],
+                      ExamenModulo:"",
+                      areaDisciplinar: "",
+                      isPortada:1
+
+        },...preguntas]; 
+    
+     
+
+       //if(preguntas[0].idDetalleAspiranteExamen!=-1)datosModulo=[...datosModulo,...preguntas];
+   
+
+
+
+
+
 
     }
     catch(error){
         console.error("Error al crear el post:", error);
     }
   }
-    return datos;
+    return preguntas;
 }
 
 

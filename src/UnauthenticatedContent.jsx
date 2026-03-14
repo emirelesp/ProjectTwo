@@ -20,7 +20,7 @@ const Plantilla =({titulo,children})=>{
         
         <div className='row p-1' style={{backgroundColor:"white"}}>
               <div className='col-2 text-center'>
-                  <img src='/logos/LOGO CONALEP-02.svg' height="60px" />
+                  <img src='/logos/LOGO CONALEP-02.png' height="60px" />
               </div>
               <div className='col-2'>
                     <img src='/logos/Acuerdo.jpeg' height="60px" />
@@ -98,10 +98,14 @@ export default function UnauthenticatedContent() {
 <div className='container'>
 
          <div className='p-4'></div>
-          <div className='row text-center'>
-       
-                 <img src='/logos/LOGO CONALEP-01.svg' height="180px" />
-            
+          <div className='row'>
+               <div className='col-6 d-flex justify-content-end align-items-center'>
+                 {/* <img  src='/logos/LOGO CONALEP-01.svg' height="180px" /> */}
+                 <img  src='/logos/logo_horizontal.png' height="100px" width="373px"  />
+              </div> 
+                <div className='col-6'>
+                 <img  src='/logos/Logo Miprepa286.png' height="180px" width="273px" />
+                </div>
           </div>
           <div className='row text-center titularesLinea' style={{color:"white"}}>
             

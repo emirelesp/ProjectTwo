@@ -38,7 +38,7 @@ export function Temporizador(props ) {
     setActivo(true);
     //setTiempoRestante(segundos);
 
-   // irPantallaCompleta();
+   //irPantallaCompleta();
   };
 
   // Calcular porcentaje de progreso

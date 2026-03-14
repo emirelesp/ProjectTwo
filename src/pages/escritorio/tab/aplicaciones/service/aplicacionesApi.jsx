@@ -140,10 +140,19 @@ for (let i = 0; i < _idAspiranteExamenModulo.length; i++) {
 
    preguntas= preguntas.map((object,index)=>{
 
+  
+        
+      let ultima=false;
+       
+      (preguntas.length==index+1)?ultima=true:ultima=false;
+
+
               return {...object,
                       ExamenModulo:_idAspiranteExamenModulo[i],
                       areaDisciplinar: _idAspiranteExamenModulo[i].areaDisciplinar,
-                      isPortada:0
+                      isPortada:0,
+                      ultima:ultima
+
 
               };
 
@@ -167,21 +176,21 @@ for (let i = 0; i < _idAspiranteExamenModulo.length; i++) {
 
 
  //await _idAspiranteExamenModulo.map(async (valor,index)=>{});
-
+     // debugger;
  
     return datosModulo;
 }
 
 
-export async function setRegistrarRespuesta(_idDetalleAspiranteExamen,_idRespuesta)
+export async function setRegistrarRespuesta(_idDetalleAspiranteExamen,_idRespuesta,_ultima)
 {
   let datos = [];
 
   if(_idDetalleAspiranteExamen != undefined)
   {
-
+    ///debugger;
     const url = apiExamen+'/api/AspiranteExamen/RegistraRespuesta';
-    const unicoV = { id:_idDetalleAspiranteExamen, idRespuesta:_idRespuesta };
+    const unicoV = { id:_idDetalleAspiranteExamen, idRespuesta:_idRespuesta,ultima:_ultima };
     
     try{
       const respuesta = await fetch(url, {

@@ -36,7 +36,7 @@ const MensajeConfirmacion = (props) => {
       </div>
       <div  className="p-3 titularesNegro" style={{textAlign: "justify"}}>
         
-           Además, te sugerimos agregar la cuenta cuentadedondesaleelcorreo@dominio.com a tu lista de contactos, para garantizar que nuestros mensajes de correo lleguen a tu bandeja de entrada principal.
+           Además, te sugerimos agregar la cuenta smtp.desarrollo@redgto.org a tu lista de contactos, para garantizar que nuestros mensajes de correo lleguen a tu bandeja de entrada principal.
         
       </div>
 

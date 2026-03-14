@@ -20,7 +20,7 @@ function Pregunta(props) {
 
    const setRegistrarRespuestaCallback=useCallback(async ()=>{
   setLoading(true);
-    const result=await setRegistrarRespuesta(preguntaActual.idDetalleAspiranteExamen,preguntaActual.idRespuesta);  
+    const result=await setRegistrarRespuesta(preguntaActual.idDetalleAspiranteExamen,preguntaActual.idRespuesta, preguntaActual.ultima);  
     
    setLoading(false);
   

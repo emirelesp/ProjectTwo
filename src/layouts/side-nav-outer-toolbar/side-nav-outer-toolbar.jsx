@@ -9,6 +9,10 @@ import { Template } from 'devextreme-react/core/template';
 import { useMenuPatch } from '../../utils/patches';
 import Perfil from './perfil/perfil'
 
+/////////////////////////////////////////////////////////////////////////////
+//////////////////////////Aqui esta la capa que se genera como pantalla completa
+///llamada fullPantallaExamen
+
 
 export default function SideNavOuterToolbar({ title, children }) {
   const scrollViewRef = useRef(null);

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Titulo } from '../../componentes/titulo';
 import ListaDocumentos from './ListaDocumentos';
-import { getDocumentosAspirante, getPagosAspirante } from './service/expedienteApi';
+import { getDocumento, getDocumentosAspirante, getPagosAspirante } from './service/expedienteApi';
 import getSizeVentana from '../../componentes/getSizeVentana';
 import { LoadPanel } from 'devextreme-react';
 import { useSelector } from 'react-redux';
@@ -17,11 +17,13 @@ export default function Expediente(props){
 
     const [dataDocumentos, setDataDocumentos] = useState({ });
    // const { width, height } = getSizeVentana();
-       const [dataDireccionTab, setDataDireccionTab] = useState("left");//top
+    const [dataDireccionTab, setDataDireccionTab] = useState("left");//top
+    const [loading, setLoading] = useState(false);//top
 
-      const [loading, setLoading] = useState(false);//top
 
-      const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
+    const [indexDocumento,setIndexDocumento]=useState(0);
+
+    const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
    
 
       
@@ -33,13 +35,19 @@ export default function Expediente(props){
         const documentos = await getDocumentosAspirante(UsuarioLogin.idAspirante);
        const pagos = await getPagosAspirante(UsuarioLogin.idAspirante);
    
-       const union=[...documentos,...pagos]
-
+       const union=[...documentos,...pagos];
+       let Aspirantedocumento = union.find(u => u.idAspiranteDocumento ===indexDocumento);
+      if (Aspirantedocumento) {
+          const docsrc= await getDocumento(indexDocumento);
+          Aspirantedocumento.documentoStr = docsrc[0].text;
+      }
+     
         setDataDocumentos(union);
         setLoading(false);
+    
         //setVisiblePopupDocumentos(true);
 
-    },[]);
+    },[indexDocumento]);
 
     const mostrarPagos =useCallback( async(aspirante) =>
     {
@@ -95,8 +103,9 @@ export default function Expediente(props){
    
          <div className='row'>
 
-          <ListaDocumentos documentos={dataDocumentos} setDocumentos = {setDataDocumentos} direccionTab={dataDireccionTab} setMensaje_={setMensaje}>
-
+          <ListaDocumentos documentos={dataDocumentos} setDocumentos = {setDataDocumentos} 
+          direccionTab={dataDireccionTab} setMensaje_={setMensaje}
+          indexDocumento={indexDocumento} setIndexDocumento={setIndexDocumento}>
            </ListaDocumentos>
         {/*    <GridExpediente>
            </GridExpediente> */}

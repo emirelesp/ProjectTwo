@@ -32,8 +32,22 @@ export default function Header({ menuToggleEnabled, title, toggleMenu }) {
               visible={true}
               location="before" 
               component={() => (
-                <div className="toolbar-item" style={{width:"140px"}}>
-                  <img src="/logos/LOGO CONALEP-02.svg" height={"60px"} alt="menu"/>
+                <div className="toolbar-item" style={{width:"90px"}}>
+                  <img src="/logos/LOGO CONALEP-02.png" height={"60px"} alt="menu"/>
+                  
+                </div>
+              )}
+        
+        />
+
+
+          <Item
+              visible={true}
+              location="before" 
+              component={() => (
+                <div className="toolbar-item d-flex justify-content-start align-items-center" style={{width:"140px"}}>
+             
+                   <img src="/logos/Logo Miprepa286_c.png" height={"60px"} alt="menu"/>
                 </div>
               )}
         

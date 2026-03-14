@@ -65,15 +65,16 @@ export function Escritorio(){
                     <Item title="Mi expediente" >
                       <Expediente seguimientoAspirante={seguimientoAspirante_}  tab={setTabSectorMensaje}  setMensaje={setMensaje_} mensajes={mensajes_}></Expediente>
                     </Item>
-                    <Item title="Mis aplicaciones" >
-                        <Aplicaciones setIsExamen={setIsExamen} seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje} setMensaje={setMensaje_} mensajes={mensajes_}></Aplicaciones>
-                    </Item>
-                    <Item title="Mi certificación" >
-                        <Certificacion seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje}></Certificacion>
-                    </Item>
                     <Item title="Mi práctica" >
                         <Practica seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje}></Practica>
                     </Item>
+                    <Item title="Mis aplicaciones" >
+                        <Aplicaciones setIsExamen={setIsExamen} seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje} setMensaje={setMensaje_} mensajes={mensajes_}></Aplicaciones>
+                    </Item>
+                     {/*<Item title="Mi certificación" >
+                        <Certificacion seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje}></Certificacion>
+                    </Item> */}
+                  
                </>
               ):(
 

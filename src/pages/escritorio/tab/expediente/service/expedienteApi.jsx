@@ -1,6 +1,37 @@
 const apiExamen=import.meta.env. VITE_WebApi_URL;
 
 
+
+
+export async function getDocumento(_idAspiranteDocumento)
+{
+  let datos = [];
+
+  if(_idAspiranteDocumento != undefined)
+  {
+    const url = apiExamen+'/api/AspiranteDocumento/ConsultaDocumento';
+    const unicoV = { id:_idAspiranteDocumento, idStr:'' };
+    
+    try{
+      const respuesta = await fetch(url, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(unicoV)
+      });
+      
+      datos = await respuesta.json();
+
+    }
+    catch(error){
+        console.error("Error al crear el post:", error);
+    }
+  }
+
+  
+    return datos;
+}
+
+
 export async function getDocumentosAspirante(_idAspirante)
 {
   let datos = [];

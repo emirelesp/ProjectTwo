@@ -32,7 +32,7 @@ export function Temporizador(props ) {
   const iniciarTemporizador = () => {
 
     if(terminado)return;
-    irPantallaCompleta();
+   // irPantallaCompleta();
     setTiempoRestante(segundos);
     setTerminado(false);
     setActivo(true);

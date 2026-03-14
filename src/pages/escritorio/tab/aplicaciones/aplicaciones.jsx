@@ -21,10 +21,58 @@ export default function Aplicaciones(props){
     const[Sede_, setSede_]=useState([{text:'',value:0}]);
 
     //const[Refresh, setRefresh_]=useState(Date.now());
+/*{
+    "idAspiranteExamen": 33,
+    "sede": "Celaya",
+    "fechaExamen": "2026-03-09T00:00:00",
+    "areaDisciplinar": "Lengua y Comunicación",
+    "icon": "pdffile",
+    "title": "Lengua y Comunicación",
+    "idOportunidad": 1,
+    "bloque": 1,
+    "minutos": 10
+}*/ 
+
+
+  const formatearFechatipoSQl = (fecha) => {
+     
+        const dia = String(fecha.getDate()).padStart(2, "0");
+        const mes = String(fecha.getMonth() + 1).padStart(2, "0");
+        const anio = fecha.getFullYear();
+
+       // console.log("Fecha Formateada: ");
+        return  `${anio}-${mes}-${dia}T00:00:00`;;
+    }
+
 
  
   const AreasDisciplinaresCallback=useCallback(async ()=>{
-     const data= await getConsultaAreasDisciplinares(UsuarioLogin.idAspirante);
+     let data= await getConsultaAreasDisciplinares(UsuarioLogin.idAspirante);
+
+     ///voy verificar si es el día correcto
+     const fecha=formatearFechatipoSQl(new Date());
+
+     ///debugger;
+       if(data?.length!=0){
+
+          if(data[0].fechaExamen!=fecha){ ///validacion de la aplicación con fecha y el token
+
+
+
+          }else{
+            data=[  {...data[0],...{
+                      idAspiranteExamen: 0,
+                      areaDisciplinar: "",
+                      idOportunidad: 0,
+                      bloque: -1,
+                      sede:null
+                    }
+                  }
+            ];
+          }
+       }
+     
+     
      setAreasDisciplinares(data);
   },[mensajes]);
 
