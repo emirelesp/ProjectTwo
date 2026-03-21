@@ -81,14 +81,25 @@ export default function Header({ menuToggleEnabled, title, toggleMenu }) {
                 </div>
               )}
         />
-       {/*  <Item
-          location={'after'}
-        >
-          <ThemeSwitcher />
-        </Item> */}
-        <Item location='after' locateInMenu='auto' menuItemTemplate='userPanelTemplate'>
-          <UserPanel menuMode='context' />
-        </Item>
+
+
+
+
+      
+        <Item location='after' locateInMenu='auto' menuItemTemplate='userPanelTemplate'
+        
+           component={()=>(
+           <>
+              
+                <UserPanel menuMode='context' />
+             </>
+           )}
+        
+        />
+         
+  
+
+
         <Template name='userPanelTemplate'>
           <UserPanel menuMode='list' />
         </Template>

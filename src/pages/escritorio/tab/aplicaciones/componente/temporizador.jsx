@@ -5,7 +5,12 @@ import { FaUser } from "react-icons/fa";
 export function Temporizador(props ) {
   
 
-   const {activo, setActivo,terminado,segundos, setTerminado,tiempoRestante,setTiempoRestante,irPantallaCompleta,salirPantallaCompleta, children}= props;
+   const {activo, setActivo,terminado,segundos, setTerminado,tiempoRestante,setTiempoRestante,irPantallaCompleta,
+    salirPantallaCompleta, 
+    setisVisible,
+    setRefresh
+    
+    ,children}= props;
 
 
 
@@ -31,7 +36,17 @@ export function Temporizador(props ) {
 
   const iniciarTemporizador = () => {
 
-    if(terminado)return;
+    if(terminado){
+      
+      setisVisible(false);
+      setRefresh(new Date())
+      // aqui va cierre del popup
+     ///refresh
+      return;
+
+
+
+    }
     
 
     //setTerminado(false);
@@ -89,10 +104,15 @@ export function Temporizador(props ) {
          </>
 
       ):(
+         <div className="row" style={{background:"rgb(30, 91, 79)"}}>
 
+         <div className="col-12 col-sm-12  col-md-12 col-lg-9 col-xl-9 col-xxl-9">
 
-           <center>
-            <button className="boton-comenzar" onClick={()=>{iniciarTemporizador();}}> 
+            <img src="/examen/Examen.jpeg" width="90%"></img>
+
+         </div>
+         <div className="col-12 col-sm-12  col-md-12 col-lg-3 col-xl-3 col-xxl-3 d-flex justify-content-center align-items-center">
+            <button className="boton-comenzar" onClick={()=>{iniciarTemporizador();}} style={{marginBottom:"50px"}}> 
               <FaUser className="icono" /> 
               <span>
                 {terminado?(
@@ -101,8 +121,10 @@ export function Temporizador(props ) {
                 ):(<>Comenzar</>)
                }</span> 
             </button>
-        </center>
+          
+        </div>
 
+      </div>
       )
       }
     </div>

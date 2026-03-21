@@ -17,7 +17,7 @@ const MensajeConfirmacion = (props) => {
       <Popup
         visible={isVisible}
         onHiding={() => setisVisible(false)}
-        title="Recuperar Contraseña"
+        title="Recuperar contraseña"
         width="100%"
         maxWidth={"400px"}
         height="auto"
@@ -36,7 +36,7 @@ const MensajeConfirmacion = (props) => {
       </div>
       <div  className="p-3 titularesNegro" style={{textAlign: "justify"}}>
         
-           Además, te sugerimos agregar la cuenta cuentadedondesaleelcorreo@dominio.com a tu lista de contactos, para garantizar que nuestros mensajes de correo lleguen a tu bandeja de entrada principal.
+           Además, te sugerimos agregar la cuenta smtp.desarrollo@redgto.org a tu lista de contactos, para garantizar que nuestros mensajes de correo lleguen a tu bandeja de entrada principal.
         
       </div>
 
@@ -44,8 +44,7 @@ const MensajeConfirmacion = (props) => {
                         <button className='btn' style={{ fontFamily:"'Lato', sans-serif", fontSize:"16px",backgroundColor:"#a57f2c", color:"white", borderRadius:"30px", padding:"10px",width:"100%"}}
                            onClick={()=>{
                               setisVisible(false);
-                              //navigate("/login");
-                              
+                              navigate("/login");
                            }}
                         >
 

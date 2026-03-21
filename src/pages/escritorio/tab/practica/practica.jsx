@@ -5,11 +5,16 @@ import { TabPanel } from 'devextreme-react';
 import { getAreasDisciplinaresPrueba } from './Service/practicaApi';
 import { useRef } from "react";
 import Popup from "devextreme-react/popup";
+import { useSelector } from 'react-redux';
 
 
 
-export default function Practica(){
+export default function Practica(props){
 
+
+
+const {seguimientoAspirante}=props;
+ const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
 
  const  [AreaDisciplinar,setAreaDisciplinar ]=useState([]);
 
@@ -19,8 +24,8 @@ export default function Practica(){
 
 
  const gettab=useCallback(async ()=>{
-
-  const result=await getAreasDisciplinaresPrueba(2);
+    
+  const result=await getAreasDisciplinaresPrueba(UsuarioLogin.idAspirante);
   setAreaDisciplinar(result);
   
 
@@ -110,6 +115,9 @@ const ConfirmarSalida = (props) => {
 
    const mostrarPreguntas= ({data}) => {
         
+
+debugger;
+
       const [activo_, setActivo_] = useState(false);
       const [terminado_, setTerminado_] = useState(false);
 
@@ -155,11 +163,11 @@ const ConfirmarSalida = (props) => {
 
         return(
           <>
-              <ConfirmarSalida isVisible={isVisible_} setisVisible={setisVisible_} 
+         {/*      <ConfirmarSalida isVisible={isVisible_} setisVisible={setisVisible_} 
                  irPantallaCompleta={irFullScreen} salirPantallaCompleta={salirFullScreen}
                  activo={activo_} setActivo={setActivo_} 
                 terminado={terminado_} setTerminado={setTerminado_} 
-                 ></ConfirmarSalida>
+                 ></ConfirmarSalida> */}
 
 
             <div ref={divRef} style={{background:"white"}}>
@@ -169,7 +177,10 @@ const ConfirmarSalida = (props) => {
               <Temporizador segundos={100} activo={activo_} setActivo={setActivo_} 
               terminado={terminado_} setTerminado={setTerminado_} irPantallaCompleta={irFullScreen} salirPantallaCompleta={salirFullScreen} ></Temporizador>
               <ExamenPractica informacion={data} activo={activo_} setActivo={setActivo_} 
-              terminado={terminado_} setTerminado={setTerminado_} irPantallaCompleta={irFullScreen} salirPantallaCompleta={salirFullScreen}></ExamenPractica>
+              terminado={terminado_} setTerminado={setTerminado_} irPantallaCompleta={irFullScreen} salirPantallaCompleta={salirFullScreen}
+              areaDisciplinar={data.areaDisciplinar}
+              
+              ></ExamenPractica>
            
             </div>
             </>

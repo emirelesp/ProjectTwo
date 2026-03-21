@@ -23,7 +23,7 @@ const Plantilla =({titulo,children})=>{
                   <img src='/logos/LOGO CONALEP-02.png' height="60px" />
               </div>
               <div className='col-2'>
-                    <img src='/logos/Acuerdo.jpeg' height="60px" />
+                    <img src='/logos/Acuerdo.png' height="70px" />
               </div>
 
         </div>

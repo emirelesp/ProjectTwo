@@ -9,7 +9,7 @@ function ExamenPractica(props) {
 
   const [indice, setIndice] = useState(0);
   
-  const {informacion,activo, setActivo,terminado, setTerminado}=props;
+  const {informacion,activo, setActivo,terminado, setTerminado,areaDisciplinar}=props;
 
   const [preguntaActualTotales,setPreguntaActualTotales]=useState([]);
   const [preguntaActual,setPreguntaActual]=useState({idPregunta:-1,respuestas:[]});
@@ -65,10 +65,9 @@ function ExamenPractica(props) {
 
   const siguientePregunta = () => {
 
-   
      if(preguntaActual.isPortada==0){
       const seleccionado = document.querySelector('input[name="pregunta-'+preguntaActual.idPregunta+'"]:checked').value;
-      setRegistrarRespuestaCallback();
+      setRegistrarRespuestaPruebaCallback();
      }
 
 
@@ -165,13 +164,12 @@ function ExamenPractica(props) {
             />
    
 
-{preguntaActual?.isPortada==0? (activo?(
+{preguntaActual?.isPortada==0? (activo?  (
    <article className="cardPregunta" role="group" aria-labelledby="q1-title">
-<div  className="d-flex justify-content-center align-items-center"
- style={{background: "rgb(25, 135, 84)", height: "100%", margin: "5px", padding: "5px"}}>
-
-     <div className="titularesLineaBlancaPerfil" style={{color:"#ffffff"}}> {preguntaActual?.areaDisciplinar} </div>
-     </div>
+        <div  className="d-flex justify-content-center align-items-center"
+              style={{background: "rgb(25, 135, 84)", height: "100%", margin: "5px", padding: "5px"}}>
+            <div className="titularesLineaBlancaPerfil" style={{color:"#ffffff"}}> {preguntaActual?.areaDisciplinar} </div>
+       </div>
 
 
     <div className="content_2 titularesLinea">
@@ -321,8 +319,10 @@ function ExamenPractica(props) {
     "height":"300px",
     "background":"linear-gradient(to right, rgb(2, 163, 157), rgb(2, 169, 183), rgb(2, 195, 164), rgb(0, 47, 42))"
     }}>
+
+  {/*aqui va la portada*/}
   
-     <span className=""> {preguntaActual?.areaDisciplinar} </span>
+     <span className=""> {areaDisciplinar} </span>
 
 </div>
 

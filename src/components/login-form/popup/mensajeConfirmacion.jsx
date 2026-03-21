@@ -17,7 +17,7 @@ const MensajeConfirmacion = (props) => {
       <Popup
         visible={isVisible}
         onHiding={() => setisVisible(false)}
-        title="Activar Cuenta"
+        title="Activar cuenta"
         width="100%"
         maxWidth={"400px"}
         height="auto"

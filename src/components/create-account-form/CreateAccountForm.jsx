@@ -231,7 +231,7 @@ export default function CreateAccountForm() {
           />
           <Label visible={true}  component={()=>(
 
-                      <span id="RegistroUsuario" className='letrasNegro' >Confirmar Contraseña:</span>
+                      <span id="RegistroUsuario" className='letrasNegro' >Confirmar contraseña:</span>
 
                  )}  />
         </Item>
@@ -276,7 +276,7 @@ const telefonoEditorOptions = {mask: "(000) 000-0000",maskRules: { "0": /[0-9]/ 
 
 const emailEditorOptions = {maxLength: 60, stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
 const passwordEditorOptions = {maxLength: 20, stylingMode: 'filled', placeholder: 'Password', mode: 'password' };
-const confirmedPasswordEditorOptions = {maxLength: 20, stylingMode: 'filled', placeholder: 'Confirmar Password', mode: 'password' };
+const confirmedPasswordEditorOptions = {maxLength: 20, stylingMode: 'filled', placeholder: 'Confirmar password', mode: 'password' };
 
 
 

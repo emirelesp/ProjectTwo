@@ -47,8 +47,8 @@ export default function ResetPasswordForm() {
     setLoading(false);
 
     if (result.isOk) {
-      
-      notify(result.Message, 'success', 2500);
+   
+      notify(result.message, 'success', 5000);
       navigate('/login');
     } else {
       notify(result.message, 'error', 2500);
@@ -190,7 +190,7 @@ export default function ResetPasswordForm() {
           />
           <Label visible={true}  component={()=>(
 
-                      <span id="RegistroUsuario" className='letrasNegro' >Confirmar Contraseña:</span>
+                      <span id="RegistroUsuario" className='letrasNegro' >Confirmar contraseña:</span>
 
                  )}  />
         </Item>
@@ -228,6 +228,6 @@ export default function ResetPasswordForm() {
 const emailEditorOptions = {maxLength: 100, stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
 //const submitButtonAttributes = { class: 'submit-button' };
 const passwordEditorOptions = {maxLength: 20 ,stylingMode: 'filled', placeholder: 'Password', mode: 'password' };
-const confirmedPasswordEditorOptions = {maxLength: 20, stylingMode: 'filled', placeholder: 'Confirmar Password', mode: 'password' };
+const confirmedPasswordEditorOptions = {maxLength: 20, stylingMode: 'filled', placeholder: 'Confirmar password', mode: 'password' };
 
 

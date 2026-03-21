@@ -24,7 +24,11 @@ const TokenRegistro = (props) => {
 
   const[validar,setValidar]=useState(false);
 
-  const {setIsExamen,isVisible,setisVisible,informacionGridClic}=props;
+  const {setIsExamen,isVisible,setisVisible,informacionGridClic,
+
+      setRefresh
+
+  }=props;
 
   const formData = useRef({ Token: '' });
 
@@ -63,13 +67,13 @@ const onSubmit = useCallback(async (e) => {
      const result=  await getPreguntasExamenModulo(informacionGridClic, data.Token); 
 
        const total=  result.length;
-      
+     
        if(total>0){
          setValidar(true);
          setPreguntaActualTotales_(result);
        }else{
              
-              setMensaje("Token Inválido.")
+              setMensaje("Token inválido.")
              
 
        }
@@ -95,6 +99,7 @@ const onSubmit = useCallback(async (e) => {
         onHiding={() => {
           setisVisible(false);
           setMensaje("");
+          setRefresh(new Date());
         }}
         title={validar?"Examen":"Ingresar token"}
         width="100%"
@@ -111,7 +116,17 @@ const onSubmit = useCallback(async (e) => {
         
              
          {validar?(
-            <Examen setIsExamen={setIsExamen} datosArea={informacionGridClic} preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={setPreguntaActualTotales_}/>
+            <Examen setIsExamen={setIsExamen} 
+                datosArea={informacionGridClic} 
+                preguntaActualTotales={preguntaActualTotales_} 
+                setPreguntaActualTotales={setPreguntaActualTotales_}
+                ///////////////finalizar examen cerrando el pupup
+                setisVisible={setisVisible}
+                /////refresh
+                setRefresh={setRefresh}
+
+            
+            />
            
           
           

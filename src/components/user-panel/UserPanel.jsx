@@ -37,7 +37,8 @@ export default function UserPanel({ menuMode }) {
   ]), [navigateToProfile, signOut]);
 
   const dropDownButtonAttributes = {
-    class: 'user-button'
+    class: 'user-button titularesVerde'
+
   };
 
   const buttonDropDownOptions = {
@@ -53,14 +54,16 @@ export default function UserPanel({ menuMode }) {
       
       {menuMode === 'context' && (
         <DropDownButton
-            text={UsuarioLogin.nombre}
+            text={
+              UsuarioLogin.nombre
+            }
             stylingMode='text'
-           // icon={UsuarioLogin.avatarUrl}
+            icon="optionsgear"
             showArrowIcon={false}
             elementAttr={dropDownButtonAttributes}
             dropDownOptions={buttonDropDownOptions}
             items={menuItems}
-            
+      
           
             >
             

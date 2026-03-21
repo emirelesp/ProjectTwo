@@ -40,7 +40,7 @@ const Grafica=(props)=>{
  const Fuentedata = [
   { examenAcreditado: 'Aprobados', value:data[0]?.cantidadAprobado  ,color_:data[0]?.colorAprobado},
   { examenAcreditado: 'Pendientes', value: data[0]?.cantidadAgendado,color_:data[0]?.colorAgendado },
-  { examenAcreditado: 'No Aprovados', value: data[0]?.cantidadNoAprobado,color_:data[0]?.colorNoAprobado },
+  { examenAcreditado: 'No Aprobados', value: data[0]?.cantidadNoAprobado,color_:data[0]?.colorNoAprobado },
   { examenAcreditado: 'Anulado', value: data[0]?.cantidadAnulado,color_:data[0]?.colorAnulado },
 ];
 

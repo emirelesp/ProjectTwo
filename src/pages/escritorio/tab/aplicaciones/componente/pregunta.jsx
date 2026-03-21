@@ -154,21 +154,20 @@ function Pregunta(props) {
 
 {preguntaActual?.isPortada==0? (activo?(
    <article className="cardPregunta" role="group" aria-labelledby="q1-title">
-<div  className="d-flex justify-content-center align-items-center"
- style={{background: "rgb(25, 135, 84)", height: "100%", margin: "5px", padding: "5px"}}>
+      <div  className="d-flex justify-content-center align-items-center"
+      style={{background: "rgb(25, 135, 84)", height: "100%", margin: "5px", padding: "5px"}}>
 
-     <div className="titularesLineaBlancaPerfil" style={{color:"#ffffff"}}> {preguntaActual?.areaDisciplinar} </div>
-     </div>
+          <div className="titularesLineaBlancaPerfil" style={{color:"#ffffff"}}> {preguntaActual?.areaDisciplinar} </div>
+          </div>
 
-
-    <div className="content_2 titularesLinea">
-     
-     <div className="row" style={{border: "1px solid #ccc"}}>
-      <div className="col-12 col-sm-12 col-xl-9" id="q1-title" style={{'text-align': 'justify'}}>
-      
-      
-      
-      
+                  <div className="content_2 titularesLinea">
+                  
+                  <div className="row" style={{border: "1px solid #ccc"}}>
+                    <div className="col-12 col-sm-12 col-xl-12" id="q1-title" style={{'text-align': 'justify'}}>
+                    
+                    
+                    
+                    
         {/* {preguntaActual?.pregunta} */}
       
          <div
@@ -181,18 +180,28 @@ function Pregunta(props) {
       
       
       </div>
-      <div className="col-12 col-sm-12 col-xl-3 text-center">
-     {/*   <img
-                src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg"
+
+      {preguntaActual?.imagen!=""?(
+      <div className="col-12 col-sm-12 col-xl-12 text-center">
+
+  
+      <img
+                src={preguntaActual?.imagen}
                 alt="Pregunta"
                 style={{  height: "200px", marginBottom: "5px" }}
-     />  */}
+     />  
 
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="200px"  fill="currentColor" className="bi bi-card-image" viewBox="0 0 16 16">
+    {/*   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="200px"  fill="currentColor" className="bi bi-card-image" viewBox="0 0 16 16">
         <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
         <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54L1 12.5v-9a.5.5 0 0 1 .5-.5z"/>
-      </svg>
+      </svg> */}
+
+
+
+
      </div>
+      ):(<></>)
+    }
    </div>
 
   
@@ -295,8 +304,10 @@ function Pregunta(props) {
 ):(activo?(
 
  <>
- 
+{/*portada diseño  */}
 
+
+ 
 <div className="d-flex justify-content-center align-items-center"  
   style={{
     fontSize:"40px",
@@ -305,13 +316,20 @@ function Pregunta(props) {
     fontWeight: 700,
     letterSpacing: "1px",
     "width":"100%",
-    "height":"300px",
-    "background":"linear-gradient(to right, rgb(2, 163, 157), rgb(2, 169, 183), rgb(2, 195, 164), rgb(0, 47, 42))"
+    "height":"150px",
+    "background":"linear-gradient(to right, rgb(2, 163, 157), rgb(2, 169, 183), rgb(2, 195, 164), rgb(0, 47, 42))",
+    
     }}>
-  
-     <span className=""> {preguntaActual?.areaDisciplinar} </span>
-
+    
+     <span className="" > {preguntaActual?.areaDisciplinar}</span>
+   
 </div>
+
+<img src="/examen/Estudiantes.jpeg" style={{
+   width:"100%",
+    height:"auto",
+
+ }}/>
 
 
 
@@ -330,6 +348,8 @@ function Pregunta(props) {
         }
       </button>
         </div>
+
+
 
  </>):(<></>)
 

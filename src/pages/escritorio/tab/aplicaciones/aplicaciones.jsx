@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Titulo } from '../../componentes/titulo';
 import GridAplicaciones from './tabla';
-import { getConsultaAreasDisciplinares, getFiltroSede } from './service/aplicacionesApi';
+import { getConsultaAreasDisciplinares, getFiltroSede, hasToken } from './service/aplicacionesApi';
 import { useSelector } from 'react-redux';
 import TokenRegistro from './popup/tokenRegistro';
 import { PopupAsignar } from './nuevo/PopupAsignar';
@@ -55,7 +55,16 @@ export default function Aplicaciones(props){
      ///debugger;
        if(data?.length!=0){
 
-          if(data[0].fechaExamen!=fecha){ ///validacion de la aplicación con fecha y el token
+
+
+        ////////////////////////////////////////////////////////////////////////Tokkkkekekekekekekkekekekekekeke
+         
+      const resultadohasToken= await hasToken(UsuarioLogin.idAspirante);
+        
+        if(
+          resultadohasToken.value==1
+        // data[0].fechaExamen!=fecha
+        ){ ///validacion de la aplicación con fecha y el token
 
 
 
@@ -106,7 +115,9 @@ export default function Aplicaciones(props){
     <React.Fragment>
 
 
-      <TokenRegistro setIsExamen={setIsExamen} isVisible={isVisible_} setisVisible={setisVisible_}   informacionGridClic={AreasDisciplinaresSeleccionada}/>
+      <TokenRegistro setIsExamen={setIsExamen} isVisible={isVisible_} setisVisible={setisVisible_}   informacionGridClic={AreasDisciplinaresSeleccionada}
+        setRefresh={setMensaje}
+      />
       
 
       <PopupAsignar setRefresh={setMensaje} idAspirante={UsuarioLogin.idAspirante} dataSedes={Sede_} visiblePopupAsignarSede={visiblePopupAsignarSede_}  setVisiblePopupAsignarSede={setVisiblePopupAsignarSede_}></PopupAsignar>
@@ -117,7 +128,7 @@ export default function Aplicaciones(props){
              <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}></Titulo>
                <div className='row'>
                 <div style={{ padding: 20 }}>
-                    <div style={{ fontSize: "20px",fontWeight:700}}>Mi aplicación</div>
+                    <div style={{ fontSize: "20px",fontWeight:700}}>Mis aplicaciones</div>
                     <div className='p-2'></div>
 
                     <button className='btn btn-success' onClick={()=>{  setVisiblePopupAsignarSede_(true)  }} > Agendar Cita</button>

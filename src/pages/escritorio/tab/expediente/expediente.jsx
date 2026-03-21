@@ -32,10 +32,12 @@ export default function Expediente(props){
     const mostrarDocumentos =useCallback( async() =>
     {
       setLoading(true);
+
+     
         const documentos = await getDocumentosAspirante(UsuarioLogin.idAspirante);
        const pagos = await getPagosAspirante(UsuarioLogin.idAspirante);
    
-       const union=[...documentos,...pagos];
+       const union=[...pagos,...documentos];
        let Aspirantedocumento = union.find(u => u.idAspiranteDocumento ===indexDocumento);
       if (Aspirantedocumento) {
           const docsrc= await getDocumento(indexDocumento);

@@ -21,7 +21,11 @@ import Pregunta from './componente/pregunta';
 
 export default function Examen(props){
   
-     const{datosArea,preguntaActualTotales,setPreguntaActualTotales,setIsExamen}= props;
+     const{datosArea,preguntaActualTotales,setPreguntaActualTotales,setIsExamen,
+            setisVisible,
+            setRefresh
+
+     }= props;
   
 
 
@@ -30,7 +34,13 @@ export default function Examen(props){
        
        <MostrarPreguntas data={datosArea} preguntaActualTotales_={preguntaActualTotales} setPreguntaActualTotales_={setPreguntaActualTotales}
          setIsExamen={setIsExamen}
+  
+          setisVisible={setisVisible}
+          setRefresh={setRefresh}
+       
        />
+
+
    
     </React.Fragment>
   );
@@ -47,7 +57,12 @@ export default function Examen(props){
  const MostrarPreguntas= (props) => {
       
 
-   const {data,preguntaActualTotales_,setPreguntaActualTotales_,setIsExamen}=props;
+   const {data,preguntaActualTotales_,setPreguntaActualTotales_,setIsExamen,
+   
+    setisVisible,
+   setRefresh
+
+   }=props;
 
      /////////////////////////////esta aqui porque modifica las preguntas  el grid de preguntas
      const [indice, setIndice] = useState(0);
@@ -57,7 +72,6 @@ export default function Examen(props){
 
       const [activo_, setActivo_] = useState(false);
       const [terminado_, setTerminado_] = useState(false);
-      const [isVisible_, setisVisible_] = useState(false);
        const tiempo=1200;
        const [tiempoRestante, setTiempoRestante] = useState(tiempo);
 
@@ -138,16 +152,24 @@ export default function Examen(props){
             <div id="iniciodecadaexamen"></div>
 
              <div className='row titularesLinea'>
-              <div className='col-12 col-sm-12  col-md-12 col-lg-9 col-xl-9 col-xxl-9'>
+              <div className={activo_?'col-12 col-sm-12  col-md-12 col-lg-9 col-xl-9 col-xxl-9':'col-12 col-sm-12  col-md-12 col-lg-12 col-xl-12 col-xxl-12'}>
                   <Temporizador 
                   segundos={tiempo}
                   setTiempoRestante={setTiempoRestante}
                   tiempoRestante={tiempoRestante} activo={activo_} setActivo={setActivo_} 
-                  terminado={terminado_} setTerminado={setTerminado_} irPantallaCompleta={irFullScreen} salirPantallaCompleta={salirFullScreen} ></Temporizador>
+                  terminado={terminado_} setTerminado={setTerminado_} irPantallaCompleta={irFullScreen} salirPantallaCompleta={salirFullScreen} 
+                  
+                  setisVisible={setisVisible}//cerrar el popup
+                  setRefresh={setRefresh}
+                  ></Temporizador>
+                  
+                  
                   <Pregunta indice={indice} setIndice={setIndice}  informacion={data} activo={activo_} setActivo={setActivo_} 
                   terminado={terminado_} setTerminado={setTerminado_} irPantallaCompleta={irFullScreen} salirPantallaCompleta={salirFullScreen}
                   preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={setPreguntaActualTotales_}
                   ></Pregunta>
+
+                  
                </div>
                {activo_?
                    (<div className='d-none d-sm-none  d-md-none d-lg-block col-lg-3 col-xl-3 col-xxl-3'>

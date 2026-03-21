@@ -13,7 +13,7 @@ import { Button } from 'devextreme-react';
 const data =[
 { 
    idEstatusAspirante:1,
-   mensaje:"Usuario Registrado",
+   mensaje:"Usuario registrado",
    estatusAceptadoRechazado:true
 },
 { 
@@ -48,10 +48,16 @@ const data =[
 
 { 
    idEstatusAspirante:7,
-   mensaje:"Elegible para certificar",
+   mensaje:"Examen aprobado",
    estatusAceptadoRechazado:true
 },
 
+
+{ 
+   idEstatusAspirante:7,
+   mensaje:"Examen no aprobado",
+   estatusAceptadoRechazado:false
+},
 
 ];
 
@@ -176,9 +182,9 @@ const {setTabSectorMensaje_}=props;
    <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
        <span style={{color:"#000000"}}>¡Gran trabajo! Los documentos en tu expediente han sido validados.</span>
       <div style={{color:"#000000"}}>
-      Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/blanco.pdf'  target="_blank">comprobante de pago</a> en la sección <span onClick={()=>setTabSectorMensaje_(1)}
+      Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/pago.pdf'  target="_blank">comprobante de pago aquí</a>, realiza el pago y súbelo para validación en la sección <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
-      >Mi expediente.</span> Realiza el pago y súbelo para validación.
+      >Mi expediente.</span> 
       </div>
   </div>
 
@@ -292,7 +298,7 @@ const {setTabSectorMensaje_}=props;
 
   return(
    <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
-       <span style={{color:"#000000"}}>¡Exelente, continua así! El pago de derechos ha sido validado.</span>
+       <span style={{color:"#000000"}}>¡Excelente, continua así! El pago de derechos ha sido validado.</span>
       <div style={{color:"#000000"}}>
       Para continuar: <span style={{color:"#1e5b4f"}}>agenda tu cita para evaluación</span> en la sección <span onClick={()=>setTabSectorMensaje_(3)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
@@ -303,6 +309,138 @@ const {setTabSectorMensaje_}=props;
   );
 
 }
+
+
+
+
+const MensajeComponent9=(props)=>{
+
+const {setTabSectorMensaje_}=props;
+
+  return(
+   <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
+       <span style={{color:"#000000"}}>¡Gran trabajo, has obtenido al puntaje necesario! Ahora estás listo 
+         para obtener tu certificación, conoce tu dictamen </span>
+      <span onClick={()=>setTabSectorMensaje_(3)}
+       style={{  cursor: 'pointer', textDecoration: 'underline' }}
+      >aquí.</span> 
+  </div>
+
+  );
+
+}
+
+
+
+const MensajeComponent10=(props)=>{
+
+   const {setTabSectorMensaje_}=props;
+
+  return(
+   <div className='alert alert-warning' style={{textAlign: "justify"}}>
+     <span style={{color:"#000000"}}></span><span style={{color:"#E66929"}}>¡Valoramos tu esfuerzo! Aún tienes áreas de conocimiento por acreditar.
+        Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/pago_2da3ra.pdf'  target="_blank" style={{color:"#1e5b4f"}}>comprobante de pago 2ª oportunidad aquí,</a> realiza el pago y súbelo para validación en la sección </span>
+   
+    <span onClick={()=>setTabSectorMensaje_(1)}
+       style={{  cursor: 'pointer', textDecoration: 'underline', color:"#000000" }}
+      >Mi expediente.</span>
+
+   
+  </div>
+
+  );
+
+}
+
+const MensajeComponent11_=(props)=>{
+
+   const {setTabSectorMensaje_}=props;
+
+  return(
+   <div className='alert alert-warning' style={{textAlign: "justify"}}>
+     <span style={{color:"#000000"}}></span><span style={{color:"#E66929"}}>¡Valoramos tu esfuerzo! Aún tienes áreas de conocimiento por acreditar.
+        Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/pago_2da3ra.pdf'  target="_blank" style={{color:"#1e5b4f"}}>comprobante de pago 3ª oportunidad aquí,</a> realiza el pago y súbelo para validación en la sección </span>
+    
+    <span onClick={()=>setTabSectorMensaje_(1)}
+       style={{  cursor: 'pointer', textDecoration: 'underline',color:"#000000" }}
+      >Mi expediente.</span>
+
+   
+  </div>
+
+  );
+
+}
+
+
+const MensajeComponent12_=(props)=>{
+
+   const {setTabSectorMensaje_}=props;
+
+  return(
+   <div className='alert alert-warning' style={{textAlign: "justify"}}>
+     <span style={{color:"#000000"}}></span><span style={{color:"#E66929"}}>¡Valoramos tu esfuerzo! Aún tienes más del 50% de las áreas de conocimiento por acreditar.
+        Si deseas realizar la evaluación, descarga el <a href='https://sraecems.redgto.com.mx/pago.pdf'  target="_blank" style={{color:"#1e5b4f"}}>comprobante de pago 1ª oportunidad aquí,</a> realiza el pago y súbelo para validación en la sección </span>
+   
+    <span onClick={()=>setTabSectorMensaje_(1)}
+       style={{  cursor: 'pointer', textDecoration: 'underline',color:"#000000" }}
+      >Mi expediente.</span>
+
+     
+  </div>
+
+  );
+
+}
+
+
+const MensajeComponent13_=(props)=>{
+
+   const {setTabSectorMensaje_}=props;
+
+  return(
+   <div className='alert alert-warning' style={{textAlign: "justify"}}>
+    <span style={{color:"#E66929"}}>Valoramos tu esfuerzo sin embargo no cumpliste el puntaje 
+                                       adecuado para continuar. Te invitamos a acercarte a la Sede 
+                                       donde presentaste tu evaluación para recomendarte 
+                                       opciones que te permitan continuar con tu meta.
+   </span>
+    
+  </div>
+
+  );
+
+}
+
+
+const MensajeComponent14_=(props)=>{
+
+  const {setTabSectorMensaje_}=props;
+
+  return(
+   <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
+    
+      <div style={{color:"#000000"}}>
+      Ya hiciste lo más importante: dar tu máximo esfuerzo.
+      <span style={{color:"#1e5b4f"}}>
+          El resultado es solo una parte del 
+            camino, pero tu dedicación y disciplina ya hablan por ti. Confía en lo que lograste y mantén la 
+            calma… ¡lo mejor está por venir!
+         </span> 
+        
+      </div>
+  </div>
+
+  );
+
+}
+
+
+
+
+
+
+
 
 
 
@@ -362,6 +500,40 @@ export const Titulo=(props)=>{
                   Mensaje:MensajeComponent2
                  };
          break;
+
+        case 9:
+             array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[2],idTipo:1},{element:data[6],idTipo:1}],
+                  Mensaje:MensajeComponent9
+                 };
+         break;
+
+         case 10:
+            array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:dataNormal[2],idTipo:2}],
+                  Mensaje:MensajeComponent10
+                 };
+         break;
+
+
+           case 11:
+            array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:dataNormal[2],idTipo:2}],
+                  Mensaje:MensajeComponent11_
+                 };
+         break;
+
+         
+           case 12:
+            array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:dataNormal[2],idTipo:2}],
+                  Mensaje:MensajeComponent12_
+                 };
+         break;
+
+
+          case 13:
+            array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[2],idTipo:1},{element:data[7],idTipo:1}],
+                  Mensaje:MensajeComponent13_
+                 };
+         break;
+
       
        }
 

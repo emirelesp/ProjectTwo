@@ -84,13 +84,13 @@ export async function getPagosAspirante(_idAspirante)
     return datos;
 }
 
-export async function setValidarDocumento(_idAspiranteDocumento, idRol)
+export async function setValidarDocumento(_idAspiranteDocumento, idRol, idUsuario, observacion)
 {
   let respuesta = 0;
   let datos = [];
 
   const url = apiExamen+'/api/AspiranteDocumento/ValidaDocumento';
-  const unicoV = { id:_idAspiranteDocumento, idStr:idRol };
+  const unicoV = { id:_idAspiranteDocumento, idRol:idRol, idUsuario:idUsuario, observacion:observacion };
     
     try{
         respuesta = await fetch(url, {
@@ -100,7 +100,7 @@ export async function setValidarDocumento(_idAspiranteDocumento, idRol)
         });
       
       datos = await respuesta.json();
-
+      
     }
     catch(error){
         console.error("Error al crear el post:", error);
