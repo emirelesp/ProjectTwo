@@ -11,7 +11,7 @@ function UpFileContenido() {
 
   const handleUpload = async (e) => {
    // e.file.name
-   debugger;
+   ///debugger;
 
 
    // const file =  e.value[0]; // primer archivo seleccionado

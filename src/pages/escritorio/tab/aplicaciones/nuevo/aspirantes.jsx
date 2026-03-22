@@ -31,7 +31,7 @@ export async function getAspirantes(_idConvocatoria)
 export async function getAspirantesAsignados(_idSede)
 {
   let datos = [];
-  debugger;
+  ///debugger;
   if(_idSede != undefined)
   {
     const url = apiExamen+'/api/Aspirante/ConsultaAspirantesAsignados';
@@ -78,7 +78,7 @@ export async function regAspirante(_aspirante)
 
 export async function editAspirante(_aspirante)
 {
-  debugger;
+///  debugger;
   let datos = 0;
   const url = apiExamen+'/api/Aspirante/ActualizaAspirante';
 
@@ -125,7 +125,7 @@ export async function setKeyUnico(_key)
 {
   let datos = 0;
   const url = apiExamen+'/api/Aspirante/AsignarToken';
-  debugger;  
+ /// debugger;  
     try{
       const respuesta = await fetch(url, {
         method: 'POST',
@@ -145,7 +145,7 @@ export async function setKeyMultiple(_key)
 {
   let datos = 0;
   const url = apiExamen+'/api/Aspirante/AsignarTokenMultiple';
-  debugger;  
+  //debugger;  
     try{
       const respuesta = await fetch(url, {
         method: 'POST',

@@ -39,7 +39,8 @@ export function Temporizador(props ) {
     if(terminado){
       
       setisVisible(false);
-      setRefresh(new Date())
+      setTerminado(false);
+      setRefresh(new Date());
       // aqui va cierre del popup
      ///refresh
       return;

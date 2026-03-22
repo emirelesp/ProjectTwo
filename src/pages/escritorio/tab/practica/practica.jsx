@@ -116,7 +116,7 @@ const ConfirmarSalida = (props) => {
    const mostrarPreguntas= ({data}) => {
         
 
-debugger;
+
 
       const [activo_, setActivo_] = useState(false);
       const [terminado_, setTerminado_] = useState(false);

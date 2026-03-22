@@ -54,9 +54,15 @@ const data =[
 
 
 { 
-   idEstatusAspirante:7,
+   idEstatusAspirante:8,
    mensaje:"Examen no aprobado",
    estatusAceptadoRechazado:false
+},
+
+{ 
+   idEstatusAspirante:9,
+   mensaje:"Evaluación presentada",
+   estatusAceptadoRechazado:true
 },
 
 ];
@@ -302,7 +308,7 @@ const {setTabSectorMensaje_}=props;
       <div style={{color:"#000000"}}>
       Para continuar: <span style={{color:"#1e5b4f"}}>agenda tu cita para evaluación</span> en la sección <span onClick={()=>setTabSectorMensaje_(3)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
-      >Mis aplicaciones.</span> 
+      >Mi examen.</span> 
       </div>
   </div>
 
@@ -339,7 +345,7 @@ const MensajeComponent10=(props)=>{
   return(
    <div className='alert alert-warning' style={{textAlign: "justify"}}>
      <span style={{color:"#000000"}}></span><span style={{color:"#E66929"}}>¡Valoramos tu esfuerzo! Aún tienes áreas de conocimiento por acreditar.
-        Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/pago_2da3ra.pdf'  target="_blank" style={{color:"#1e5b4f"}}>comprobante de pago 2ª oportunidad aquí,</a> realiza el pago y súbelo para validación en la sección </span>
+        Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/pago_2da3ra.pdf'  target="_blank" style={{color:"#1e5b4f"}}>comprobante de pago oportunidad de regularización aquí,</a> realiza el pago y súbelo para validación en la sección </span>
    
     <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline', color:"#000000" }}
@@ -420,15 +426,12 @@ const MensajeComponent14_=(props)=>{
   return(
    <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
     
-      <div style={{color:"#000000"}}>
-      Ya hiciste lo más importante: dar tu máximo esfuerzo.
       <span style={{color:"#1e5b4f"}}>
-          El resultado es solo una parte del 
+           Ya hiciste lo más importante: dar tu máximo esfuerzo. El resultado es solo una parte del 
             camino, pero tu dedicación y disciplina ya hablan por ti. Confía en lo que lograste y mantén la 
             calma… ¡lo mejor está por venir!
          </span> 
-        
-      </div>
+   
   </div>
 
   );
@@ -533,6 +536,13 @@ export const Titulo=(props)=>{
                   Mensaje:MensajeComponent13_
                  };
          break;
+
+
+         case 14:
+             array={semaforo:[{element:data[0],idTipo:1},{element:data[1],idTipo:1},{element:data[2],idTipo:1},{element:data[8],idTipo:1}],
+                  Mensaje:MensajeComponent14_
+                 };
+         break
 
       
        }

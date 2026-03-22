@@ -57,6 +57,7 @@ const Grafica=(props)=>{
         height="auto"
         sizeGroup="examenAcreditado"              //  agrupa tamaño si hay varios
         resolveLabelOverlapping="shift" //  evita que se encimen etiquetas
+        palette={[data[0]?.colorAprobado, data[0]?.colorAgendado, data[0]?.colorNoAprobado, data[0]?.colorAnulado ]}
       >
         <Series
           argumentField="examenAcreditado"
@@ -73,6 +74,8 @@ const Grafica=(props)=>{
           horizontalAlignment="center"
           verticalAlignment="bottom"
         />
+
+        
       </PieChart>
     </div>
 

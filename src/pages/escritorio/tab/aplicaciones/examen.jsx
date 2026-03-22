@@ -6,6 +6,7 @@ import { getConsultaAreasDisciplinares } from './service/aplicacionesApi';
 import { useRef } from "react";
 import Popup from "devextreme-react/popup";
 import Pregunta from './componente/pregunta';
+import { CgDebug } from 'react-icons/cg';
 
 
 /**
@@ -26,6 +27,10 @@ export default function Examen(props){
             setRefresh
 
      }= props;
+
+
+debugger;/////tiempo
+     
   
 
 

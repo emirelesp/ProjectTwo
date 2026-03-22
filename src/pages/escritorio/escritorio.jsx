@@ -11,6 +11,8 @@ import { PreguntasItem } from './tab/preguntasMath/preguntasItem';
 
 import { locale } from 'devextreme/localization';
 import { PreguntaNuevoDiseño } from './tab/ejemploPreguntasMain/testPreguntasDiseño';
+import Resultado from './tab/resultados/resultado';
+import { getResultados } from './tab/resultados/service/practicaApi';
 
 // Establece el idioma a español
 locale('es');
@@ -38,7 +40,37 @@ export function Escritorio(){
 
    useEffect(()=>{     
      getSeguimientoAspiranteCallback();
+
+
+     
    },[mensajes_])
+
+
+
+
+
+
+
+/********************Habilitar pestaña resultados******************************************* */
+
+const [catalogoResultados,setCatalogoResultados] =useState([]);
+
+const resultados=useCallback(async ()=>{
+
+  const resultApi= await getResultados(UsuarioLogin.idAspirante);
+  setCatalogoResultados(resultApi);
+
+},[UsuarioLogin.idAspirante]);
+
+
+useEffect(()=>{
+   resultados();
+},[UsuarioLogin.idAspirante]);
+
+
+
+
+/////////////////////////////////////////////////////////////////
 
 
   return (
@@ -68,9 +100,22 @@ export function Escritorio(){
                     <Item title="Mi práctica" >
                         <Practica seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje}></Practica>
                     </Item>
-                    <Item title="Mis aplicaciones" >
+                    {seguimientoAspirante_.value==7?
+                    <Item title="Mi examen" >
                         <Aplicaciones setIsExamen={setIsExamen} seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje} setMensaje={setMensaje_} mensajes={mensajes_}></Aplicaciones>
                     </Item>
+                    :<></>
+                     }
+                    {catalogoResultados?.length>0?
+                      <Item title="Mis resultados" >
+                          <Resultado setIsExamen={setIsExamen} seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje} setMensaje={setMensaje_} mensajes={mensajes_}
+                          
+                                catalogoResultados={catalogoResultados}
+                          
+                          ></Resultado>
+                    </Item>
+                    :<></>
+                    }
                      {/*<Item title="Mi certificación" >
                         <Certificacion seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje}></Certificacion>
                     </Item> */}
@@ -79,7 +124,7 @@ export function Escritorio(){
               ):(
 
                 <>
-                   <Item title="Mis aplicaciones" >
+                   <Item title="Mi examen" >
                         <Aplicaciones setIsExamen={setIsExamen} seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje} setMensaje={setMensaje_} mensajes={mensajes_}></Aplicaciones>
                     </Item>
                 </>

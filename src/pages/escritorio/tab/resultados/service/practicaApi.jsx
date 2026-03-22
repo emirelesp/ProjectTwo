@@ -1,0 +1,31 @@
+const apiExamen=import.meta.env. VITE_WebApi_URL;
+
+export async function getResultados(_idAspirante)
+{
+  let datos = [];
+  debugger;
+
+  if(_idAspirante != undefined)
+  {
+    const url = apiExamen+'/api/AspiranteExamen/ConsultaResultadosAreaDisciplinar';
+    const unicoV = { id:_idAspirante, idStr:'' };
+    
+    try{
+      const respuesta = await fetch(url, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(unicoV)
+      });
+      
+      datos = await respuesta.json();
+
+    }
+    catch(error){
+        console.error("Error al crear el post:", error);
+    }
+  }
+    return datos;
+}
+
+
+
