@@ -59,8 +59,8 @@ const unsubscribe = (handler) => {
 function getScreenSize() {
   return {
     isXSmall: xSmallMedia.matches,
-    isSmall: smallMedia.matches,
-    isMedium: mediumMedia.matches,
+    isSmall: largeMedia.matches,//smallMedia.matches,
+    isMedium: largeMedia.matches,//mediumMedia.matches,no los tengo jajaja
     isLarge: largeMedia.matches
   };
 }

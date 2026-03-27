@@ -3,7 +3,7 @@ const apiExamen=import.meta.env. VITE_WebApi_URL;
 export async function getResultados(_idAspirante)
 {
   let datos = [];
-  debugger;
+  
 
   if(_idAspirante != undefined)
   {
