@@ -131,9 +131,17 @@ export default function Aplicaciones(props){
                     <div style={{ fontSize: "20px",fontWeight:700}}>Mis aplicaciones</div>
                     <div className='p-2'></div>
 
+                 {seguimientoAspirante.value==6?(
                     <button className='btn btn-success' onClick={()=>{  setVisiblePopupAsignarSede_(true)  }} > Agendar Cita</button>
+                 ):(<></>)
+                  }
+
+
                     <div className='p-1'></div>
-                   <GridAplicaciones data={AreasDisciplinares}  setisVisible={setisVisible_}  setData={setAreasDisciplinaresSeleccionada} ></GridAplicaciones>
+                   <GridAplicaciones data={AreasDisciplinares}  setisVisible={setisVisible_}  setData={setAreasDisciplinaresSeleccionada} 
+                       
+                   
+                   ></GridAplicaciones>
                 </div>
                </div>
         </div>

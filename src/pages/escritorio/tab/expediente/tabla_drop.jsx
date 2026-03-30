@@ -5,9 +5,9 @@ import ViewPDF from './popup/viewPDF';
 
 
 const data = [
-  { id: 1, documento: 'CURP', tipo: 'Requisito de Expediente', estatus: 'Pendiente' },
-  { id: 2, documento: 'Certificado de Secundaria', tipo: 'Requisito de Expediente', estatus: 'Aprobado' },
-  { id: 3, documento: 'Comprobante de Pago', tipo: 'Requisito de Expediente', estatus: 'Rechazado' },
+  { id: 1, documento: 'CURP', tipo: 'Requisito de expediente', estatus: 'Pendiente' },
+  { id: 2, documento: 'Certificado de secundaria', tipo: 'Requisito de expediente', estatus: 'Aprobado' },
+  { id: 3, documento: 'Formato de pago', tipo: 'Requisito de expediente', estatus: 'Rechazado' },
 ];
 
 export  function GridExpediente() {

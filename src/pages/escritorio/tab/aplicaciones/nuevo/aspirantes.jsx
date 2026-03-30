@@ -99,6 +99,30 @@ export async function editAspirante(_aspirante)
     return datos;
 }
 
+export async function getOportunidad(_idAspirante)
+{
+  let datos = 0;
+  const url = apiExamen+'/api/Aspirante/ConsultaOportunidad';
+  const unicoV = { id:_idAspirante, idStr:'' };
+
+    try{
+      const respuesta = await fetch(url, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(unicoV),
+        credentials: "include"
+      });
+      
+      datos = await respuesta.json();
+    }
+    catch(error){
+        console.error("Error al crear el post:", error);
+    }
+
+    return datos;
+}
+
+
 export async function setAgendaExamen(_agenda)
 {
   let datos = 0;

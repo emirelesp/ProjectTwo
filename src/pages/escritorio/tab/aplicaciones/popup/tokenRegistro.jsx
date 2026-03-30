@@ -24,6 +24,8 @@ const TokenRegistro = (props) => {
 
   const[validar,setValidar]=useState(false);
 
+  
+
   const {setIsExamen,isVisible,setisVisible,informacionGridClic,
 
       setRefresh
@@ -31,7 +33,7 @@ const TokenRegistro = (props) => {
   }=props;
 
   const formData = useRef({ Token: '' });
-
+   const popupRef = useRef(null);
 
   const [mensaje,setMensaje]=useState(""); 
    
@@ -90,16 +92,47 @@ const onSubmit = useCallback(async (e) => {
 
 
   
+    const handleShown = () => {
+    // Cuando el popup ya está visible
+       // Asegúrate de que la instancia existe
+
+      // debugger;
+    const popupInstance = popupRef.current?.instance;
+    if (popupInstance) {
+      const contentElement = popupInstance.content();
+      if (contentElement && contentElement.requestFullscreen) {
+        contentElement.requestFullscreen();
+      }
+    }
+  };
+
+
+
+  // useEffect(()=>{
+
+
+  //  if(isVisible){
+
+  //  /// handleShown();
+
+
+  //  }
+
+
+  // },[isVisible]);
+
 
   return (
     <div>
     
       <Popup
+        ref={popupRef}
         visible={isVisible}
         onHiding={() => {
           setisVisible(false);
           setMensaje("");
           setRefresh(new Date());
+          //// handleShown();
         }}
         title={validar?"Examen":"Ingresar token"}
         width="100%"

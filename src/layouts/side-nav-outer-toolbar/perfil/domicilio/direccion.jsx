@@ -30,7 +30,11 @@ export function Direccion(props)
 
     const registrarDireccion = (async(e) =>{
         e.preventDefault();
+
+     
         direccion1.idAspirante = idAspirante;
+
+
         const res = await regDomicilio(direccion1);
 
         if(res[0].value > 0)

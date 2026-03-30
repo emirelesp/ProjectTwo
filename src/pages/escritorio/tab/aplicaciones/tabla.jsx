@@ -49,7 +49,7 @@ function GridAplicaciones(props) {
 
 const {data, setisVisible,setData}=props;
 
- //debugger;
+
 
 
   return (
@@ -150,7 +150,7 @@ const {data, setisVisible,setData}=props;
       <Column dataField="sede" caption="Sede" />
 
       {/* Tipo de examen */}
-      <Column dataField="areaDisciplinar" caption="Componente formativo" />
+      <Column dataField="areaDisciplinar" caption="Asignaturas" /> {/*Componente formativo */}
 
       {/* Fecha */}
       <Column dataField="fechaExamen" caption="Fecha" dataType="date" groupIndex={1}

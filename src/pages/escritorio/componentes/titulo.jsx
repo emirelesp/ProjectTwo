@@ -188,7 +188,7 @@ const {setTabSectorMensaje_}=props;
    <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
        <span style={{color:"#000000"}}>¡Gran trabajo! Los documentos en tu expediente han sido validados.</span>
       <div style={{color:"#000000"}}>
-      Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/pago.pdf'  target="_blank">comprobante de pago aquí</a>, realiza el pago y súbelo para validación en la sección <span onClick={()=>setTabSectorMensaje_(1)}
+      Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/pago.pdf'  target="_blank">formato de pago aquí</a>, realiza el pago y súbelo para validación en la sección <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
       >Mi expediente.</span> 
       </div>
@@ -207,7 +207,7 @@ const MensajeComponent12=(props)=>{
    <div className='alert alert-warning' style={{textAlign: "justify"}}>
      <span style={{color:"#000000"}}> Aún tienes un documento pendiente de validar en tu expediente…</span>
       <div style={{color:"#000000"}}>
-        Para continuar con tu proceso, es necesario que el "Pago de derechos" este validado en la sección <span onClick={()=>setTabSectorMensaje_(1)}
+        Para continuar con tu proceso, es necesario que el "Pago de derechos" esté validado en la sección <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
       >Mi expediente.</span>
 
@@ -267,7 +267,7 @@ const MensajeComponent5=(props)=>{
       <div style={{color:"#000000"}}>
         Para continuar con tu proceso revisa los detalles en la sección <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
-      >Mi expediente</span> y súbelo nuevamente para validacíon.
+      >Mi expediente</span> y súbelo nuevamente para validación.
 
       </div>
   </div>
@@ -345,7 +345,7 @@ const MensajeComponent10=(props)=>{
   return(
    <div className='alert alert-warning' style={{textAlign: "justify"}}>
      <span style={{color:"#000000"}}></span><span style={{color:"#E66929"}}>¡Valoramos tu esfuerzo! Aún tienes áreas de conocimiento por acreditar.
-        Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/pago_2da3ra.pdf'  target="_blank" style={{color:"#1e5b4f"}}>comprobante de pago oportunidad de regularización aquí,</a> realiza el pago y súbelo para validación en la sección </span>
+        Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/pago_2da3ra.pdf'  target="_blank" style={{color:"#1e5b4f"}}>formato de pago oportunidad de regularización aquí,</a> realiza el pago y súbelo para validación en la sección </span>
    
     <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline', color:"#000000" }}
@@ -365,7 +365,7 @@ const MensajeComponent11_=(props)=>{
   return(
    <div className='alert alert-warning' style={{textAlign: "justify"}}>
      <span style={{color:"#000000"}}></span><span style={{color:"#E66929"}}>¡Valoramos tu esfuerzo! Aún tienes áreas de conocimiento por acreditar.
-        Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/pago_2da3ra.pdf'  target="_blank" style={{color:"#1e5b4f"}}>comprobante de pago 3ª oportunidad aquí,</a> realiza el pago y súbelo para validación en la sección </span>
+        Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/pago_2da3ra.pdf'  target="_blank" style={{color:"#1e5b4f"}}>formato de pago 3ª oportunidad aquí,</a> realiza el pago y súbelo para validación en la sección </span>
     
     <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline',color:"#000000" }}
@@ -386,7 +386,7 @@ const MensajeComponent12_=(props)=>{
   return(
    <div className='alert alert-warning' style={{textAlign: "justify"}}>
      <span style={{color:"#000000"}}></span><span style={{color:"#E66929"}}>¡Valoramos tu esfuerzo! Aún tienes más del 50% de las áreas de conocimiento por acreditar.
-        Si deseas realizar la evaluación, descarga el <a href='https://sraecems.redgto.com.mx/pago.pdf'  target="_blank" style={{color:"#1e5b4f"}}>comprobante de pago 1ª oportunidad aquí,</a> realiza el pago y súbelo para validación en la sección </span>
+        Si deseas realizar la evaluación, descarga el <a href='https://sraecems.redgto.com.mx/pago.pdf'  target="_blank" style={{color:"#1e5b4f"}}>formato de pago 1ª oportunidad aquí,</a> realiza el pago y súbelo para validación en la sección </span>
    
     <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline',color:"#000000" }}

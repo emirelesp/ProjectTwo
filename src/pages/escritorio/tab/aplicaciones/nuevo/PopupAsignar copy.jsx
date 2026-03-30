@@ -1,21 +1,18 @@
-import React, {  useState } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import Popup from 'devextreme-react/popup'
-import { getOportunidad, setAgendaExamen } from './aspirantes';
+import { getAspirantes, setAgendaExamen } from './aspirantes';
 import { getFechasAplicacion,filtroFechaAplicacion } from './fechaAplicacion';
-import Form, {ButtonItem,Item} from 'devextreme-react/form';
+import Form, {ButtonItem, ButtonOptions, Item} from 'devextreme-react/form';
 import Toast from 'devextreme-react/toast';
-
-
 
 export function PopupAsignar(props) 
 {
     const {visiblePopupAsignarSede, setVisiblePopupAsignarSede, dataSedes, idAspirante,  setRefresh} = props
     
-    const [dataOportunidad, setDataOportunidad] = useState({ });
     const [dataEtapas, setDataEtapas] = useState({ });
     const [dataFechas, setDataFechas] = useState({ });
     const [asignacion, setAsignacion] = useState({sede: null, oportunidad: null, fechaAplicacion: null, fecha: null });
-    const [sede, setSede] = useState({});
+    const [sede, setSede] = useState('');
     const [visible, setVisible] = useState();
     const [mensaje, setMensaje] = useState();
     const [tipoMensaje, setTipoMensaje] = useState();
@@ -29,35 +26,23 @@ export function PopupAsignar(props)
     }
 
     const cambioSede = async(e) =>{
-        setAsignacion(prev => ({ ...prev, sede:e.value, oportunidad:null, fechaAplicacion:null, fecha:null}));
+        setAsignacion(prev => ({ ...prev, sede:e.value}));
         const valor = dataSedes.find(s => s.value === e.value);
         setSede(valor);
-        setDataOportunidad({});
-        setDataEtapas({});
-        setDataFechas({});
 
         if(e.value != null || e.value != undefined)
         {
-            const dataOportunidad = await getOportunidad(idAspirante);
-            setDataOportunidad(dataOportunidad);
+            const dataEtapas = await getFechasAplicacion(e.value);
+            setDataEtapas(dataEtapas);
         }
     };
 
-    const cambioOportunidad = async(e) => {
-        setAsignacion(prev => ({ ...prev, oportunidad:e.value, fechaAplicacion:null, fecha:null}));
-        setDataEtapas({});
-        setDataFechas({});
-
-        if(e.value != null || e.value != undefined)
-        {
-            const dataEtapas = await getFechasAplicacion(sede.value);
-            setDataEtapas(dataEtapas);
-            
-        }
+    const cambioOportunidad = (e) => {
+        setAsignacion(prev => ({ ...prev, oportunidad:e.value}));
     };
 
     const cambioConvocatoria = async(e) => {
-        setAsignacion(prev => ({ ...prev, fechaAplicacion:e.value, fecha:null}));
+        setAsignacion(prev => ({ ...prev, fechaAplicacion:e.value}));
 
         if(e.value != null || e.value != undefined)
         {
@@ -83,9 +68,10 @@ export function PopupAsignar(props)
         if(res[0].value > 0)
         {
            // setDataAspirantes(dataAspirantes.map(a => a.idAspirante === idAspirante ? {...a, sede:sede.text} : a));
+            
             setRefresh(Date.now());
-
-
+            
+            
             cerrarPopupAsigarSede();
             setMensaje(res[0].text);
             setTipoMensaje("success");
@@ -104,6 +90,11 @@ export function PopupAsignar(props)
         setVisible(false);
     }
 
+    const dataOportunidades = [
+        {value:1, text:"Oportunidad 1"},
+        //{value:2, text:"Oportunidad 2"},
+        //{value:3, text:"Oportunidad 3"}
+    ]
 
 return(
     <>
@@ -129,14 +120,16 @@ return(
 
                     </Item>
                     <Item dataField="oportunidad" editorType='dxSelectBox' 
-                        editorOptions={{items:dataOportunidad, valueExpr:"value", displayExpr:"text", 
+                        editorOptions={{items:dataOportunidades, valueExpr:"value", displayExpr:"text", 
                                         searchEnabled:true, onValueChanged:cambioOportunidad, showClearButton:true}}
                         validationRules={[
                             {type:'required', message:'La oportunidad es obligatoria'}]}>
                     </Item>
-                    <Item dataField="fechaAplicacion" editorType='dxSelectBox' label={{text: "Periodo"}} 
+                    <Item dataField="fechaAplicacion" editorType='dxSelectBox'  label={{ text: "Periodo" }}
                         editorOptions={{items:dataEtapas, valueExpr:"value", displayExpr:"text", 
-                                        searchEnabled:true, onValueChanged:cambioConvocatoria, showClearButton:true}}
+                                        searchEnabled:true, onValueChanged:cambioConvocatoria, showClearButton:true,
+                                        
+                                    }}
                         validationRules={[
                             {type:'required', message:'El periodo de aplicación es obligatorio'}]}>
                     </Item>
@@ -169,6 +162,5 @@ return(
             </Toast>
 
             </>
-);
-       
+    )
 }

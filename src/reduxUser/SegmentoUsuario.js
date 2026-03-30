@@ -36,4 +36,4 @@ export const usuarioSlice = createSlice({
 });
 
 export const {setUsuarioLogin} = usuarioSlice.actions;
-export default usuarioSlice.reducer  ;/// este es el valor que se asigna por default
+export default usuarioSlice.reducer  ;/// esté es el valor que se asigna por default

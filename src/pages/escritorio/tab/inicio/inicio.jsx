@@ -38,10 +38,10 @@ const Grafica=(props)=>{
 
 
  const Fuentedata = [
-  { examenAcreditado: 'Aprobados', value:data[0]?.cantidadAprobado  ,color_:data[0]?.colorAprobado},
+  { examenAcreditado: 'Aprobadas', value:data[0]?.cantidadAprobado  ,color_:data[0]?.colorAprobado},
   { examenAcreditado: 'Pendientes', value: data[0]?.cantidadAgendado,color_:data[0]?.colorAgendado },
-  { examenAcreditado: 'No Aprobados', value: data[0]?.cantidadNoAprobado,color_:data[0]?.colorNoAprobado },
-  { examenAcreditado: 'Anulado', value: data[0]?.cantidadAnulado,color_:data[0]?.colorAnulado },
+  { examenAcreditado: 'No aprobadas', value: data[0]?.cantidadNoAprobado,color_:data[0]?.colorNoAprobado },
+  { examenAcreditado: 'Anuladas', value: data[0]?.cantidadAnulado,color_:data[0]?.colorAnulado },
 ];
 
 
@@ -52,7 +52,7 @@ const Grafica=(props)=>{
         dataSource={Fuentedata}
         //palette="color"
         type="doughnut"
-        title="Exámenes aprobados"
+        title="Asignaturas aprobadas"
         width="100%"
         height="auto"
         sizeGroup="examenAcreditado"              //  agrupa tamaño si hay varios
@@ -98,7 +98,7 @@ const PanelInformacion=(props)=>{
         </div>*/}
         <div className='col-4'>
            <p style={{ fontSize: "12px",fontWeight:500}}>
-            # de Control
+            Folio de registro
             </p>
         </div>
         <div className='col-4'>

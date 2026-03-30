@@ -25,7 +25,18 @@ import { getDomicilio, getEstados } from './domicilio/services/apiDireccion';
     const getdireccionUseCall=useCallback(async ()=>{
 
         const result=await getDomicilio(UsuarioLogin.idAspirante);
-       setDireccion(result);
+
+        if(result.length!=0){
+
+             setDireccion(result[0]);
+        }else{
+
+           setDireccion({idAspirante:0, calle:"",codigoPostal:"",colonia:"",idEstado:0,idMunicipio:0,numeroExterior:"",numeroInterior:""
+
+           });
+        }
+        
+      
     
     },[visiblePopup,UsuarioLogin.idAspirante]);
 
@@ -57,7 +68,7 @@ import { getDomicilio, getEstados } from './domicilio/services/apiDireccion';
         <Direccion  visiblePopup={visiblePopup} setVisiblePopup={setVisiblePopup}
          idAspirante={UsuarioLogin.idAspirante} 
           dataEstados={estado}
-          direccion1={direccion[0]}
+          direccion1={direccion}
           setDireccion1={setDireccion}
         ></Direccion>):(<></>)
         }

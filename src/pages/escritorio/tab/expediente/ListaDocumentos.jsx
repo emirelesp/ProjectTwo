@@ -166,7 +166,7 @@ function ListaDocumentos(docs)
                         <p>Observación: {data.observacion}</p>
                     </>
                     :
-                    data.estatusDocumento == 1 && (data.idDocumento == 4 || data.idDocumento == 7) ?
+                    data.estatusDocumento == 1 && (data.idDocumento == 4 || data.idDocumento == 7||data.idDocumento == 8) ?
                     <>
                     {/* estatus de documentos validados */}
                     <span className='documentoValidado'>

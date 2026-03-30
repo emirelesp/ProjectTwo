@@ -100,7 +100,7 @@ useEffect(()=>{
                     <Item title="Mi práctica" >
                         <Practica seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje}></Practica>
                     </Item>
-                    {seguimientoAspirante_.value==7?
+                    {seguimientoAspirante_.value==7||seguimientoAspirante_.value==6?
                     <Item title="Mi examen" >
                         <Aplicaciones setIsExamen={setIsExamen} seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje} setMensaje={setMensaje_} mensajes={mensajes_}></Aplicaciones>
                     </Item>
