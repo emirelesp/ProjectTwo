@@ -25,7 +25,7 @@ const {catalogoResultados}=props;
       <Column dataField="fechaExamen" caption="Fecha de aplicación" dataType="date"/>
 
       {/* conocimiento */}
-      <Column dataField="areaDisciplinar" caption="Asignaturas"  /> {/** Componente formativo */}
+      <Column dataField="areaDisciplinar" caption="Asignatura"  /> {/** Componente formativo */}
 
       {/* conocimiento */}
       <Column dataField="puntaje" caption="Puntaje"  />
@@ -35,13 +35,19 @@ const {catalogoResultados}=props;
      <Column
         caption="Resultado"
         cellRender={({ data }) => {
-          /// debugger;
+          
           return(
 
-                 
-                    <div className="bg-success">
+                 data?.puntajeAprobatorio<=data?.puntaje?(
+                    <div className="titularesVerde">
                        Aprobada
                     </div>
+                 ):(
+
+                    <div style={{color:"#E66929"}}>
+                      No aprobada
+                    </div>
+                 )
           )
 
 

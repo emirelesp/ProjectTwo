@@ -106,7 +106,7 @@ useEffect(()=>{
                     </Item>
                     :<></>
                      }
-                    {catalogoResultados?.length>0?
+                    {/* {catalogoResultados?.length>0? */}
                       <Item title="Mis resultados" >
                           <Resultado setIsExamen={setIsExamen} seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje} setMensaje={setMensaje_} mensajes={mensajes_}
                           
@@ -114,8 +114,8 @@ useEffect(()=>{
                           
                           ></Resultado>
                     </Item>
-                    :<></>
-                    }
+                  {/*   :<></>
+                    } */}
                      {/*<Item title="Mi certificación" >
                         <Certificacion seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje}></Certificacion>
                     </Item> */}

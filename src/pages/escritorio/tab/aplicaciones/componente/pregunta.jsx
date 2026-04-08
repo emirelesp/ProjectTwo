@@ -182,7 +182,7 @@ function Pregunta(props) {
       </div>
 
       {preguntaActual?.imagen!=""?(
-      <div className="col-12 col-sm-12 col-xl-12 text-center">
+      <div className="col-12 col-sm-12 col-xl-12 text-center p-2">
 
   
       <img
