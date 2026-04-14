@@ -103,7 +103,7 @@ export async function getOportunidad(_idAspirante)
 {
   let datos = 0;
   const url = apiExamen+'/api/Aspirante/ConsultaOportunidad';
-  const unicoV = { id:_idAspirante, idStr:'' };
+  const unicoV = { id1:_idAspirante, id2:1 };
 
     try{
       const respuesta = await fetch(url, {
