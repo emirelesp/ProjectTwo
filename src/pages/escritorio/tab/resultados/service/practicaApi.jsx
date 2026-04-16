@@ -30,6 +30,9 @@ export async function getResultados(_idAspirante)
 }
 
 
+
+
+
 export async function getCatalogoConstanciaResultados(_idAspirante)
 {
   let datos = [];
@@ -87,6 +90,37 @@ export async function getConstanciaResultados(idAspirante_, idOportunidad_, fech
   }
     return datos;
 }
+
+
+
+export async function getDictamenResultados(idAspirante_)
+{
+  let datos = [];
+  
+
+  if(idAspirante_ != undefined)
+  {
+    const url = apiReporte+'/apiR/Reporte/DictamenFinal';
+    const unicoV = { idAspirante:idAspirante_ };
+    
+    try{
+      const respuesta = await fetch(url, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(unicoV)
+      });
+      
+    
+      datos = await respuesta.json();
+
+    }
+    catch(error){
+        console.error("Error al crear el post:", error);
+    }
+  }
+    return datos;
+}
+
 
 
 
