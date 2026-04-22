@@ -4,7 +4,8 @@ import React, { useCallback, useEffect, useState, useRef } from "react";
 import Popup from "devextreme-react/popup";
 import LoadIndicator from 'devextreme-react/load-indicator';
 import { useSelector } from 'react-redux';
-import { getDictamenResultados} from '../service/practicaApi';
+import { getCatalogoDictamenResultados, getDictamenResultados} from '../service/practicaApi';
+import { SelectBox } from 'devextreme-react';
 
 
 
@@ -18,8 +19,16 @@ const[loading,setLoading]=useState(false);
 const {isVisible,setisVisible}=props;
 
 
+const[seleccionCatalogoCR,setSeleccionCatalogoCR]=useState([]);
+const[seleccionCR,setSeleccionCR]=useState('0|2020-12-01');
 
 
+
+const CatalogoDictamencallback=useCallback(async ()=>{
+
+   const resultado=await getCatalogoDictamenResultados(UsuarioLogin.idAspirante);
+   setSeleccionCatalogoCR(resultado);
+},[UsuarioLogin.idAspirante]);
 
 
 
@@ -27,19 +36,28 @@ const {isVisible,setisVisible}=props;
 const pdfcallback=useCallback(async ()=>{
 
 
+if(seleccionCR=='0|2020-12-01')return;
+const valor_ = seleccionCR.split("|");  
 setLoading(true);
-const resultado=await getDictamenResultados(UsuarioLogin.idAspirante);
+const resultado=await getDictamenResultados(UsuarioLogin.idAspirante,valor_[0],valor_[1]);
 setPDF(resultado);
 setLoading(false);
 
 
-},[UsuarioLogin.idAspirante]);
+},[UsuarioLogin.idAspirante,seleccionCR]);
 
 
  
 useEffect(()=>{
 
 pdfcallback();
+
+
+},[UsuarioLogin.idAspirante,,seleccionCR]);
+
+useEffect(()=>{
+
+CatalogoDictamencallback();
 
 
 },[UsuarioLogin.idAspirante]);
@@ -67,6 +85,18 @@ pdfcallback();
 
    <>
   
+      <SelectBox
+      dataSource={seleccionCatalogoCR}
+      displayExpr="text"   // qué atributo se muestra
+      valueExpr="value"    // qué atributo se guarda como valor
+      //defaultValue={0}     // valor inicial seleccionado
+      onValueChanged={ (e)=>{
+        setSeleccionCR(e.value)
+         }
+      }
+    />
+
+     <div className='p-1'></div>
 
     
     
