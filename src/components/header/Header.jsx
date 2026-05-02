@@ -33,7 +33,7 @@ export default function Header({ menuToggleEnabled, title, toggleMenu }) {
               location="before" 
               component={() => (
                 <div className="toolbar-item" style={{width:"90px"}}>
-                  <img src="/logos/LOGO CONALEP-02.png" height={"60px"} alt="menu"/>
+                  <img src="/logos/LOGO CONALEP-02.png" height={"45px"} alt="menu" style={{marginTop: "-0px"}}/>
                   
                 </div>
               )}
@@ -47,7 +47,7 @@ export default function Header({ menuToggleEnabled, title, toggleMenu }) {
               component={() => (
                 <div className="toolbar-item d-flex justify-content-start align-items-center" style={{width:"140px"}}>
              
-                   <img src="/logos/Logo Miprepa286_c.png" height={"60px"} alt="menu"/>
+                   <img src="/logos/Logo Miprepa286_c.png" height={"50px"} alt="menu" style={{marginTop: "-0px"}} alt="menu"/>
                 </div>
               )}
         

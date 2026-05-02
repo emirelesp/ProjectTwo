@@ -91,15 +91,15 @@ export async function getCatalogoConstanciaResultados(_idAspirante)
 
 
 
-export async function getConstanciaResultados(idAspirante_, idOportunidad_, fechaExamen_)
+export async function getConstanciaResultados(idAspirante_, idOportunidad_, fechaExamen_,criterio_)
 {
   let datos = [];
   
 
   if(idAspirante_ != undefined)
   {
-    const url = apiReporte+'/apiR/Reporte/ConstanciaResultadosPdf';
-    const unicoV = { idAspirante:idAspirante_, idOportunidad:idOportunidad_, fechaExamen:fechaExamen_ };
+    const url = apiReporte+'/apiR/Reporte/ConstanciaDictamenUnicoPdf'; // ConstanciaResultadosPdf';
+    const unicoV = { idAspirante:idAspirante_, idOportunidad:idOportunidad_, fechaExamen:fechaExamen_ ,criterio:criterio_,urlBase:urlBase};
     
     try{
       const respuesta = await fetch(url, {

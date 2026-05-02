@@ -21,7 +21,7 @@ export default function Resultado(props){
 
 
         <ConstanciaResultados   isVisible={isVisible} setisVisible={setisVisible} ></ConstanciaResultados>
-        <DictamenResultados   isVisible={isVisibleDF} setisVisible={setisVisibleDF} ></DictamenResultados>
+     {/*    <DictamenResultados   isVisible={isVisibleDF} setisVisible={setisVisibleDF} ></DictamenResultados>*/} 
        <div style={{margin: "10px"}}>
            
              <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}></Titulo>
@@ -33,19 +33,19 @@ export default function Resultado(props){
 
                       setisVisible(true);
 
-                   }}>Descarga la constancia resultados</button>
+                   }}>Descargar dictamen</button>
 
                    &nbsp;
                    {/* {seguimientoAspirante.value==9?( */}
 
-                   
+                {/*    
                    <button className='btn btn-warning' onClick={()=>{
 
                       setisVisibleDF(true);
 
                    }}>Descarga dictamen final</button>
 
-
+                 */}
                  {/*  ):(<></>)
                   } */}
 
