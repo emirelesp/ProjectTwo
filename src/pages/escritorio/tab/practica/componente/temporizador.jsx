@@ -22,7 +22,11 @@ export function Temporizador(props ) {
       }, 1000);
     } else if (tiempoRestante === 0) {
       setActivo(false);
-      setTerminado(true);
+      
+      setTerminado(false); 
+    //  setTerminado(true);
+      
+      
       salirPantallaCompleta();
     }
 
@@ -34,7 +38,7 @@ export function Temporizador(props ) {
     if(terminado)return;
    // irPantallaCompleta();
     setTiempoRestante(segundos);
-    setTerminado(false);
+    //setTerminado(true);
     setActivo(true);
   };
 

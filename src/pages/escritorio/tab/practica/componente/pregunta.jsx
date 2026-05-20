@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import {getPreguntasExamenPrueba, setRegistrarRespuestaPrueba} from '../Service/practicaApi.jsx'
 import { LoadPanel } from "devextreme-react";
 import "../css/Preguntas.css"
+import katex from "katex";
 
 
 
@@ -87,7 +88,11 @@ function ExamenPractica(props) {
       
       ///alert("¡Has terminado!");
         setActivo(false);
-        setTerminado(true);
+
+         setTerminado(false);
+
+         setIndice(0);
+        //setTerminado(true);
     
 
     }
@@ -134,14 +139,6 @@ function ExamenPractica(props) {
 
                       return renderizadaTotal;
                   };
-
-
-
-
-
-
-
-
 
 
   return (

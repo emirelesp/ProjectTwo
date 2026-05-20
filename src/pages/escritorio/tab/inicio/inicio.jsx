@@ -211,7 +211,7 @@ const PanelInformacion=(props)=>{
 export default function Inicio(props){
 
 
-  const {seguimientoAspirante ,tab}=props;
+  const {seguimientoAspirante ,tab,oportunidad ,setOportunidad}=props;
 
   const[informacionPanelServicio,SetInformacionPanelServicio]=useState([]);
   const[documentosValidados,setDocumentosValidados]=useState([]);
@@ -258,7 +258,7 @@ export default function Inicio(props){
     <React.Fragment>
     <div style={{margin: "10px"}}>
   
-   <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}></Titulo>
+   <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}  oportunidad ={oportunidad } setOportunidad={setOportunidad}   ></Titulo>
      <div className='row'>
         <div className='col-7'>
             <Grafica data={informacionPanelServicio}></Grafica>

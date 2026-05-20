@@ -14,6 +14,10 @@ import DictamenPagina from "./components/validador/DictamenPagina";
 const Plantilla = ({ titulo, children }) => {
   const navigate = useNavigate();
 
+
+
+  
+
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <div
@@ -152,12 +156,12 @@ export default function UnauthenticatedContent() {
           <div
             style={{
               width: "100%",
-              height: "100%",
+              height: "130%",
               background:
                 "linear-gradient(to right, #02A39D, #02A9B7, #02C3A4, #002f2a)",
             }}
           >
-            <div className="container">
+            <div className="container" >
               <div className="p-4"></div>
               <div className="row">
                 <div className="col-6 d-flex justify-content-end align-items-center">
@@ -212,11 +216,18 @@ export default function UnauthenticatedContent() {
               </div>
 
               <LoginForm />
+
+
+              
+               <div className='p-4'></div>
+
             </div>
 
             {/* <SingleCard title="Sign In">
            
           </SingleCard> */}
+
+          
           </div>
         }
       />
@@ -226,6 +237,9 @@ export default function UnauthenticatedContent() {
           <Plantilla titulo="REGISTRO">
             <div className="col-xxl-3 col-xl-4 col-lg-5 col-md-6 col-sm-8 col-10 mx-auto p-2">
               <CreateAccountForm />
+                
+               <div className='p-4'></div>
+               <div className='p-4'></div>
             </div>
           </Plantilla>
         }

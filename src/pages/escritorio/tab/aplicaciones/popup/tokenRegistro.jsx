@@ -22,13 +22,14 @@ import { useSelector } from 'react-redux';
 
 const TokenRegistro = (props) => {
 
-  const[validar,setValidar]=useState(false);
+ // const[validar,setValidar]=useState(false);
 
   
 
   const {setIsExamen,isVisible,setisVisible,informacionGridClic,
 
-      setRefresh
+      setRefresh,
+      validar,setValidar
 
   }=props;
 
@@ -67,6 +68,8 @@ const onSubmit = useCallback(async (e) => {
     const data=  formData.current;
      ///  const result=  await getPreguntasExamenModulo(informacionGridClic?.idAspiranteExamen, data.Token); 
      const result=  await getPreguntasExamenModulo(informacionGridClic, data.Token); 
+     formData.current.Token="";
+    
 
        const total=  result.length;
      
@@ -158,7 +161,7 @@ const onSubmit = useCallback(async (e) => {
                 /////refresh
                 setRefresh={setRefresh}
 
-            
+                  validar={validar} setValidar={setValidar}
             />
            
           

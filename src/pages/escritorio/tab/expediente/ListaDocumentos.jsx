@@ -10,14 +10,17 @@ const apiExamen=import.meta.env. VITE_WebApi_URL;
 import Form, {ButtonItem, ButtonOptions, Item} from 'devextreme-react/form';
 
 
-import contratoAdhesion from '../../../../assets/contrato_adhesion.pdf';
+//import contratoAdhesion from '../../../../assets/contrato_adhesion.pdf';
+
+import consentimiento from '../../../../assets/consentimiento.pdf';
 import cartaCompromiso from '../../../../assets/carta_compromiso.pdf';
 
 
 function ListaDocumentos(docs) 
 {
 
-    const {documentos, setDocumentos,direccionTab,setMensaje_,indexDocumento,setIndexDocumento} = docs;
+    const {documentos, setDocumentos,direccionTab,setMensaje_,indexDocumento,setIndexDocumento,oportunidad} = docs;
+
     const [motivoRechazo, setMotivoRechazo] = useState({idAspiranteDocumento:0, idRol:'0', motivo:''});  
     const usr = useSelector((state) => state.UsuarioLogin);
 
@@ -72,7 +75,7 @@ function ListaDocumentos(docs)
         var resultado = await setValidarDocumento(_idAspiranteDocumento, 
                                                                   idRol,                          //'61E7BFF4-248B-4BE8-B235-4376045120D1'
                                                      usr.idIdentityUser,
-                                                      "He leído y acepto");
+                                                      "Acepto los Términos y Condiciones");
 
          var _usuario = "Leído y aceptado por " + usr.email + " (" + usr.rol + ")";
 
@@ -108,7 +111,7 @@ function ListaDocumentos(docs)
     
         let aspiranteDocumento = documentos.find(d => d.idAspiranteDocumento === e.addedItems[0].idAspiranteDocumento)
 
-        if(aspiranteDocumento.documentoStr.length == 0 && aspiranteDocumento.idDocumento != 4 && aspiranteDocumento.idDocumento != 7) 
+        if(aspiranteDocumento.documentoStr.length == 0 && aspiranteDocumento.idDocumento != 7) 
         {
             var resultado = await getDocumento(e.addedItems[0].idAspiranteDocumento);
 
@@ -165,8 +168,8 @@ function ListaDocumentos(docs)
                         <br/>
                         <p>Observación: {data.observacion}</p>
                     </>
-                    :
-                    data.estatusDocumento == 1 && (data.idDocumento == 4 || data.idDocumento == 7||data.idDocumento == 8) ?
+                    :                              //data.idDocumento == 4 ||                          //data.idDocumento == 8 
+                    data.estatusDocumento == 1 && (                            data.idDocumento == 7|| data.idTipoDocumento == 2 ) ?
                     <>
                     {/* estatus de documentos validados */}
                     <span className='documentoValidado'>
@@ -178,16 +181,17 @@ function ListaDocumentos(docs)
                     {/* descripción del usuario quien valido */}
                     <span>{data.usuario}</span>
                     <br/>
-                    </>
-                    :
-                    data.estatusDocumento == 1 && (data.idDocumento != 4 || data.idDocumento != 7) ?
+                    </>      
+                    :                            //data.idDocumento != 4 ||
+                    data.estatusDocumento == 1 && (             data.idDocumento != 7) ?
                     <span className='documentoValidado'>
                         {/* estatus de documentos cargados */}
                         <i className='bi bi-clipboard2-check-fill'></i>
                         <span>  Documento validado</span>
                     </span>                    
                     :   // segemento para cambiar el estatus del documento
-                    data.estatusDocumento == -1 && (data.idDocumento == 4 || data.idDocumento == 7) ?
+                                                 //data.idDocumento == 4 ||
+                    data.estatusDocumento == -1 && (                data.idDocumento == 7) ?
                     <span className='documentoPorValidar'>
                         <i className='bi bi-clipboard2-fill'></i>
                         <span>  Documento pendiente de validar</span>
@@ -216,8 +220,12 @@ function ListaDocumentos(docs)
 
 
             
-            {/* validación para no mostrar fileUploader */}        
-            {data.estatusDocumento <= 0 && data.idDocumento != 4 && data.idDocumento != 7 ?
+            {/* validación para no mostrar fileUploader 
+            
+                                            data.idDocumento != 4 && 
+            */} 
+                               
+            {data.estatusDocumento <= 0 &&                           data.idDocumento != 7 ?
                 <>
                 <FileUploader
                     selectButtonText='Selecciona el archivo que deseas cargar'
@@ -238,63 +246,47 @@ function ListaDocumentos(docs)
                 <div></div>
             }
             <hr></hr>
-            {data.estatusDocumento == -1 && data.documentoStr.length > 0 && usr.rol === "Escolares" ? 
-                <>
-                    <button className='buttonCona btn-sm btn btn-success' onClick={() => validarDocumento(data.idAspiranteDocumento, '61E7BFF4-248B-4BE8-B235-4376045120D1')}><span className='bi bi-clipboard2-check-fill'>  Validar documento</span></button>
-                    <br/>
-                    <form onSubmit={rechazarDocumento}>
-                    <Form formData={motivoRechazo} labelLocation='left'>
-                        <Item dataField = "motivo" editorType="dxTextBox"
-                            editorOptions={{maxLength:100, showClearButton:true}}
-                            validationRules={[{type:'required', message:'La descripción del rechazo es un dato obligatorio'}]}>
-                        </Item>
-                        <ButtonItem horizontalAlignment='left'
-                                    buttonOptions={{
-                                        text:"Rechazar",
-                                        icon:"close",
-                                        elementAttr:{style: "font-family: 'Lato', sans-serif !important; font-size: 11px !important;background-color:#007E67; color:#fff; border-radius:7px; padding:5px;"},
-                                        useSubmitBehavior:true
-                                    }}> 
-                            
-                        </ButtonItem>
-                    </Form>
-                    </form>
-                </>
-                :
-                data.estatusDocumento == -1 && data.documentoStr.length == 0 && data.idTipoDocumento == 2  && usr.rol === "Escolares" ?
-                <>
-                    <button className='buttonCona btn-sm btn btn-success' onClick={() => validarPagoAcuerdo(data.idAspiranteDocumento, usr.idrol)}><span className='bi bi-clipboard2-check-fill'>  Validar por Acuerdo SEG</span></button>
-                </>
-                :
-                data.estatusDocumento == 0 && data.documentoStr.length > 0 && usr.rol === "Escolares" ?
-                <>
-                    <button className='buttonCona btn-sm btn btn-success' onClick={() => validarDocumento(data.idAspiranteDocumento, usr.idrol)}><span className='bi bi-clipboard2-check-fill'>  Validar documento</span></button>
-                </>
-                :
-                <span></span>
-            }
+            <div className='text-center'>
+
+
+            {  data.idTipoDocumento == 1 && data.idDocumento == 4 ?
+                            <div className='text-end'>
+                            <a href={cartaCompromiso} download> 
+                                <button type="button" className='buttonCona btn btn-success' >Descargar carta compromiso</button>
+                            </a>
+                            <div className='p-2'></div>
+                            </div>
+                            :<></>
+             }
+
             {
-                data.idDocumento == 4 && data.estatusDocumento == -1 ?
+                //data.idDocumento == 4 
+                
+                
+                data.documentoStr.length != 0 && data.idTipoDocumento == 1 && data.idDocumento == 4 ?
                 <>
                 {/*Se incluye carta compromiso */}
-                <iframe src={cartaCompromiso} style={{width:'100%', height:'400px', border:'none'}}></iframe>
+                <iframe src={ data.documentoStr} style={{width:'90%', height:'600px', border:'none'}}></iframe>
                 <br/>
-                <button className='buttonCona btn-sm btn btn-success' onClick={() => validar(data.idAspiranteDocumento, usr.idrol)}><span className='bi bi-clipboard2-check-fill'>  He leído y acepto</span></button>
+                {/* <button className='buttonCona btn-sm btn btn-success' onClick={() => validar(data.idAspiranteDocumento, usr.idrol)}><span className='bi bi-clipboard2-check-fill'>  He leído y acepto</span></button> */}
                 </>
                 :
                 data.idDocumento == 7 && data.estatusDocumento == -1 ?
                 <>
                 {/*Se incluye contrato */}
-                <iframe src={contratoAdhesion} style={{width:'100%', height:'400px', border:'none'}}></iframe>
-                <br/>
-                <button className='buttonCona btn-sm btn btn-success' onClick={() => validar(data.idAspiranteDocumento, usr.idrol)}><span className='bi bi-clipboard2-check-fill'>  He leído y acepto</span></button>
+                <button className='buttonCona btn-sm btn btn-success' onClick={() => validar(data.idAspiranteDocumento, usr.idrol)}><span className='bi bi-clipboard2-check-fill'>  Acepto los Términos y Condiciones</span></button>
+                 <div className='p-2'></div>
+                <iframe src={consentimiento} style={{width:'90%', height:'600px', border:'none'}}></iframe>
+                
                 </>
                 :
                 data.documentoStr.length > 0 ?
-                <iframe src={src} style={{width:'100%', height:'400px', border:'none'}}></iframe>
+                <iframe src={src} style={{width:'90%', height:'600px', border:'none'}}></iframe>
                 :
                 <div></div>            
             }
+
+            </div>
             </>
             
         )
@@ -303,7 +295,25 @@ function ListaDocumentos(docs)
      
      return(
         <>
-            <TabPanel
+           <div style={{textAlign:"right"}}>
+                {/* <a href="/formato_pago.pdf" download> 
+                    <button type="button" className='buttonCona btn-sm' >Descargar formato de pago</button>
+                </a> */}
+             {/*    {oportunidad == 1 ?
+                    <a href="https://1drv.ms/b/c/965590d18a05f178/IQByp5mts__sT7VtryaStHD0Aemv8UDC9elI2yWsexWgmBA?e=AjG86b" download> 
+                        <button type="button" className='buttonCona btn btn-success' target="_blank" >Descargar formato de pago</button>
+                    </a>
+                    :
+                    <a href="https://1drv.ms/b/c/965590d18a05f178/IQCy9yl50Cl1R5oWQqldsiihAaDG0BJzTY1ATKnrTf1IrFo?e=CwLW9O" download> 
+                        <button type="button" className='buttonCona btn btn-success' target="_blank">Descargar formato de pago</button>
+                    </a>
+                } */}
+
+               
+            </div>
+
+
+        <TabPanel
             width="100%"
             onSelectionChanged={seleccionTab}
             height="auto"

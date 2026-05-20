@@ -9,7 +9,7 @@ import { PopupAsignar } from './nuevo/PopupAsignar';
 
 export default function Aplicaciones(props){
 
-    const {setIsExamen,seguimientoAspirante,tab,setMensaje,mensajes}=props;
+    const {setIsExamen,seguimientoAspirante,tab,setMensaje,mensajes,oportunidad ,setOportunidad}=props;
 
     const UsuarioLogin = useSelector((state) => state.UsuarioLogin);
     const [isVisible_,setisVisible_]=useState(false);
@@ -19,6 +19,9 @@ export default function Aplicaciones(props){
 
     const[visiblePopupAsignarSede_, setVisiblePopupAsignarSede_]=useState(false);
     const[Sede_, setSede_]=useState([{text:'',value:0}]);
+
+
+    const[validar,setValidar]=useState(false);
 
     //const[Refresh, setRefresh_]=useState(Date.now());
 /*{
@@ -117,6 +120,8 @@ export default function Aplicaciones(props){
 
       <TokenRegistro setIsExamen={setIsExamen} isVisible={isVisible_} setisVisible={setisVisible_}   informacionGridClic={AreasDisciplinaresSeleccionada}
         setRefresh={setMensaje}
+
+        validar={validar} setValidar={setValidar}
       />
       
 
@@ -125,7 +130,7 @@ export default function Aplicaciones(props){
    
         <div style={{margin: "10px"}}>
             
-             <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}></Titulo>
+             <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}   oportunidad ={oportunidad } setOportunidad={setOportunidad}></Titulo>
                <div className='row'>
                 <div style={{ padding: 20 }}>
                     <div style={{ fontSize: "20px",fontWeight:700}}>Mis aplicaciones</div>

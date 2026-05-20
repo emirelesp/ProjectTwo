@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 export default function Expediente(props){
 
- const {seguimientoAspirante,tab,setMensaje,mensajes}=props;
+ const {seguimientoAspirante,tab,setMensaje,mensajes,oportunidad,setOportunidad}=props;
 
 
     const [dataDocumentos, setDataDocumentos] = useState({ });
@@ -35,6 +35,8 @@ export default function Expediente(props){
 
      
         const documentos = await getDocumentosAspirante(UsuarioLogin.idAspirante);
+      
+
        const pagos = await getPagosAspirante(UsuarioLogin.idAspirante);
    
        const union=[...pagos,...documentos];
@@ -101,7 +103,7 @@ export default function Expediente(props){
 
        
       
-       <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}></Titulo>
+       <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}   oportunidad ={oportunidad } setOportunidad={setOportunidad}></Titulo>
    
          <div className='row'>
 

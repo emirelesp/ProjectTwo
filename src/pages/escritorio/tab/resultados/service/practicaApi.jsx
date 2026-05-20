@@ -32,6 +32,37 @@ export async function getResultados(_idAspirante)
 
 
 
+export async function getOPortunidad(_idAspirante)
+{
+  let datos = [];
+  
+
+  if(_idAspirante != undefined)
+  {
+    const url = apiExamen+'/api/Aspirante/ConsultaOportunidad';
+    const unicoV = { id1:_idAspirante, id2:1 };
+    
+    try{
+      const respuesta = await fetch(url, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(unicoV)
+      });
+      
+      datos = await respuesta.json();
+
+    }
+    catch(error){
+        console.error("Error al crear el post:", error);
+    }
+  }
+    return datos;
+}
+
+
+
+
+
 export async function getCatalogoDictamenResultados(_idAspirante)
 {
   let datos = [];

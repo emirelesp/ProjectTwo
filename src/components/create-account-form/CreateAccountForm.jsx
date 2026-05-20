@@ -15,6 +15,7 @@ import { createAccount } from '../../api/auth';
 
 import './CreateAccountForm.scss';
 import MensajeConfirmacion from './popup/mensajeConfirmacion';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function CreateAccountForm() {
   const navigate = useNavigate();
@@ -22,10 +23,18 @@ export default function CreateAccountForm() {
 
   const [isVisible_,setisVisible_]=useState(false);
 
+ const [captchaValido, setCaptchaValido] = useState(null);
+
+ 
   const formData = useRef({ email: '', password: '' });
 
   const onSubmit = useCallback(async (e) => {
     e.preventDefault();
+  
+     if(!captchaValido){
+    notify("Selecciona el CAPTCHA para verificar identidad.", 'warning', 5000);
+    return;
+  }
   
 
     setLoading(true);
@@ -42,12 +51,17 @@ export default function CreateAccountForm() {
       notify(result.message, 'error', 10000);
       // navigate('/login');
     }
-  }, [navigate]);
+  }, [navigate,captchaValido]);
 
   const confirmPassword = useCallback(
     ({ value }) => value === formData.current.password,
     []
   );
+
+
+
+
+
 
   const curpPattern = /^([A-Z][AEIOU][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/;
   const phonePattern = /^\d{10}$/; 
@@ -235,7 +249,28 @@ export default function CreateAccountForm() {
 
                  )}  />
         </Item>
+
+
+
+              <Item   colSpan={12}>
+                <>
+                  <div className="p-1"></div>
+                  <center>
+                    <ReCAPTCHA
+                      sitekey="6LeRIO8sAAAAAHYMGcPH6g4P-LHbB_Vu-DAbB2ag" //clave del sitio
+                      onChange={(value) => {
+                        setCaptchaValido(value);
+                      }}
+                    />
+                  </center>
+
+                  <div className="p-2"></div>
+                </>
+              </Item>
+
   
+  
+
         <ButtonItem  colSpan={12}>
           <ButtonOptions
             width={'100%'}

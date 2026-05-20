@@ -8,7 +8,10 @@ import katex from "katex";
 function Pregunta(props) {
 
   
-  const {indice, setIndice,informacion,activo, setActivo,terminado, setTerminado,preguntaActualTotales,setPreguntaActualTotales}=props;
+  const {indice, setIndice,informacion,activo, setActivo,terminado, setTerminado,preguntaActualTotales,setPreguntaActualTotales,setRefresh,setisVisible
+
+     ,validar,setValidar
+  }=props;
  //debugger;
  // const [preguntaActualTotales,setPreguntaActualTotales]=useState([]);
   const [preguntaActual,setPreguntaActual]=useState({idPregunta:-1,respuestas:[]});
@@ -74,10 +77,12 @@ function Pregunta(props) {
 
       
       alert("¡Has terminado!");
-        setActivo(false);
-      setTerminado(true);
-    
-
+      setActivo(false);
+      setisVisible(false);
+      setValidar(false);
+      //setTerminado(true);
+      // window.location.reload();
+      setRefresh(Date.now());
     }
   };
 

@@ -182,13 +182,29 @@ const {setTabSectorMensaje_}=props;
 
 const MensajeComponent11=(props)=>{
 
-const {setTabSectorMensaje_}=props;
+const {setTabSectorMensaje_,oportunidad}=props;
 
   return(
    <div className='alert alert-success borderAlert' style={{textAlign: "justify"}}>
        <span style={{color:"#000000"}}>¡Gran trabajo! Los documentos en tu expediente han sido validados.</span>
       <div style={{color:"#000000"}}>
-      Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/pago.pdf'  target="_blank">formato de pago aquí</a>, realiza el pago y súbelo para validación en la sección <span onClick={()=>setTabSectorMensaje_(1)}
+      Para continuar: descarga el &nbsp; 
+      
+        {oportunidad == 1 ?
+                    <a href="https://1drv.ms/b/c/965590d18a05f178/IQByp5mts__sT7VtryaStHD0Aemv8UDC9elI2yWsexWgmBA?e=AjG86b" target="_blank"
+                    style={{textDecoration:'none',color:"#1e5b4f"}}
+                
+                    download> 
+                         formato de pago
+                    </a>
+                    :
+                    <a href="https://1drv.ms/b/c/965590d18a05f178/IQCy9yl50Cl1R5oWQqldsiihAaDG0BJzTY1ATKnrTf1IrFo?e=CwLW9O" target="_blank" 
+                        style={{textDecoration:'none',color:"#1e5b4f"}}
+                    download> 
+                         formato de pago
+                    </a>
+        }{/* <a href='https://sraecems.redgto.com.mx/pago.pdf'  target="_blank">formato de pago aquí</a> */}
+       , realiza el pago y súbelo para validación en la sección <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
       >Mi expediente.</span> 
       </div>
@@ -229,7 +245,7 @@ const {setTabSectorMensaje_,estatus_}=props;
       <div style={{color:"#000000"}}>
       Para continuar preparándote, te recomendamos ejercicios de prueba en la sección <span onClick={()=>setTabSectorMensaje_(2)}
        style={{  cursor: 'pointer', textDecoration: 'underline' }}
-      >Mi práctica.</span>
+      >Mi diagnóstico.</span>
       </div>
   </div>
 
@@ -340,12 +356,33 @@ const {setTabSectorMensaje_}=props;
 
 const MensajeComponent10=(props)=>{
 
-   const {setTabSectorMensaje_}=props;
-
+   const {setTabSectorMensaje_,oportunidad}=props;
+   
   return(
    <div className='alert alert-warning' style={{textAlign: "justify"}}>
      <span style={{color:"#000000"}}></span><span style={{color:"#E66929"}}>¡Valoramos tu esfuerzo! Aún tienes áreas de conocimiento por acreditar.
-        Para continuar: descarga el <a href='https://sraecems.redgto.com.mx/pago_2da3ra.pdf'  target="_blank" style={{color:"#1e5b4f"}}>formato de pago oportunidad de regularización aquí,</a> realiza el pago y súbelo para validación en la sección </span>
+        Para continuar: descarga el &nbsp; 
+        
+        
+               {oportunidad == 1 ?
+                    <a href="https://1drv.ms/b/c/965590d18a05f178/IQByp5mts__sT7VtryaStHD0Aemv8UDC9elI2yWsexWgmBA?e=AjG86b" target="_blank"
+                    style={{textDecoration:'none',color:"#1e5b4f"}}
+                
+                    download> 
+                         formato de pago oportunidad de regularización aquí,
+                    </a>
+                    :
+                    <a href="https://1drv.ms/b/c/965590d18a05f178/IQCy9yl50Cl1R5oWQqldsiihAaDG0BJzTY1ATKnrTf1IrFo?e=CwLW9O" target="_blank" 
+                        style={{textDecoration:'none',color:"#1e5b4f"}}
+                    download> 
+                         formato de pago oportunidad de regularización aquí,
+                    </a>
+                 }
+
+
+
+        
+        &nbsp;  realiza el pago y súbelo para validación en la sección </span>
    
     <span onClick={()=>setTabSectorMensaje_(1)}
        style={{  cursor: 'pointer', textDecoration: 'underline', color:"#000000" }}
@@ -449,9 +486,9 @@ const MensajeComponent14_=(props)=>{
 
 export const Titulo=(props)=>{
 
-   const {estatus,setTabSectorMensaje}=props;
+   const {estatus,setTabSectorMensaje,oportunidad ,setOportunidad}=props;
 
-    
+
 
     let array={semaforo:[],Mensaje:MensajeComponent};
 
@@ -640,7 +677,7 @@ export const Titulo=(props)=>{
             }}>
                   {/*  ¡Gran trabajo, has obtenido... */} 
              <div className='p-1'></div>
-            <array.Mensaje estatus_={estatus} setTabSectorMensaje_={setTabSectorMensaje}></array.Mensaje>
+            <array.Mensaje estatus_={estatus} setTabSectorMensaje_={setTabSectorMensaje} oportunidad={oportunidad?.value}  ></array.Mensaje>
             
             <div className='p-1'></div>
             </div>

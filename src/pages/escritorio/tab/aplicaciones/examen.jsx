@@ -24,12 +24,12 @@ export default function Examen(props){
   
      const{datosArea,preguntaActualTotales,setPreguntaActualTotales,setIsExamen,
             setisVisible,
-            setRefresh
-
+            setRefresh,
+                 validar, setValidar
      }= props;
 
 
-debugger;/////tiempo
+
      
   
 
@@ -42,7 +42,7 @@ debugger;/////tiempo
   
           setisVisible={setisVisible}
           setRefresh={setRefresh}
-       
+           validar={validar} setValidar={setValidar}
        />
 
 
@@ -65,8 +65,8 @@ debugger;/////tiempo
    const {data,preguntaActualTotales_,setPreguntaActualTotales_,setIsExamen,
    
     setisVisible,
-   setRefresh
-
+   setRefresh,
+    validar, setValidar
    }=props;
 
      /////////////////////////////esta aqui porque modifica las preguntas  el grid de preguntas
@@ -172,6 +172,10 @@ debugger;/////tiempo
                   <Pregunta indice={indice} setIndice={setIndice}  informacion={data} activo={activo_} setActivo={setActivo_} 
                   terminado={terminado_} setTerminado={setTerminado_} irPantallaCompleta={irFullScreen} salirPantallaCompleta={salirFullScreen}
                   preguntaActualTotales={preguntaActualTotales_} setPreguntaActualTotales={setPreguntaActualTotales_}
+                  setRefresh={setRefresh}
+                   setisVisible={setisVisible}
+
+                    validar={validar} setValidar={setValidar}
                   ></Pregunta>
 
                   

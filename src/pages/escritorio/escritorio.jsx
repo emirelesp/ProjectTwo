@@ -12,7 +12,7 @@ import { PreguntasItem } from './tab/preguntasMath/preguntasItem';
 import { locale } from 'devextreme/localization';
 import { PreguntaNuevoDiseño } from './tab/ejemploPreguntasMain/testPreguntasDiseño';
 import Resultado from './tab/resultados/resultado';
-import { getResultados } from './tab/resultados/service/practicaApi';
+import { getOPortunidad, getResultados } from './tab/resultados/service/practicaApi';
 
 // Establece el idioma a español
 locale('es');
@@ -61,10 +61,28 @@ const resultados=useCallback(async ()=>{
   setCatalogoResultados(resultApi);
 
 },[UsuarioLogin.idAspirante]);
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+const [oportunidad,setOportunidad] =useState([]);
+
+const oportunidadCallback=useCallback(async ()=>{
+
+  const resultApi= await getOPortunidad(UsuarioLogin.idAspirante);
+
+  if(resultApi.length==0)setOportunidad({text:'',value:-1});
+  else setOportunidad(resultApi[0]);
+
+},[UsuarioLogin.idAspirante]);
+
+
+
+
+
 
 
 useEffect(()=>{
    resultados();
+   oportunidadCallback();
 },[UsuarioLogin.idAspirante]);
 
 
@@ -92,17 +110,24 @@ useEffect(()=>{
             {isExamen?(
               <>
                     <Item title="Inicio" >
-                      <Inicio seguimientoAspirante={seguimientoAspirante_}    tab={setTabSectorMensaje} ></Inicio>
+                      <Inicio seguimientoAspirante={seguimientoAspirante_}    tab={setTabSectorMensaje} 
+                          oportunidad ={oportunidad } setOportunidad={setOportunidad}
+                      ></Inicio>
                     </Item>
                     <Item title="Mi expediente" >
-                      <Expediente seguimientoAspirante={seguimientoAspirante_}  tab={setTabSectorMensaje}  setMensaje={setMensaje_} mensajes={mensajes_}></Expediente>
+                      <Expediente seguimientoAspirante={seguimientoAspirante_}  tab={setTabSectorMensaje}  setMensaje={setMensaje_} mensajes={mensajes_}
+                      
+                        oportunidad ={oportunidad } setOportunidad={setOportunidad}
+                      ></Expediente>
                     </Item>
-                    <Item title="Mi práctica" >
+                    <Item title="Mi diagnóstico" >
                         <Practica seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje}></Practica>
                     </Item>
                     {seguimientoAspirante_.value==7||seguimientoAspirante_.value==6?
                     <Item title="Mi examen" >
-                        <Aplicaciones setIsExamen={setIsExamen} seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje} setMensaje={setMensaje_} mensajes={mensajes_}></Aplicaciones>
+                        <Aplicaciones setIsExamen={setIsExamen} seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje} setMensaje={setMensaje_} mensajes={mensajes_}
+                          oportunidad ={oportunidad } setOportunidad={setOportunidad}
+                        ></Aplicaciones>
                     </Item>
                     :<></>
                      }
@@ -111,6 +136,7 @@ useEffect(()=>{
                           <Resultado setIsExamen={setIsExamen} seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje} setMensaje={setMensaje_} mensajes={mensajes_}
                           
                                 catalogoResultados={catalogoResultados}
+                                oportunidad ={oportunidad } setOportunidad={setOportunidad}
                           
                           ></Resultado>
                     </Item>
@@ -125,7 +151,10 @@ useEffect(()=>{
 
                 <>
                    <Item title="Mi examen" >
-                        <Aplicaciones setIsExamen={setIsExamen} seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje} setMensaje={setMensaje_} mensajes={mensajes_}></Aplicaciones>
+                        <Aplicaciones setIsExamen={setIsExamen} seguimientoAspirante={seguimientoAspirante_} tab={setTabSectorMensaje} setMensaje={setMensaje_} mensajes={mensajes_}
+                          oportunidad ={oportunidad } setOportunidad={setOportunidad}
+                        
+                        ></Aplicaciones>
                     </Item>
                 </>
 

@@ -7,7 +7,7 @@ import DictamenResultados from './popup/DictamenResultado';
 
 export default function Resultado(props){
 
-      const {setIsExamen,seguimientoAspirante,tab,setMensaje,mensajes,catalogoResultados}=props;
+      const {setIsExamen,seguimientoAspirante,tab,setMensaje,mensajes,catalogoResultados,oportunidad,setOportunidad}=props;
 
     const [isVisible,setisVisible] =useState();
     const [isVisibleDF,setisVisibleDF] =useState();
@@ -24,7 +24,7 @@ export default function Resultado(props){
      {/*    <DictamenResultados   isVisible={isVisibleDF} setisVisible={setisVisibleDF} ></DictamenResultados>*/} 
        <div style={{margin: "10px"}}>
            
-             <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}></Titulo>
+             <Titulo estatus={seguimientoAspirante} setTabSectorMensaje={tab}   oportunidad ={oportunidad } setOportunidad={setOportunidad}></Titulo>
               <div className='row'>
                   <div style={{ padding: 20 }}>
                     <div style={{ fontSize: "20px",fontWeight:700}}>Mis resultados</div>

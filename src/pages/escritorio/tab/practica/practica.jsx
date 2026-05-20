@@ -2,10 +2,11 @@ import React, { useCallback, useEffect, useState } from 'react';
 import ExamenPractica from './componente/pregunta';
 import { Temporizador } from './componente/temporizador';
 import { TabPanel } from 'devextreme-react';
-import { getAreasDisciplinaresPrueba } from './Service/practicaApi';
+import { ConsultaResultados, getAreasDisciplinaresPrueba } from './Service/practicaApi';
 import { useRef } from "react";
 import Popup from "devextreme-react/popup";
 import { useSelector } from 'react-redux';
+import Resultado from './popup/resultado';
 
 
 
@@ -18,9 +19,19 @@ const {seguimientoAspirante}=props;
 
  const  [AreaDisciplinar,setAreaDisciplinar ]=useState([]);
 
+  const  [consultaResultados,setConsultaResultados ]=useState([]);
 
 
+  const [isVisible,setisVisible]=useState(false);
 
+
+ const getConsultaResultados=useCallback(async ()=>{
+    
+  const result=await ConsultaResultados(UsuarioLogin.idAspirante);
+  setConsultaResultados(result);
+  
+
+ },[]);
 
 
  const gettab=useCallback(async ()=>{
@@ -35,15 +46,36 @@ const {seguimientoAspirante}=props;
  useEffect(()=>{
 
     gettab();
-
+   // getConsultaResultados();
 
  },[]);
+
+
+ 
+ useEffect(()=>{
+
+
+    getConsultaResultados();
+
+ },[isVisible]);
 
 
 
   return (
     <React.Fragment>
-       
+
+  {isVisible?(
+      <Resultado  isVisible={isVisible} setisVisible={setisVisible} data={consultaResultados}  ></Resultado>
+       ):(<></>)
+  }    
+
+<div className='p-2'></div>
+     <button className="btn btn-success" onClick={()=>{setisVisible(true)}}>
+        Ver resultado
+      </button>
+   
+   <div className='p-2'></div>
+
           <TabPanel
             width="100%"
             height="100%"
@@ -55,7 +87,7 @@ const {seguimientoAspirante}=props;
            // tabsPosition={direccionTab}
             iconPosition='top'
             itemComponent={mostrarPreguntas}  
-             elementAttr={{ class: "tabPractica" }}      
+            elementAttr={{ class: "tabPractica" }}      
           />
 
     </React.Fragment>
@@ -172,7 +204,7 @@ const ConfirmarSalida = (props) => {
 
             <div ref={divRef} style={{background:"white"}}>
 
-             
+              <div id="iniciodecadaexamen"></div>
             
               <Temporizador segundos={100} activo={activo_} setActivo={setActivo_} 
               terminado={terminado_} setTerminado={setTerminado_} irPantallaCompleta={irFullScreen} salirPantallaCompleta={salirFullScreen} ></Temporizador>

@@ -118,3 +118,29 @@ export async function setRegistrarRespuestaPrueba (_idDetalleAspiranteExamenPrue
     return datos;
 }
 
+
+export async function ConsultaResultados (idAspiranteExamen)
+{
+  let datos = [];
+
+  if(idAspiranteExamen != undefined)
+  {
+    const url = apiExamen+'/api/AspiranteExamen/ConsultaResultadosDiagnostico';
+    const unicoV = { id:idAspiranteExamen, idStr:'' };
+    
+    try{
+      const respuesta = await fetch(url, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(unicoV)
+      });
+      
+      datos = await respuesta.json();
+
+    }
+    catch(error){
+        console.error("Error al crear el post:", error);
+    }
+  }
+    return datos;
+}
